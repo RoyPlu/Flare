@@ -9,6 +9,8 @@ import { Profile } from '../models/profile.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
+const X_AUTH_CODE = "4defeeb0-83ba-43c9-82b4-5e40a94bdec3";
+
 const BASE_API_URL = "https://api.gotinder.com"
 
 @Injectable()
@@ -19,7 +21,7 @@ export class TinderService {
 
         const headers = new Headers({
             'Content-type': 'application/json',
-            'x-auth-token': '4defeeb0-83ba-43c9-82b4-5e40a94bdec3',
+            'x-auth-token': X_AUTH_CODE,
             //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
           });
 
