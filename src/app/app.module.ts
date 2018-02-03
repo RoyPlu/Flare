@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { Http, HttpModule, Headers, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { TinderService } from './services/tinder.service';
 
 
 @NgModule({
@@ -10,9 +11,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [TinderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,11 @@
+.profilePic {
+    width: 150px;
+    border-radius: 5px;
+}
+
+.profileCard {
+    width: 400px;
+    text-align: center;
+    background-color: lightgrey;
+    border-radius: 10px;
+}
