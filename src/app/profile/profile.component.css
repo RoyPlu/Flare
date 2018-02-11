@@ -8,4 +8,7 @@
     text-align: center;
     background-color: lightgrey;
     border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 20px;
 }

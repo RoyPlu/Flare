@@ -24,14 +24,7 @@ export class AppComponent {
   constructor(private service: TinderService) { }
 
   ngOnInit(){
-    this.getTinderProfile();
-  }
-
-  getTinderProfile(){
-    this.service.getProfile().subscribe(data => {
-      console.log(data);
-      this.profile = data;
-    })
+    
   }
   
 }
