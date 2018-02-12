@@ -1,5 +1,5 @@
 .matchesCard {
-    width: 400px;
+    width: 314px;
     text-align: center;
     background-color: lightgrey;
     border-radius: 10px;
@@ -13,4 +13,9 @@
     border-radius: 5px;
     float: left;
     margin: 3px;
+}
+
+
+.clear {
+    clear: both;
 }

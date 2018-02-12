@@ -1,14 +1,24 @@
 .profilePic {
     width: 150px;
     border-radius: 5px;
+    float: left;
+    margin: 3px;
+}
+
+.pictures {
+    vertical-align: middle;
 }
 
 .profileCard {
-    width: 400px;
+    width: 80%;
     text-align: center;
     background-color: lightgrey;
     border-radius: 10px;
-    padding: 10px;
-    border: 1px solid black;
-    margin-bottom: 20px;
+    float: left;
+    margin: auto;
+    padding: 3px;
+}
+
+.clear {
+    clear: both;
 }

@@ -1,6 +1,10 @@
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">
     <div *ngFor="let photo of matches[i].person.photos, let j = index;">
-        <img class="matchesPic" [src]="matches[i].person.photos[j].url"/>
+        <img class="matchesPic" [src]="matches[i].person.photos[j].url" />
     </div>
-        {{matches[i].person.name}}
-</div> 
+    <div class="clear">
+        <h2>{{matches[i].person.name}}</h2>
+        <p>{{matches[i].person.birth_date | date }}</p>
+        <p>{{matches[i].person.bio}}</p>
+    </div>
+</div>
