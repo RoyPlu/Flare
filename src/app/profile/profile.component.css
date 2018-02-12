@@ -1,7 +1,6 @@
 .profilePic {
     width: 150px;
     border-radius: 5px;
-    float: left;
     margin: 3px;
 }
 
@@ -10,7 +9,7 @@
 }
 
 .profileCard {
-    width: 80%;
+    width: 30%;
     text-align: center;
     background-color: lightgrey;
     border-radius: 10px;

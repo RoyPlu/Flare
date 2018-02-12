@@ -1,7 +1,10 @@
 <div class="profileCard">
     <div class="pictures">
         <div *ngFor="let photo of profile.photos, let j = index;">
-            <img class="profilePic" [src]="profile.photos[j].url" />
+            <p>
+                <img class="profilePic" [src]="profile.photos[j].url" />
+                <h3>SuccesRate: {{profile.photos[j].successRate | number : '1.2-4'}}</h3>
+            <p>
         </div>
     </div>
     <div class="clear">

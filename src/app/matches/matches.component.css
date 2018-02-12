@@ -19,3 +19,7 @@
 .clear {
     clear: both;
 }
+
+body {
+    background-color: lightblue;
+}
