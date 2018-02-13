@@ -11,10 +11,12 @@ import { Match } from '../models/match.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "79b099ec-f7e3-49b7-a644-d33d51baed70";
+const X_AUTH_CODE = "de5e24a4-a9bb-44a5-8f19-fefff7f1f3a8";
 
-const BASE_API_URL = "https://api.gotinder.com"
-const BASE_API_URL_v2 = "https://api.gotinder.com/v2"
+const BASE_API_URL = "https://api.gotinder.com";
+const BASE_API_URL_v2 = "https://api.gotinder.com/v2";
+
+const FACE_API_SUB_KEY = "1cca7a318c2d4c06b1c35030153dc720";
 
 @Injectable()
 export class TinderService {
@@ -23,6 +25,7 @@ export class TinderService {
     getUserProfile() {
 
         const headers = new Headers({
+            'Access-Control-Allow-Origin': '*',
             'Content-type': 'application/json',
             'x-auth-token': X_AUTH_CODE,
             //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
@@ -36,11 +39,26 @@ export class TinderService {
         return this.http.get(BASE_API_URL + "/profile", options).map(res => res.json()).map(this.parseProfile);
     }
 
-    
+    getUpdates(){
+        const headers = new Headers({
+            'Content-type': 'application/x-www-form-urlencoded',
+            'x-auth-token': X_AUTH_CODE,
+            'User-Agent': 'Tinder/6.3.1 (iPhone; iOS 10.0.2; Scale/2.00)',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+        console.log("get updates");
+        console.log(this.http.post(BASE_API_URL + "/updates", options).map(res => res.json()));
+        return this.http.post(BASE_API_URL + "/updates", options).map(res => res.json());
+    }
 
     getMatches() {
 
         const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
             'Content-type': 'application/json',
             'x-auth-token': X_AUTH_CODE,
             //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
@@ -101,5 +119,22 @@ export class TinderService {
             profile.photos,
             profile.photo_optimizer_enabled,
         );
+    }
+
+    faceDetection(image: string){
+        const headers = new Headers({
+            'Content-Type': 'application/json',
+            'Ocp-Apim-Subscription-Key': '1cca7a318c2d4c06b1c35030153dc720',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+        console.log(image);
+
+        var imageUrl = { url: image }
+        
+        return this.http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age%2Cgender%2CheadPose%2Csmile%2CfacialHair%2Cglasses%2Cemotion%2Chair%2Cmakeup%2Cocclusion%2Caccessories%2Cblur%2Cexposure%2Cnoise", imageUrl, options).map(res => res.json());
     }
 }
