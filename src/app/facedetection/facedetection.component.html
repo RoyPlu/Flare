@@ -1,0 +1,19 @@
+<div class="profileCard">
+<input [(ngModel)]="imageURL">
+<button (click)="submitFaceDetection()">Detect Face</button>
+<div>
+        <img class="previewImage" [src]="imageURL"/>
+        <h3>Information</h3>
+        <p>Age: {{faceDetect[0].faceAttributes.age}}</p>
+        <p>Gender: {{faceDetect[0].faceAttributes.gender}}</p>
+        <p>Glasses: {{faceDetect[0].faceAttributes.glasses}}</p>
+        <h3>Emotions</h3>
+        <p>Anger: {{faceDetect[0].faceAttributes.emotion.anger}}</p>
+        <p>Contempt: {{faceDetect[0].faceAttributes.emotion.contempt}}</p>
+        <p>Disgust: {{faceDetect[0].faceAttributes.emotion.disgust}}</p>
+        <p>Happiness: {{faceDetect[0].faceAttributes.emotion.happiness}}</p>
+        <p>Neutral: {{faceDetect[0].faceAttributes.emotion.neutral}}</p>
+        <p>Sadness: {{faceDetect[0].faceAttributes.emotion.sadness}}</p>
+        <p>Surprise: {{faceDetect[0].faceAttributes.emotion.surprise}}</p>
+</div>
+</div>

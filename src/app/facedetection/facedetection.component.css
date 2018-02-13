@@ -1,0 +1,15 @@
+.previewImage {
+    width: 150px;
+}
+
+.profileCard {
+    width: 30%;
+    text-align: center;
+    background-color: lightgrey;
+    border-radius: 10px;
+    float: left;
+    margin: auto;
+    padding: 3px;
+    margin: 10px;
+    clear: right;
+}
