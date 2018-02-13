@@ -1,4 +1,8 @@
-# TinderAngular
+# Tinder-Angular ![alt text](https://cdn4.iconfinder.com/data/icons/social-media-pro-icons/1080/Tinder-01-128.png "Tinder-Angular")
+
+A Simple Tinder application made in Angular with the possibility to see profile picture success rate (If Smart Photos is enabled) and with an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
+
+# Default Angular commands
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
