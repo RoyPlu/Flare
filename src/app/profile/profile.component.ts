@@ -39,4 +39,5 @@ profile: Profile;
       console.log(this.profile.photo_optimizer_enabled);
     })
   }
+
 }

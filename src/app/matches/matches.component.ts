@@ -16,6 +16,7 @@ matches: Match[];
 
   ngOnInit(){
     this.getTinderMatches();
+    //this.getUpdates();
   }
 
   getTinderMatches(){
@@ -24,4 +25,12 @@ matches: Match[];
       this.matches = data.data.matches;
     })
   }
+
+  getUpdates(){
+    this.service.getUpdates().subscribe(data => {
+      console.log("TEST");
+      console.log(data);
+    })
+  }
+
 }
