@@ -2,6 +2,10 @@
 
 A Simple Tinder application made in Angular with the possibility to see profile picture success rate (If Smart Photos is enabled) and with an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
 
+# Required
+
+This application requires the use of a cross-origin resource sharing addon for your browser, this is necessary to add the 'Allow-Control-Allow-Origin: *' response header to every request. I recommend using this one: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
+
 # Default Angular commands
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
