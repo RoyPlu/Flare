@@ -11,7 +11,7 @@ import { Match } from '../models/match.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "de5e24a4-a9bb-44a5-8f19-fefff7f1f3a8";
+const X_AUTH_CODE = "53af589c-9060-4bbe-9d49-1f4f1e4d7d66";
 
 const BASE_API_URL = "https://api.gotinder.com";
 const BASE_API_URL_v2 = "https://api.gotinder.com/v2";
@@ -136,5 +136,22 @@ export class TinderService {
         var imageUrl = { url: image }
         
         return this.http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age%2Cgender%2CheadPose%2Csmile%2CfacialHair%2Cglasses%2Cemotion%2Chair%2Cmakeup%2Cocclusion%2Caccessories%2Cblur%2Cexposure%2Cnoise", imageUrl, options).map(res => res.json());
+    }
+
+    getProfiles(){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.get(BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json()));
+        return this.http.get(BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json());
     }
 }

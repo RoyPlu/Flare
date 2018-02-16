@@ -1,0 +1,22 @@
+.matchesCard {
+    width: 314px;
+    text-align: center;
+    background-color: rgba(239, 251, 255, 0.5);
+    border-radius: 10px;
+    border: 3px solid black;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}
+
+.matchesPic {
+    width: 150px;
+    border-radius: 5px;
+    float: left;
+    margin: 3px;
+}
+
+
+.clear {
+    clear: both;
+}

@@ -1,0 +1,10 @@
+<div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
+    <div *ngFor="let photo of profiles[i].user.photos, let j = index;">
+        <img class="matchesPic" [src]="profiles[i].user.photos[j].url" />
+    </div>
+    <div class="clear">
+        <h2>{{profiles[i].user.name}}</h2>
+        <p>{{profiles[i].user.birth_date | date }}</p>
+        <p>{{profiles[i].user.bio}}</p>
+    </div>
+</div>

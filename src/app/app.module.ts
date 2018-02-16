@@ -8,6 +8,7 @@ import { TinderService } from './services/tinder.service';
 import { ProfileComponent } from './profile/profile.component';
 import { MatchesComponent } from './matches/matches.component';
 import { FaceDetectionComponent } from './facedetection/facedetection.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FaceDetectionComponent } from './facedetection/facedetection.component'
     AppComponent,
     ProfileComponent,
     MatchesComponent,
+    ProfilesComponent,
     FaceDetectionComponent,
   ],
   imports: [
