@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TinderService } from './services/tinder.service';
-import { Profile } from './models/profile.model';
 
 
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
@@ -18,8 +17,6 @@ const X_AUTH = "4defeeb0-83ba-43c9-82b4-5e40a94bdec3";
 
 export class AppComponent {
   title = 'app';
-
-  profile: Profile;
 
   constructor(private service: TinderService) { }
 

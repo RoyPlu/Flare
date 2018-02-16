@@ -1,0 +1,17 @@
+<div class="userCard">
+    <div class="pictures">
+        <div *ngFor="let photo of user.photos, let j = index;">
+            <p>
+                <img class="userPic" [src]="user.photos[j].url" />
+                <h3>SuccesRate: {{user.photos[j].successRate | number : '1.2-4'}}</h3>
+            <p>
+        </div>
+    </div>
+    <div class="clear">
+        <h2>{{user.name}}</h2>
+        <p>{{user.bio}}</p>
+        <p>Smart Photos: {{user.photo_optimizer_enabled}}</p>
+        <button (click)="enableSmartPhotos()">Enable Smart Photos</button>
+        <button (click)="getTinderUser()">Get Profile</button>
+    </div>
+            

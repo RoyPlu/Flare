@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TinderService } from './services/tinder.service';
-import { ProfileComponent } from './profile/profile.component';
+import { UserComponent } from './user/user.component';
 import { MatchesComponent } from './matches/matches.component';
 import { FaceDetectionComponent } from './facedetection/facedetection.component';
 import { ProfilesComponent } from './profiles/profiles.component';
@@ -14,8 +14,8 @@ import { ProfilesComponent } from './profiles/profiles.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
     MatchesComponent,
+    UserComponent,
     ProfilesComponent,
     FaceDetectionComponent,
   ],

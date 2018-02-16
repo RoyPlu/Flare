@@ -1,4 +1,4 @@
-.profilePic {
+.userPic {
     width: 150px;
     border-radius: 5px;
     margin: 3px;
@@ -8,7 +8,7 @@
     vertical-align: middle;
 }
 
-.profileCard {
+.userCard {
     width: 30%;
     text-align: center;
     background-color: lightgrey;
