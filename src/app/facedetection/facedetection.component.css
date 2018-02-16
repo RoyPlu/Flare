@@ -3,13 +3,16 @@
 }
 
 .profileCard {
-    width: 30%;
+    width: 25%;
     text-align: center;
     background-color: lightgrey;
     border-radius: 10px;
+    position: fixed;
+    right: 15px;
+    top: 15px;
     float: left;
     margin: auto;
     padding: 3px;
     margin: 10px;
-    clear: right;
+    clear: both;
 }
