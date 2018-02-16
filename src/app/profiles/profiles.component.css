@@ -20,3 +20,7 @@
 .clear {
     clear: both;
 }
+
+body {
+    float: left;
+}
