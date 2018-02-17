@@ -4,7 +4,7 @@
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-                <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active indicatorColor"></li>
+            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active indicatorColor"></li>
             <li [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of matches[i].person.photos, let j = index;"></li>
         </ol>
 
@@ -30,7 +30,13 @@
         </a>
     </div>
     <div class="clear">
-        <h2>{{matches[i].person.name}}</h2>
+        <div *ngIf="matches[i].is_super_like; then superlike"></div>
+        <h2>
+            <ng-template #superlike>
+                    <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
+            </ng-template>
+            {{matches[i].person.name}}
+        </h2>
         <p>{{matches[i].person.birth_date | date }}</p>
         <p>{{matches[i].person.bio}}</p>
     </div>
