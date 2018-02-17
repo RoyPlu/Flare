@@ -9,16 +9,35 @@
 }
 
 .userCard {
-    width: 30%;
+    width: auto;
     text-align: center;
     background-color: lightgrey;
     border-radius: 10px;
-    float: left;
     margin: auto;
     padding: 3px;
+    max-width: 40%;
+    min-width: 20%;
 }
 
 .clear {
     clear: both;
 }
 
+.carousel {
+    width: 98%;
+    border-radius: 30px;
+    
+}
+
+.carousel-inner {
+    border-radius: 30px;
+    
+}
+
+.carousel-control {
+    border-radius: 30px;
+}
+
+.center {
+    margin: auto;
+}
