@@ -11,7 +11,7 @@
 .userCard {
     width: auto;
     text-align: center;
-    background-color: lightgrey;
+    background-color: #333;
     border-radius: 10px;
     margin: auto;
     padding: 3px;
@@ -40,4 +40,8 @@
 
 .center {
     margin: auto;
+}
+
+.indicatorColor {
+    background-color: rgba(255, 0, 0, 0.5);
 }

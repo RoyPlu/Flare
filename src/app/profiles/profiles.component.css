@@ -1,7 +1,7 @@
 .matchesCard {
     width: auto;
     text-align: center;
-    background-color: lightgrey;
+    background-color: #333;
     border-radius: 10px;
     margin: 5px;
     padding: 3px;
@@ -26,4 +26,8 @@
 
 body {
     float: left;
+}
+
+.indicatorColor {
+    background-color: rgba(255, 0, 0, 0.5);
 }

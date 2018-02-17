@@ -5,7 +5,8 @@
 .profileCard {
     width: 25%;
     text-align: center;
-    background-color: lightgrey;
+    background-color: #333;
+    color: #9d9d9d;
     border-radius: 10px;
     position: fixed;
     right: 0px;
