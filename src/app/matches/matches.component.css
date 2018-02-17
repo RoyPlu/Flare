@@ -1,12 +1,15 @@
 .matchesCard {
-    width: 314px;
+    width: auto;
     text-align: center;
-    background-color: rgba(239, 251, 255, 0.5);
+    background-color: lightgrey;
     border-radius: 10px;
-    border: 3px solid black;
-    float: left;
-    margin: 3px;
+    margin: 5px;
     padding: 3px;
+    max-width: 30%;
+    min-width: 20%;
+    float: left;
+    height: 100%;
+    min-height: 700px;
 }
 
 .matchesPic {
