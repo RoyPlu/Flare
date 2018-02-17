@@ -31,6 +31,7 @@
     </div>
     <div class="clear">
         <h2>{{profiles[i].user.name}}</h2>
+        <p>{{profiles[i].distance_mi * 1.1.609344 | number}} km</p>
         <p>{{profiles[i].user.birth_date | date }}</p>
         <p>{{profiles[i].user.bio}}</p>
     </div>
