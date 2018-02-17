@@ -12,6 +12,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 
 import { appRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
     UserComponent,
     ProfilesComponent,
     FaceDetectionComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

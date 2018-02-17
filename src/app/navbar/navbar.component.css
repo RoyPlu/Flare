@@ -1,0 +1,10 @@
+.navbar-image {
+    width: 50px;   
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+    vertical-align: middle;
+    height: auto; 
+}
