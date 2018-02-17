@@ -10,6 +10,8 @@ import { MatchesComponent } from './matches/matches.component';
 import { FaceDetectionComponent } from './facedetection/facedetection.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 
+import { appRoutes } from './app.routes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [TinderService],
   bootstrap: [AppComponent]
