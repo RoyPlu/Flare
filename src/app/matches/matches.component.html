@@ -1,15 +1,11 @@
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">
-    <h1 style="color: green">Match</h1>
+    <h1 style="color: red">Match</h1>
     <hr>
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active"></li>
-            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="1"></li>
-            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="2"></li>
-            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="3"></li>
-            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="4"></li>
-            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="5"></li>
+                <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active indicatorColor"></li>
+            <li [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of matches[i].person.photos, let j = index;"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -18,7 +14,7 @@
                 <img [src]="matches[i].person.photos[0].url">
             </div>
 
-            <div class="item" *ngFor="let photo of matches[i].person.photos, let j = index;">
+            <div class="item" *ngFor="let photo of matches[i].person.photos | slice: 0, let j = index;">
                 <img [src]="matches[i].person.photos[j].url">
             </div>
 

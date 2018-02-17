@@ -2,12 +2,8 @@
     <div id="myCarousel" class="carousel slide center" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
-            <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active indicatorColor"></li>
+                <li [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of user.photos | slice:0; let j = index;"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -41,8 +37,8 @@
             <h2>{{user.name}}</h2>
             <p>{{user.bio}}</p>
             <p>Smart Photos: {{user.photo_optimizer_enabled}}</p>
-            <button (click)="enableSmartPhotos()">Enable Smart Photos</button>
-            <button (click)="getTinderUser()">Get Profile</button>
+            <button class="btn" (click)="enableSmartPhotos()">Enable Smart Photos</button>
+            <button class="btn" (click)="getTinderUser()">Get Profile</button>
         </div>
 </div>
     
