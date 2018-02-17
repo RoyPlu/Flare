@@ -1,9 +1,38 @@
 <h1>New Profiles</h1>
 <hr>
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
-    <div *ngFor="let photo of profiles[i].user.photos, let j = index;">
-        <img class="matchesPic" [src]="profiles[i].user.photos[j].url" />
-    </div>
+        <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active"></li>
+                    <li [attr.data-target]="'#myCarousel' + i" data-slide-to="1"></li>
+                    <li [attr.data-target]="'#myCarousel' + i" data-slide-to="2"></li>
+                    <li [attr.data-target]="'#myCarousel' + i" data-slide-to="3"></li>
+                    <li [attr.data-target]="'#myCarousel' + i" data-slide-to="4"></li>
+                    <li [attr.data-target]="'#myCarousel' + i" data-slide-to="5"></li>
+                </ol>
+        
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img [src]="profiles[i].user.photos[0].url">
+                    </div>
+        
+                    <div class="item" *ngFor="let photo of profiles[i].user.photos, let j = index;">
+                        <img [src]="profiles[i].user.photos[j].url">
+                    </div>
+        
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
     <div class="clear">
         <h2>{{profiles[i].user.name}}</h2>
         <p>{{profiles[i].user.birth_date | date }}</p>
