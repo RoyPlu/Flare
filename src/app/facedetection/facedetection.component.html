@@ -2,7 +2,7 @@
 <div id="facedetection" class="collapse">
         <div class="profileCard">
                 <input class="form-control" [(ngModel)]="imageURL">
-                <button class="btn-danger" (click)="submitFaceDetection()">Detect Face</button>
+                <button class="btn-danger detectButton" (click)="submitFaceDetection()">Detect Face</button>
                 <div>
                         <img class="previewImage" [src]="imageURL" />
                         <h3>Information</h3>
