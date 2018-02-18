@@ -57,6 +57,8 @@ export class PassportComponent implements OnInit {
     this.service.resetPassport().subscribe(data => {
       console.log(data);
     })
+
+    this.getUserLocation();
   }
 
   changeTinderPassportLocation() {
