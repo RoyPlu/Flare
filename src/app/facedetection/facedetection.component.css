@@ -6,6 +6,7 @@
     width: 25%;
     text-align: center;
     background-color: #333;
+    border: 2px solid black;
     color: #9d9d9d;
     border-radius: 10px;
     position: fixed;
@@ -17,4 +18,11 @@
     margin: 10px;
     clear: both;
     min-width: 300px;
+    z-index: 100;
+}
+
+.faceDetectionButton {
+    position: fixed;
+    right: 10px;
+    top: 15px;
 }
