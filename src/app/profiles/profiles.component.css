@@ -6,7 +6,7 @@
     margin: 5px;
     padding: 3px;
     max-width: 24%;
-    min-width: 200px;
+    min-width: 250px;
     float: left;
     height: 100%;
     min-height: 600px;
@@ -98,6 +98,11 @@ body {
 .superlikeButton {
     width: 14%;
     padding: 3px;
+}
+
+.matchButtons {
+    width: 100%;
+    white-space: nowrap;
 }
 
 @-webkit-keyframes hvr-bob {
