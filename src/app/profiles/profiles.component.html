@@ -31,8 +31,8 @@
     </div>
     <div class="clear">
         <h2>{{profiles[i].user.name}}</h2>
+        <h4>Age: {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h4>
         <p>{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km</p>
-        <p>{{profiles[i].user.birth_date | date }}</p>
         <p>{{profiles[i].user.bio}}</p>
     </div>
 </div>
