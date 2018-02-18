@@ -2,8 +2,8 @@
     <div id="myCarousel" class="carousel slide center" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-                <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active indicatorColor"></li>
-                <li [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of user.photos | slice:0; let j = index;"></li>
+            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active indicatorColor"></li>
+            <li [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of user.photos | slice:0; let j = index;"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -11,15 +11,21 @@
             <div class="item active">
                 <img [src]="user.photos[0].url">
                 <div class="carousel-caption">
-                    <p>Succesrate: {{user.photos[0].successRate | number : '1.2-4'}}</p>
+                    <div *ngIf="user.photos[0].successRate != null; then succesrate"></div>
+                    <ng-template #succesrate>
+                        <h3>Succes rate: {{user.photos[0].successRate | number : '1.2-4'}}</h3>
+                    </ng-template>
                 </div>
             </div>
 
             <div class="item" *ngFor="let photo of user.photos | slice:0; let j = index;">
                 <img [src]="user.photos[j].url">
                 <div class="carousel-caption">
-                        <p>Succesrate: {{user.photos[j].successRate | number : '1.2-4'}}</p>
-                    </div>
+                    <div *ngIf="user.photos[j].successRate != null; then succesrate"></div>
+                    <ng-template #succesrate>
+                        <h3>Succes rate: {{user.photos[j].successRate | number : '1.2-4'}}</h3>
+                    </ng-template>
+                </div>
             </div>
 
         </div>
@@ -34,13 +40,10 @@
         </a>
     </div>
     <div class="clear">
-            <h1>{{user.name}}</h1>
-            <p>{{user.bio}}</p>
-            <p>Smart Photos: {{user.photo_optimizer_enabled}}</p>
-            <button class="btn-danger" (click)="enableSmartPhotos()">Enable Smart Photos</button>
-            <button class="btn-danger" (click)="getTinderUser()">Get Profile</button>
-        </div>
+        <h1>{{user.name}}</h1>
+        <p>{{user.bio}}</p>
+        <p>Smart Photos: {{user.photo_optimizer_enabled}}</p>
+        <button class="btn-danger" (click)="enableSmartPhotos()">Enable Smart Photos</button>
+        <button class="btn-danger" (click)="getTinderUser()">Get Profile</button>
+    </div>
 </div>
-    
-
-    
