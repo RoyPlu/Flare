@@ -4,6 +4,10 @@ A Simple Tinder application made in Angular with the possibility to see profile 
 
 # Required
 
+## X-Auth-Code
+I haven't provided a Facebook login system (yet), so you'll have to login on Tinder's own online client, open the developer console with F12, go to the network tab, refresh the main page, and look for a file containing the word "profile", in here (on the Headers tab) you should find an x-auth-token in the Request Headers section. Take this token and paste it into the constant variable "X_AUTH_CODE" in services/tinder.service.ts. You should be logged in now once you run the server.
+
+## CORS 
 This application requires the use of a cross-origin resource sharing addon for your browser, this is necessary to add the 'Allow-Control-Allow-Origin: *' response header to every request. I recommend using this one: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
 
 # Default Angular commands
