@@ -37,7 +37,24 @@ export class TinderService {
         });
 
 
-        return this.http.get(BASE_API_URL + "/profile", options).map(res => res.json()).map(this.parseUser);
+        return this.http.get(BASE_API_URL + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", options).map(res => res.json());
+    }
+
+    getUserProfileV2() {
+
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        return this.http.get(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", options).map(res => res.json());
     }
 
     likeProfile(id: string, s_number: string) {
@@ -231,7 +248,7 @@ export class TinderService {
         return this.http.post(BASE_API_URL + "/passport/user/reset", null, options).map(res => res.json());
     }
 
-    changePassportLocation(){
+    changePassportLocation(latitude: number, longitude: number){
         const headers = new Headers({
             'Access-Control-Allow-Origin': "*",
             'Content-type': 'application/json',
@@ -244,7 +261,7 @@ export class TinderService {
         });
 
 
-        console.log(this.http.post(BASE_API_URL + "/passport/user/travel", { lat: 40.712775 , lon: -74.005973}, options).map(res => res.json()));
-        return this.http.post(BASE_API_URL + "/passport/user/travel", { lat: 40.712775 , lon: -74.005973}, options).map(res => res.json());
+        console.log(this.http.post(BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json()));
+        return this.http.post(BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json());
     }
 }
