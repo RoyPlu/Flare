@@ -11,6 +11,7 @@ import { Profile } from '../models/profile.model';
 export class ProfilesComponent implements OnInit {
 
 profiles: Profile[]
+matchStatus: string;
 
   constructor(private service: TinderService) { }
 
@@ -27,13 +28,22 @@ profiles: Profile[]
 
   likeTinderProfile(id: string, s_number: string){
     this.service.likeProfile(id, s_number).subscribe(data => {
-      console.log(data);
+      console.log(data.match);
+      if(data.match == true){
+        this.matchStatus = "Yes!";
+      } else {
+        this.matchStatus = "No";
+      }
+      
     })
   }
 
   passTinderProfile(id: string, s_number: string){
     this.service.passProfile(id, s_number).subscribe(data => {
       console.log(data);
+      if(data.status == 200){
+        this.matchStatus = "Passed";
+      }
     })
   }
 

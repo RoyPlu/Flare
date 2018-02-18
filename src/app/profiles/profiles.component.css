@@ -60,3 +60,32 @@ body {
     background-color: rgba(255, 0, 0, 0.5);
     width: 20px;
 }
+
+.matchStatus {
+    position: fixed;
+    left: 0px;
+    top: 60px;
+}
+
+.matchQuestion {
+    vertical-align: middle;
+    text-align: center;
+    padding: 5px;
+    background-color: #333;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.matchAnswer {
+    font-size: 30px;
+    color: red;
+    vertical-align: middle;
+    text-align: center;
+}
+.matchTrue {
+    color: lightskyblue;
+}
+
+.matchFalse {
+    color: red;
+}

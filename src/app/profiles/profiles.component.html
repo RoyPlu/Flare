@@ -1,5 +1,16 @@
 <h1>New Profiles</h1>
 <button class="btn-danger" (click)="getProfiles()">Load more profiles</button>
+<div class="matchStatus">
+<h3 class="matchQuestion">Match?</h3>
+<span class="matchAnswer">{{matchStatus}}</span>
+</div>
+<div *ngIf="matchStatus == false; then matchFalse"></div>
+<ng-template #matchTrue>
+    <p class="matchTrue">{{matchStatus}}</p>
+</ng-template>
+<ng-template #matchFalse>
+    <p class="matchFalse">{{matchStatus}}</p>
+</ng-template>
 <hr>
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
