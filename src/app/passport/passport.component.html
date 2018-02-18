@@ -1,0 +1,8 @@
+<h1>Passport</h1>
+<button class="btn-danger" (click)="resetTinderPassport()">Reset Passport location</button>
+<hr>
+<h3>lat: {{lat}}, lng: {{lng}}</h3>
+<agm-map [latitude]="lat" [longitude]="lng" (mapClick)="placeMarker($event)">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<button class="btn-danger" (click)="changeTinderPassportLocation()">Change location</button>

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { Profile } from '../models/profile.model';
 import { $ } from 'protractor';
 import { Match } from '../models/match.model';
+import { User } from '../models/user.model';
 
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
@@ -36,7 +37,7 @@ export class TinderService {
         });
 
 
-        return this.http.get(BASE_API_URL + "/profile", options).map(res => res.json()).map(this.parseProfile);
+        return this.http.get(BASE_API_URL + "/profile", options).map(res => res.json()).map(this.parseUser);
     }
 
     likeProfile(id: string, s_number: string) {
@@ -165,16 +166,17 @@ export class TinderService {
 
 
 
-    parseProfile(rawProfile: any): Profile {
+    parseUser(rawUser: any): User {
 
-        let profile = rawProfile;
+        let user = rawUser;
 
-        return new Profile(
-            profile._id,
-            profile.name,
-            profile.bio,
-            profile.photos,
-            profile.photo_optimizer_enabled,
+        return new User(
+            user._id,
+            user.name,
+            user.bio,
+            user.photos,
+            user.photo_optimizer_enabled,
+            user.pos,
         );
     }
 
@@ -210,5 +212,39 @@ export class TinderService {
 
         console.log(this.http.get(BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json()));
         return this.http.get(BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json());
+    }
+
+    resetPassport(){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.post(BASE_API_URL + "/passport/user/reset", null, options).map(res => res.json()));
+        return this.http.post(BASE_API_URL + "/passport/user/reset", null, options).map(res => res.json());
+    }
+
+    changePassportLocation(){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.post(BASE_API_URL + "/passport/user/travel", { lat: 40.712775 , lon: -74.005973}, options).map(res => res.json()));
+        return this.http.post(BASE_API_URL + "/passport/user/travel", { lat: 40.712775 , lon: -74.005973}, options).map(res => res.json());
     }
 }

@@ -9,10 +9,14 @@ import { UserComponent } from './user/user.component';
 import { MatchesComponent } from './matches/matches.component';
 import { FaceDetectionComponent } from './facedetection/facedetection.component';
 import { ProfilesComponent } from './profiles/profiles.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PassportComponent } from './passport/passport.component';
 
 import { appRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
+
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -22,12 +26,16 @@ import { NavbarComponent } from './navbar/navbar.component';
     ProfilesComponent,
     FaceDetectionComponent,
     NavbarComponent,
+    PassportComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBuhH3Fi2ofA8t9jfd2iKowr9anDGyXvRA'
+    }),
   ],
   providers: [TinderService],
   bootstrap: [AppComponent]
