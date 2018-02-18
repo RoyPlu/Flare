@@ -55,7 +55,7 @@ export class TinderService {
         return this.http.post(BASE_API_URL + "/updates", options).map(res => res.json());
     }
 
-    getMatches() {
+    getMatches(page_token: string) {
 
         const headers = new Headers({
             'Access-Control-Allow-Origin': "*",
@@ -68,9 +68,14 @@ export class TinderService {
             headers: headers
         });
 
-
-        console.log(this.http.get(BASE_API_URL_v2 + "/matches", options).map(res => res.json()));
-        return this.http.get(BASE_API_URL_v2 + "/matches", options).map(res => res.json());
+        console.log(page_token);
+        if (page_token != null){
+            console.log(this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json()));
+        return this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json());
+        } else {
+            console.log(this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en", options).map(res => res.json()));
+        return this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en", options).map(res => res.json());
+        }
         
     }
 

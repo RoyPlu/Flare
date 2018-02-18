@@ -1,4 +1,4 @@
-<h1>Matches</h1>
+<h1>Matches</h1><button class="btn-danger" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">

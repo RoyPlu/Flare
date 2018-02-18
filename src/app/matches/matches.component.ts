@@ -11,6 +11,7 @@ import { Match } from '../models/match.model';
 export class MatchesComponent implements OnInit {
 
 matches: Match[];
+token: string = null;
 
   constructor(private service: TinderService) { }
 
@@ -20,9 +21,11 @@ matches: Match[];
   }
 
   getTinderMatches(){
-    this.service.getMatches().subscribe(data => {
+    this.service.getMatches(this.token).subscribe(data => {
       console.log(data.data.matches);
       this.matches = data.data.matches;
+      this.token = data.data.next_page_token;
+      //console.log(this.token);
     })
   }
 
