@@ -39,6 +39,23 @@ export class TinderService {
         return this.http.get(BASE_API_URL + "/profile", options).map(res => res.json()).map(this.parseProfile);
     }
 
+    likeProfile(id: string, s_number: string){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.get(BASE_API_URL + "/like" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json()));
+        return this.http.get(BASE_API_URL + "/like" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json());
+    }
+
     getUpdates(){
         const headers = new Headers({
             'Content-type': 'application/x-www-form-urlencoded',

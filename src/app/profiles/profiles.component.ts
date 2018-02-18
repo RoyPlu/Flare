@@ -25,4 +25,15 @@ profiles: Profile[]
     })
   }
 
+  likeTinderProfile(id: string, s_number: string){
+    this.service.likeProfile(id, s_number).subscribe(data => {
+      console.log(data);
+    })
+  }
+
+  removeFromList(profile){
+    console.log("removed");
+    let index = this.profiles.indexOf(profile);
+    this.profiles.splice(index, 1)
+  }
 }
