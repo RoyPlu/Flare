@@ -47,6 +47,18 @@ matchStatus: string;
     })
   }
 
+  superlikeTinderProfile(id: string, s_number: string){
+    this.service.superlikeProfile(id, s_number).subscribe(data => {
+      console.log(data.match);
+      if(data.match == true){
+        this.matchStatus = "Yes!";
+      } else {
+        this.matchStatus = "No";
+      }
+      
+    })
+  }
+
 
   removeFromList(profile, status){
     console.log(status);

@@ -43,8 +43,9 @@
     </div>
     <div class="clear">
         <div>
-            <button class="btn-primary likeButton" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
-            <button class="btn-danger passButton" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">Pass</button>
+            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
+            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked')"><img class="superlikeButton hvr-bob" src="assets/tinder_super_like_star.png"></button>
+            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">Pass</button>
         </div>
         <h2>{{profiles[i].user.name}}</h2>
         <h4>Age: {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h4>
