@@ -11,7 +11,7 @@ import { Match } from '../models/match.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "3f98b32d-4687-4012-a8cc-b22a61de1822";
+const X_AUTH_CODE = "4445c178-f4c8-4d0f-8044-5dbde078618a";
 
 const BASE_API_URL = "https://api.gotinder.com";
 const BASE_API_URL_v2 = "https://api.gotinder.com/v2";
