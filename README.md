@@ -10,6 +10,25 @@ I haven't provided a Facebook login system (yet), so you'll have to login on Tin
 ## CORS 
 This application requires the use of a cross-origin resource sharing addon for your browser, this is necessary to add the 'Allow-Control-Allow-Origin: *' response header to every request. I recommend using this one: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
 
+# Features
+(these are subject to change)
+
+## New profiles
+ ![alt text](https://i.imgur.com/scdHLhx.jpg "New profiles")
+
+## Matches
+ ![alt text](https://i.imgur.com/AjXc0BM.jpg "Matches")
+
+## User profile
+ ![alt text](https://i.imgur.com/A7aJLQy.jpg "User profile")
+
+## Passport
+ ![alt text](https://i.imgur.com/zVxxL13.png "Passport")
+
+## Face detection (experimental)
+ ![alt text](https://i.imgur.com/LJWLmMv.png "Face detection")
+
+
 # Default Angular commands
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
