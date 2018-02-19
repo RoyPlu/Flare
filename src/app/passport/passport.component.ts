@@ -12,6 +12,10 @@ export class PassportComponent implements OnInit {
 
   lat: number;
   lon: number;
+
+  countryName: string;
+  cityName: string;
+
   is_traveling: boolean;
 
   constructor(private service: TinderService) { }
@@ -31,8 +35,14 @@ export class PassportComponent implements OnInit {
         this.lat = data.data.travel.travel_pos.lat;
         this.lon = data.data.travel.travel_pos.lon;
 
+        this.cityName = data.data.travel.travel_location_info[0].locality.long_name;
+        this.countryName = data.data.travel.travel_location_info[0].country.long_name;
+
+        console.log(this.countryName);
+
       } else {
         console.log("Not traveling");
+        this.is_traveling = false;
       }
     })
   }
@@ -42,6 +52,8 @@ export class PassportComponent implements OnInit {
       console.log(data);
       this.lat = data.pos.lat;
       this.lon = data.pos.lon;
+      this.countryName = data.pos_info.country.name;
+      this.cityName = null;
     })
   }
 
