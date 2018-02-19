@@ -21,8 +21,16 @@ export class PassportComponent implements OnInit {
   constructor(private service: TinderService) { }
 
   ngOnInit() {
+    this.getUserTraveling();
     this.getUserLocation();
     //this.getUserTravelLocation();
+  }
+
+  getUserTraveling(){
+    this.service.getUserProfileV2().subscribe(data => {
+      console.log(data);
+      this.is_traveling = data.data.travel.is_traveling;
+    })
   }
 
   getUserTravelLocation() {
@@ -70,6 +78,8 @@ export class PassportComponent implements OnInit {
       console.log(data);
     })
 
+    this.is_traveling = false;
+
     this.getUserLocation();
   }
 
@@ -77,6 +87,8 @@ export class PassportComponent implements OnInit {
     this.service.changePassportLocation(this.lat, this.lon).subscribe(data => {
       console.log(data);
     })
+
+    this.is_traveling = true;
   }
 
 }
