@@ -24,6 +24,8 @@ matchStatus: string;
       console.log(data.data.results);
       this.profiles = data.data.results;
     })
+
+    this.scrollToTop();
   }
 
   likeTinderProfile(id: string, s_number: string){
@@ -64,5 +66,9 @@ matchStatus: string;
     console.log(status);
     let index = this.profiles.indexOf(profile);
     this.profiles.splice(index, 1)
+  }
+
+  scrollToTop(){
+    window.scrollTo(0, 0);
   }
 }

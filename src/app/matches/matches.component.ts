@@ -27,6 +27,8 @@ token: string = null;
       this.token = data.data.next_page_token;
       //console.log(this.token);
     })
+
+    this.scrollToTop();
   }
 
   getUpdates(){
@@ -34,6 +36,10 @@ token: string = null;
       console.log("TEST");
       console.log(data);
     })
+  }
+
+  scrollToTop(){
+    window.scrollTo(0, 0);
   }
 
 }
