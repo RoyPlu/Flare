@@ -40,6 +40,7 @@ distance_filter: number;
       console.log(data.match);
       if(data.match.following == true){
         this.matchStatus = "Yes!";
+        this.playNotification();
       } else {
         this.matchStatus = "No";
       }
@@ -61,6 +62,7 @@ distance_filter: number;
       console.log(data.match);
       if(data.match == true){
         this.matchStatus = "Yes!";
+        this.playNotification();
       } else {
         this.matchStatus = "No";
       }
@@ -103,6 +105,12 @@ distance_filter: number;
     })
   }
 
+  playNotification(){
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/soft_notification.mp3";
+    audio.load();
+    audio.play();
+    }
 
   scrollToTop(){
     window.scrollTo(0, 0);
