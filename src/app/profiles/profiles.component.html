@@ -1,8 +1,10 @@
 <h1>New Profiles</h1>
-<span>
-    <input type="number" [(ngModel)]="age_filter_min" value="{{age_filter_min}}">
-    <input type="number" [(ngModel)]="age_filter_max" value="{{age_filter_max}}">
-    <button class="btn-danger" (click)="setAgeFilter()">Change age filter</button>
+<span class="input-group">
+    <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_min" value="{{age_filter_min}}" min="18" max="1000">
+    <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_max" value="{{age_filter_max}}" min="18" max="1000">
+    <span class="input-group-btn" style="width:0;">
+        <button class="btn btn-danger" (click)="setAgeFilter()">Change age filter</button>
+    </span>
 </span>
 <button class="btn-danger loadButton" (click)="getProfiles()">Load more profiles</button>
 <div class="matchStatus">

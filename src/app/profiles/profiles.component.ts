@@ -73,7 +73,6 @@ age_filter_max: number;
 
   getAgeFilter(){
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data.data.user);
       console.log("Age min:" + data.data.user.age_filter_min + ", Age max:" + data.data.user.age_filter_max);
       this.age_filter_min = data.data.user.age_filter_min;
       this.age_filter_max = data.data.user.age_filter_max;

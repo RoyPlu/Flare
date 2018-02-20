@@ -108,6 +108,12 @@ body {
     white-space: nowrap;
 }
 
+.ageInput {
+    width: 100px;
+    float: left;
+    margin: 5px;
+}
+
 @-webkit-keyframes hvr-bob {
     0% {
       -webkit-transform: translateY(-8px);
