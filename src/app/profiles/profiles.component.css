@@ -120,8 +120,16 @@ body {
     margin: 5px;
 }
 
-.filters {
-    margin-left: 50%;
+#profileDetail {
+    position: fixed;
+    border: 2px solid black;
+    background-color: #333;
+    vertical-align: middle;
+    margin: 0 auto;
+    width: 75%;
+    left: 50%;
+    margin-left: -37.5%;
+    z-index: 101;
 }
 
 @-webkit-keyframes hvr-bob {

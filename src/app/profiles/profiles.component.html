@@ -75,9 +75,19 @@
             </button>
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
         </div>
-        <h2>{{profiles[i].user.name}}</h2>
+        <a data-target="#profileDetail" data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
+            <h2>{{profiles[i].user.name}}</h2>
+        </a>
         <h4>Age: {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h4>
         <p>{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km</p>
         <p>{{profiles[i].user.bio}}</p>
+    </div>
+</div>
+<div id="profileDetail" class="collapse">
+    <div>
+        <h2>{{profile.name}}</h2>
+    </div>
+    <div>
+
     </div>
 </div>

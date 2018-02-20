@@ -265,6 +265,23 @@ export class TinderService {
         return this.http.get(BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json());
     }
 
+    getProfile(id: string) {
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.get(BASE_API_URL + "/user" + "/" + id, options).map(res => res.json()));
+        return this.http.get(BASE_API_URL + "/user" + "/" + id, options).map(res => res.json());
+    }
+
     resetPassport(){
         const headers = new Headers({
             'Access-Control-Allow-Origin': "*",

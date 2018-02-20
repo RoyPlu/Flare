@@ -10,7 +10,8 @@ import { Profile } from '../models/profile.model';
 })
 export class ProfilesComponent implements OnInit {
 
-profiles: Profile[]
+profiles: Profile[];
+profile: Profile;
 matchStatus: string;
 
 age_filter_min: number;
@@ -33,6 +34,14 @@ distance_filter: number;
     })
 
     this.scrollToTop();
+  }
+
+  getProfile(id: string){
+    console.log(id);
+    this.service.getProfile(id).subscribe(data => {
+      console.log(data.results);
+      this.profile = data.results;
+    })
   }
 
   likeTinderProfile(id: string, s_number: string){
