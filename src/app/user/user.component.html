@@ -13,9 +13,9 @@
             <div class="item active">
                 <img [src]="user.photos[0].url">
                 <div class="carousel-caption">
-                    <div *ngIf="user.photos[0].successRate != null; then succesrate"></div>
-                    <ng-template #succesrate>
-                        <h3>Succes rate: {{user.photos[0].successRate | number : '1.2-4'}}</h3>
+                    <div *ngIf="user.photos[0].successRate != null; then successrate"></div>
+                    <ng-template #successrate>
+                        <h3>Success rate: {{user.photos[0].successRate | number : '1.2-4'}}</h3>
                     </ng-template>
                 </div>
             </div>
@@ -23,9 +23,9 @@
             <div class="item" *ngFor="let photo of user.photos | slice:0; let j = index;">
                 <img [src]="user.photos[j].url">
                 <div class="carousel-caption">
-                    <div *ngIf="user.photos[j].successRate != null; then succesrate"></div>
-                    <ng-template #succesrate>
-                        <h3>Succes rate: {{user.photos[j].successRate | number : '1.2-4'}}</h3>
+                    <div *ngIf="user.photos[j].successRate != null; then successrate"></div>
+                    <ng-template #successrate>
+                        <h3>Success rate: {{user.photos[j].successRate | number : '1.2-4'}}</h3>
                     </ng-template>
                 </div>
             </div>
