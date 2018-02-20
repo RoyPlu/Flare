@@ -1,4 +1,5 @@
-<h1>Matches</h1><button class="btn-danger" (click)="getTinderMatches()">Load next page of matches</button>
+<h1>Matches</h1>
+<button class="btn-danger" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
@@ -12,10 +13,22 @@
         <div class="carousel-inner">
             <div class="item active">
                 <img [src]="matches[i].person.photos[0].url">
+                <div class="carousel-caption">
+                    <div *ngIf="matches[i].person.photos[0].successRate != null; then succesrate"></div>
+                    <ng-template #succesrate>
+                        <h3>Succes rate: {{matches[i].person.photos[0].successRate | number : '1.2-4'}}</h3>
+                    </ng-template>
+                </div>
             </div>
 
             <div class="item" *ngFor="let photo of matches[i].person.photos | slice: 0, let j = index;">
                 <img [src]="matches[i].person.photos[j].url">
+                <div class="carousel-caption">
+                    <div *ngIf="matches[i].person.photos[j].successRate != null; then succesrate"></div>
+                    <ng-template #succesrate>
+                        <h3>Succes rate: {{matches[i].person.photos[j].successRate | number : '1.2-4'}}</h3>
+                    </ng-template>
+                </div>
             </div>
 
         </div>
@@ -33,7 +46,7 @@
         <div *ngIf="matches[i].is_super_like; then superlike"></div>
         <h2>
             <ng-template #superlike>
-                    <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
+                <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
             </ng-template>
             {{matches[i].person.name}}
         </h2>
