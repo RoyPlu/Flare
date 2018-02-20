@@ -27,7 +27,7 @@
                 <div class="carousel-caption">
                     <div *ngIf="profiles[i].user.photos[0].successRate != null; then successrate"></div>
                     <ng-template #successrate>
-                        <h3>Success rate: {{profiles[i].user.photos[0].successRate | number : '1.2-4'}}</h3>
+                        <h4>Success rate: {{profiles[i].user.photos[0].successRate | number : '1.2-4'}}</h4>
                     </ng-template>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="carousel-caption">
                     <div *ngIf="profiles[i].user.photos[j].successRate != null; then successrate"></div>
                     <ng-template #successrate>
-                        <h3>Success rate: {{profiles[i].user.photos[j].successRate | number : '1.2-4'}}</h3>
+                        <h4>Success rate: {{profiles[i].user.photos[j].successRate | number : '1.2-4'}}</h4>
                     </ng-template>
                 </div>
             </div>
