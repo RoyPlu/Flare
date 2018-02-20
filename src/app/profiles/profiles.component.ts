@@ -16,11 +16,14 @@ matchStatus: string;
 age_filter_min: number;
 age_filter_max: number;
 
+distance_filter: number;
+
   constructor(private service: TinderService) { }
 
   ngOnInit(){
     this.getProfiles();
     this.getAgeFilter();
+    this.getDistanceFilter();
   }
 
   getProfiles(){
@@ -85,6 +88,20 @@ age_filter_max: number;
     })
   }
 
+  getDistanceFilter(){
+    this.service.getUserProfileV2().subscribe(data => {
+      console.log("Distance filter (in miles):" + data.data.user.distance_filter);
+      this.distance_filter = data.data.user.distance_filter;
+      console.log("Distance filter (in km):" + this.distance_filter * 1.6);
+    })
+  }
+
+  setDistanceFilter(){
+    this.service.setDistanceFilter(this.distance_filter).subscribe(data => {
+      console.log("Changed distance filter (in miles): " + this.distance_filter);
+      console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
+    })
+  }
 
 
   scrollToTop(){

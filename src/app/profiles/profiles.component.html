@@ -1,5 +1,12 @@
 <h1>New Profiles</h1>
 <span class="input-group">
+    <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="2"
+        max="1000">
+    <span class="input-group-btn" style="width:0;">
+        <button class="btn btn-danger" (click)="setDistanceFilter()">Change distance filter</button>
+    </span>
+</span>
+<span class="input-group">
     <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_min" value="{{age_filter_min}}" min="18" max="1000">
     <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_max" value="{{age_filter_max}}" min="18" max="1000">
     <span class="input-group-btn" style="width:0;">

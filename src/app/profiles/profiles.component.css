@@ -114,6 +114,16 @@ body {
     margin: 5px;
 }
 
+.distanceInput {
+    width: 100px;
+    float: left;
+    margin: 5px;
+}
+
+.filters {
+    margin-left: 50%;
+}
+
 @-webkit-keyframes hvr-bob {
     0% {
       -webkit-transform: translateY(-8px);

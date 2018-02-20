@@ -125,6 +125,23 @@ export class TinderService {
         return this.http.post(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { age_filter_min: minAge, age_filter_max: maxAge } }, options).map(res => res.json());
     }
 
+    setDistanceFilter(distance: number){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.post(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { distance_filter: distance } }, options).map(res => res.json()));
+        return this.http.post(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { distance_filter: distance } }, options).map(res => res.json());
+    }
+
     getUpdates() {
         const headers = new Headers({
             'Content-type': 'application/x-www-form-urlencoded',
