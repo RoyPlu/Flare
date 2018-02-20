@@ -31,7 +31,7 @@ matchStatus: string;
   likeTinderProfile(id: string, s_number: string){
     this.service.likeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
-      if(data.match == true){
+      if(data.match.following == true){
         this.matchStatus = "Yes!";
       } else {
         this.matchStatus = "No";
