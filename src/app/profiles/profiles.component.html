@@ -1,8 +1,13 @@
 <h1>New Profiles</h1>
+<span>
+    <input type="number" [(ngModel)]="age_filter_min" value="{{age_filter_min}}">
+    <input type="number" [(ngModel)]="age_filter_max" value="{{age_filter_max}}">
+    <button class="btn-danger" (click)="setAgeFilter()">Change age filter</button>
+</span>
 <button class="btn-danger loadButton" (click)="getProfiles()">Load more profiles</button>
 <div class="matchStatus">
-<h3 class="matchQuestion">Match?</h3>
-<span class="matchAnswer">{{matchStatus}}</span>
+    <h3 class="matchQuestion">Match?</h3>
+    <span class="matchAnswer">{{matchStatus}}</span>
 </div>
 <div *ngIf="matchStatus == false; then matchFalse"></div>
 <ng-template #matchTrue>
@@ -56,7 +61,9 @@
     <div class="clear">
         <div class="matchButtons">
             <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">Pass</button>
-            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked')"><img class="superlikeButton hvr-bob" src="assets/tinder_super_like_star.png"></button>
+            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked')">
+                <img class="superlikeButton hvr-bob" src="assets/tinder_super_like_star.png">
+            </button>
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
         </div>
         <h2>{{profiles[i].user.name}}</h2>

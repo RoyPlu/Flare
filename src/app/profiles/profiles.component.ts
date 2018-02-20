@@ -13,10 +13,14 @@ export class ProfilesComponent implements OnInit {
 profiles: Profile[]
 matchStatus: string;
 
+age_filter_min: number;
+age_filter_max: number;
+
   constructor(private service: TinderService) { }
 
   ngOnInit(){
     this.getProfiles();
+    this.getAgeFilter();
   }
 
   getProfiles(){
@@ -61,12 +65,28 @@ matchStatus: string;
     })
   }
 
-
   removeFromList(profile, status){
     console.log(status);
     let index = this.profiles.indexOf(profile);
     this.profiles.splice(index, 1)
   }
+
+  getAgeFilter(){
+    this.service.getUserProfileV2().subscribe(data => {
+      console.log(data.data.user);
+      console.log("Age min:" + data.data.user.age_filter_min + ", Age max:" + data.data.user.age_filter_max);
+      this.age_filter_min = data.data.user.age_filter_min;
+      this.age_filter_max = data.data.user.age_filter_max;
+    })
+  }
+
+  setAgeFilter(){
+    this.service.setAgeFilter(this.age_filter_min, this.age_filter_max).subscribe(data => {
+      console.log("Changed age filter");
+    })
+  }
+
+
 
   scrollToTop(){
     window.scrollTo(0, 0);
