@@ -92,3 +92,12 @@ body {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
   }
+
+.loadButton {
+    position: fixed;
+    top: 50px;
+    left: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 99;
+}
