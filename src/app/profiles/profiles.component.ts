@@ -10,8 +10,9 @@ import { Profile } from '../models/profile.model';
 })
 export class ProfilesComponent implements OnInit {
 
+exampleStringArray: string[] = null;
 profiles: Profile[];
-profile: Profile;
+profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
 matchStatus: string = null;
 
 age_filter_min: number;
@@ -42,6 +43,10 @@ distance_filter: number;
       console.log(data.results);
       this.profile = data.results;
     })
+  }
+
+  findOnFacebook(name: string, teaser: string){
+    window.open('https://www.facebook.com/search/people/?q=' + name + '%20' + teaser);
   }
 
   likeTinderProfile(id: string, s_number: string){

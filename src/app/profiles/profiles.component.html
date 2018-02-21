@@ -18,13 +18,6 @@
     <h3 class="matchQuestion">Match?</h3>
     <span class="matchAnswer">{{matchStatus}}</span>
 </div>
-<div *ngIf="matchStatus == false; then matchFalse"></div>
-<ng-template #matchTrue>
-    <p class="matchTrue">{{matchStatus}}</p>
-</ng-template>
-<ng-template #matchFalse>
-    <p class="matchFalse">{{matchStatus}}</p>
-</ng-template>
 <hr>
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
@@ -79,6 +72,7 @@
             <h2>{{profiles[i].user.name}}</h2>
         </a>
         <h4>Age: {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h4>
+        <a (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)"><h5>{{profiles[i].teaser.string}}</h5></a>
         <p>{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km</p>
         <p>{{profiles[i].user.bio}}</p>
     </div>
