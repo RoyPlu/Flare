@@ -42,6 +42,7 @@
 .nameTag {
     text-decoration: none;
     cursor: pointer;
+    color:inherit;
 }
 
 .jobTag {

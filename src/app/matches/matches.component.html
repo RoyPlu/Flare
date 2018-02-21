@@ -44,10 +44,16 @@
     </div>
     <div class="clear">
         <div *ngIf="matches[i].is_super_like; then superlike"></div>
+        <div *ngIf="matches[i].is_boost_match; then boostMatch"></div>
+        <div *ngIf="matches[i].is_fast_match; then fastMatch"></div>
         <h2>
             <ng-template #superlike>
                 <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
             </ng-template>
+            <ng-template #boostMatch>
+                    <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
+                </ng-template>
+            
             {{matches[i].person.name}}
         </h2>
         <h4>Age: {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</h4>
