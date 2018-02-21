@@ -49,6 +49,12 @@ body {
     width: 20px;
 }
 
+.deleteIcon {
+    width: 20%;
+    color: red;
+    cursor: pointer;
+}
+
 .superlike {
     width: 60px;
     padding: 3px;

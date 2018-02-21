@@ -31,6 +31,18 @@ token: string = null;
     this.scrollToTop();
   }
 
+  deleteTinderMatch(id: string){
+    this.service.deleteMatch(id).subscribe(data => {
+      console.log(data);
+    })
+  }
+
+  removeFromList(profile, status){
+    console.log(status);
+    let index = this.matches.indexOf(profile);
+    this.matches.splice(index, 1)
+  }
+
   getUpdates(){
     this.service.getUpdates().subscribe(data => {
       console.log("TEST");

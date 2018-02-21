@@ -191,6 +191,23 @@ export class TinderService {
         });
     }
 
+    deleteMatch(id: string){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.delete(BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", options).map(res => res.json()));
+        return this.http.delete(BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", options).map(res => res.json());
+    }
+
     enableSmartPhotos(profile: Profile) {
 
         const headers = new Headers({
