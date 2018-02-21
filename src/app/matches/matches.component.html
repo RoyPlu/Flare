@@ -12,7 +12,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img [src]="matches[i].person.photos[0].url">
+                <img class="matchesPic" [src]="matches[i].person.photos[0].url">
                 <div class="carousel-caption">
                     <div *ngIf="matches[i].person.photos[0].successRate != null; then successrate"></div>
                     <ng-template #successrate>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="item" *ngFor="let photo of matches[i].person.photos | slice: 0, let j = index;">
-                <img [src]="matches[i].person.photos[j].url">
+                <img class="matchesPic" [src]="matches[i].person.photos[j].url">
                 <div class="carousel-caption">
                     <div *ngIf="matches[i].person.photos[j].successRate != null; then successrate"></div>
                     <ng-template #successrate>

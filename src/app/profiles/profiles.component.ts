@@ -12,7 +12,7 @@ export class ProfilesComponent implements OnInit {
 
 profiles: Profile[];
 profile: Profile;
-matchStatus: string;
+matchStatus: string = null;
 
 age_filter_min: number;
 age_filter_max: number;

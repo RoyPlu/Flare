@@ -31,9 +31,8 @@
 
 .matchesPic {
     width: 100%;
-    border-radius: 5px;
-    float: left;
-    margin: 3px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 
