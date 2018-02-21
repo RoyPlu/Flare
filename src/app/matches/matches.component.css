@@ -63,6 +63,13 @@ body {
     margin-top: 10px;
 }
 
+.fastMatch {
+    width: 60px;
+    padding: 3px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
 @-webkit-keyframes hvr-pulse {
     25% {
       -webkit-transform: scale(1.1);

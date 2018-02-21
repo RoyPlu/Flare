@@ -51,9 +51,11 @@
                 <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
             </ng-template>
             <ng-template #boostMatch>
-                    <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
-                </ng-template>
-            
+                <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
+            </ng-template>
+            <ng-template #fastMatch>
+                <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
+            </ng-template>
             {{matches[i].person.name}}
         </h2>
         <h4>Age: {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</h4>
