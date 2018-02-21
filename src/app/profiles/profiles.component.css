@@ -49,6 +49,11 @@
     cursor: pointer;
 }
 
+.instaTag {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .iconSize {
     margin: 0 auto;
     font-size: 25px;

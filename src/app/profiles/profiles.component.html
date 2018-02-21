@@ -72,17 +72,24 @@
             <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
         </a>
         <a class="jobTag" (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)">
-            <h5 *ngIf='profiles[i].teaser.string != "";'><i class="material-icons iconSize">search</i> {{profiles[i].teaser.string}}</h5>
+            <h5 *ngIf='profiles[i].teaser.string != "";'>
+                <i class="material-icons iconSize">search</i>{{profiles[i].teaser.string}}</h5>
         </a>
+        <div *ngIf='profiles[i].instagram != null;'>
+            <a class="instaTag" (click)="findOnInstagram(profiles[i].instagram.username)">
+
+                <h5 *ngIf='profiles[i].instagram.username != "";'>
+                    <i class="material-icons iconSize">photo_camera</i>{{profiles[i].instagram.username}}</h5>
+            </a>
+        </div>
         <p>{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km</p>
         <p>{{profiles[i].user.bio}}</p>
     </div>
 </div>
+
+<!-- Profile Detail -->
+
 <div id="profileDetail" class="collapse">
     <div>
-        <h2>{{profile.name}}</h2>
-    </div>
-    <div>
-
     </div>
 </div>

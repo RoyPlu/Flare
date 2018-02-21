@@ -49,6 +49,10 @@ distance_filter: number;
     window.open('https://www.facebook.com/search/people/?q=' + name + '%20' + teaser);
   }
 
+  findOnInstagram(username: string){
+    window.open('https://www.instagram.com/' + username);
+  }
+
   likeTinderProfile(id: string, s_number: string){
     this.service.likeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
