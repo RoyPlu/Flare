@@ -40,7 +40,7 @@
             </div>
 
             <div class="item" *ngFor="let photo of profiles[i].user.photos, let j = index;">
-                <img  class="matchesPic" [src]="profiles[i].user.photos[j].url">
+                <img class="matchesPic" [src]="profiles[i].user.photos[j].url">
                 <div class="carousel-caption">
                     <div *ngIf="profiles[i].user.photos[j].successRate != null; then successrate"></div>
                     <ng-template #successrate>
@@ -68,11 +68,12 @@
             </button>
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
         </div>
-        <a data-target="#profileDetail" data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
-            <h2>{{profiles[i].user.name}}</h2>
+        <a class="nameTag" data-target="#profileDetail" data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
+            <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
         </a>
-        <h4>Age: {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h4>
-        <a (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)"><h5>{{profiles[i].teaser.string}}</h5></a>
+        <a class="jobTag" (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)">
+            <h5 *ngIf='profiles[i].teaser.string != "";'><i class="material-icons iconSize">search</i> {{profiles[i].teaser.string}}</h5>
+        </a>
         <p>{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km</p>
         <p>{{profiles[i].user.bio}}</p>
     </div>
