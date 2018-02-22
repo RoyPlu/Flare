@@ -1,9 +1,10 @@
 <h1>New Profiles</h1>
 <span class="input-group">
-    <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="2"
+    <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="1"
         max="1000">
     <span class="input-group-btn" style="width:0;">
         <button class="btn btn-danger" (click)="setDistanceFilter()">Change distance filter</button>
+        <button class="btn btn-success" style="margin-left: 4px;" (click)="seePossibleMatches(1)">Possible Matches</button>
     </span>
 </span>
 <span class="input-group">
