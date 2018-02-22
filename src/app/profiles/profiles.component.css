@@ -55,6 +55,10 @@
     cursor: pointer;
 }
 
+.possibleMatch {
+    color: green;
+}
+
 .iconSize {
     margin: 0 auto;
     font-size: 25px;

@@ -82,7 +82,14 @@
                     <i class="material-icons iconSize">photo_camera</i>{{profiles[i].instagram.username}}</h5>
             </a>
         </div>
-        <p>{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km</p>
+        <div *ngIf='profiles[i].distance_mi > distance_filter; then possibleMatch else noPossibleMatch'></div>
+        <ng-template #possibleMatch>
+            <p class="distanceTag">{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km | {{profiles[i].distance_mi}} miles</p>
+            <p class="possibleMatch">Possible Match</p>
+        </ng-template>
+        <ng-template #noPossibleMatch>
+            <p class="distanceTag">{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km | {{profiles[i].distance_mi}} miles</p>
+        </ng-template>
         <p>{{profiles[i].user.bio}}</p>
     </div>
 </div>
