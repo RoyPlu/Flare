@@ -45,6 +45,10 @@ export class ProfilesComponent implements OnInit {
     window.location.reload();
   }
 
+  openImage(url: string){
+    window.open(url);
+  }
+
   getProfile(id: string) {
     console.log(id);
     this.service.getProfile(id).subscribe(data => {
