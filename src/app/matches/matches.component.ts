@@ -50,6 +50,10 @@ token: string = null;
     })
   }
 
+  openImage(url: string){
+    window.open(url);
+  }
+
   scrollToTop(){
     window.scrollTo(0, 0);
   }
