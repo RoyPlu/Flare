@@ -24,18 +24,17 @@
 }
 
 .carousel {
-    width: 98%;
-    border-radius: 30px;
+    border-radius: 10px;
     
 }
 
 .carousel-inner {
-    border-radius: 30px;
+    border-radius: 10px;
     
 }
 
 .carousel-control {
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .center {
