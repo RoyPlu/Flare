@@ -61,5 +61,5 @@
         <h4>Age: {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</h4>
         <p>{{matches[i].person.bio}}</p>
     </div>
-    <a (click)="deleteTinderMatch(matches[i].id); removeFromList(matches[i], 'Deleted match')"><img class="deleteIcon" src="assets/close_icon.png" /></a>
+    <a class="deleteIcon" (click)="deleteTinderMatch(matches[i].id); removeFromList(matches[i], 'Deleted match')"><img src="assets/close_icon.png" /></a>
 </div>

@@ -50,7 +50,10 @@ body {
 }
 
 .deleteIcon {
-    width: 20%;
+    
+}
+.deleteIcon img {
+    width: 15%;
     color: red;
     cursor: pointer;
 }
