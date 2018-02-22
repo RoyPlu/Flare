@@ -14,19 +14,19 @@ This application requires the use of a cross-origin resource sharing addon for y
 (these are subject to change)
 
 ## New profiles
- ![alt text](https://i.imgur.com/scdHLhx.jpg "New profiles")
+
 
 ## Matches
- ![alt text](https://i.imgur.com/AjXc0BM.jpg "Matches")
+
 
 ## User profile
- ![alt text](https://i.imgur.com/A7aJLQy.jpg "User profile")
+
 
 ## Passport
- ![alt text](https://i.imgur.com/zVxxL13.png "Passport")
+
 
 ## Face detection (experimental)
- ![alt text](https://i.imgur.com/LJWLmMv.png "Face detection")
+
 
 
 # Default Angular commands
