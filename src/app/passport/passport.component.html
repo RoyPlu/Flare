@@ -1,14 +1,16 @@
 <h1>Passport</h1>
-<button class="btn-danger" (click)="resetTinderPassport()">Reset Passport location</button>
 <hr>
 <h3>lat: {{lat}}, lon: {{lon}}
     <span *ngIf="is_traveling == true; else nottraveling">| User is traveling <i class="material-icons">airplanemode_active</i></span>
     <span><ng-template #nottraveling>| User is not traveling <i class="material-icons">airplanemode_inactive</i></ng-template></span>
 </h3>
 <h4>{{cityName}} {{countryName}}</h4>
-<agm-map [latitude]='lat' [longitude]='lon' (mapClick)="placeMarker($event)">
+<agm-map [latitude]='lat' [longitude]='lon' [gestureHandling]="greedy" (mapClick)="placeMarker($event)">
     <agm-marker [latitude]='lat' [longitude]='lon'></agm-marker>
 </agm-map>
-<button class="btn-danger" (click)="changeTinderPassportLocation()">Set travel location</button>
-<button class="btn-primary" (click)="getUserLocation()">Get user location</button>
-<button class="btn-primary" (click)="getUserTravelLocation()">Get travel location (if using Passport travel)</button>
+<div style="margin: 5px;">
+<button class="btn btn-danger" (click)="changeTinderPassportLocation()">Set travel location</button>
+<button class="btn btn-danger" (click)="resetTinderPassport()">Reset travel location</button>
+<button class="btn btn-primary" (click)="getUserLocation()">Get user location</button>
+<button class="btn btn-primary" (click)="getUserTravelLocation()">Get travel location (if using Passport travel)</button>
+</div>

@@ -36,7 +36,8 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBuhH3Fi2ofA8t9jfd2iKowr9anDGyXvRA'
+      apiKey: 'AIzaSyBuhH3Fi2ofA8t9jfd2iKowr9anDGyXvRA',
+      apiVersion: "4",
     }),
   ],
   providers: [TinderService],
