@@ -8,7 +8,7 @@ import { TinderService } from '../services/tinder.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  title = 'Flare - Tinder Client';
+  title = 'Flare - Tinder client';
 
   constructor(private service: TinderService) { }
 
