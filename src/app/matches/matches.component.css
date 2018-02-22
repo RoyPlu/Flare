@@ -50,23 +50,30 @@ body {
 }
 
 .deleteIcon {
-
+    position: absolute;
+    z-index: 99;
 }
 .deleteIcon img {
-    width: 15%;
+    position: relative;
+    opacity: 0.8;
+    top: 5px;
+    left: 125px;
+    min-width: 50px;
+    width: 50px;
     color: red;
-    cursor: pointer;
     border-radius: 5px;
     background: rgba(255, 0, 0, 0.5);
 }
 
 .deleteIcon img:hover {
-    width: 15%;
-    color: red;
     cursor: pointer;
-    border-radius: 5px;
-    background: rgba(255, 0, 0, 0.5);
 }
+
+@media screen and (max-width: 1900px) {
+    .deleteIcon img {
+      left: 68px;
+    }
+  }
 
 .superlike {
     width: 60px;
