@@ -3,4 +3,30 @@
     width: 80%;
     color: #9d9d9d;
     padding-top: 50px;
+    clear: both;
+}
+
+.footer {
+    clear: both;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #333;
+    color: #9d9d9d;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position:relative;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+}
+
+.githubLink svg path:hover {
+    fill: #646464;
+}
+
+.footer svg {
+    width: 20px;
+    height: 20px;
 }
