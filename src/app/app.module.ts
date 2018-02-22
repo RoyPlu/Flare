@@ -16,6 +16,7 @@ import { appRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
 
 import { AgmCoreModule } from '@agm/core';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AgmCoreModule } from '@agm/core';
     FaceDetectionComponent,
     NavbarComponent,
     PassportComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
