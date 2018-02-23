@@ -1,0 +1,47 @@
+.userPic {
+    width: 150px;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.pictures {
+    vertical-align: middle;
+}
+
+.userCard {
+    width: auto;
+    text-align: center;
+    background-color: #333;
+    border-radius: 10px;
+    margin: auto;
+    padding: 3px;
+    max-width: 40%;
+    min-width: 20%;
+}
+
+.clear {
+    clear: both;
+}
+
+.carousel {
+    border-radius: 10px;
+    
+}
+
+.carousel-inner {
+    border-radius: 10px;
+    
+}
+
+.carousel-control {
+    border-radius: 10px;
+}
+
+.center {
+    margin: auto;
+}
+
+.indicatorColor {
+    background-color: rgba(255, 0, 0, 0.5);
+    width: 20px;
+}

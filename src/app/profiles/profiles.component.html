@@ -69,7 +69,7 @@
             </button>
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
         </div>
-        <a class="nameTag" data-target="#profileDetail" data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
+        <a class="nameTag" [routerLink]="['../profile', profiles[i].user._id]" data-target="#profileDetail" data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
             <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
         </a>
         <a class="jobTag" (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)">
@@ -89,12 +89,5 @@
             <p class="possibleMatch">Possible Match</p>
         </ng-template>
         <p>{{profiles[i].user.bio}}</p>
-    </div>
-</div>
-
-<!-- Profile Detail -->
-
-<div id="profileDetail" class="collapse">
-    <div>
     </div>
 </div>

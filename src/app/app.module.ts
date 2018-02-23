@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 
 import { AgmCoreModule } from '@agm/core';
 import { AboutComponent } from './about/about.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AboutComponent } from './about/about.component';
     NavbarComponent,
     PassportComponent,
     AboutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,6 @@ import { AboutComponent } from './about/about.component';
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBuhH3Fi2ofA8t9jfd2iKowr9anDGyXvRA',
-      apiVersion: "4",
     }),
   ],
   providers: [TinderService],
