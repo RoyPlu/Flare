@@ -11,6 +11,7 @@ import { MessagesComponent } from './messages/messages.component';
 export const appRoutes: Routes = [
  { path: 'user', component: UserComponent},
  { path: 'profiles', component: ProfilesComponent },
+ { path: 'profile/:id', component: ProfileComponent },
  { path: 'profile/:id/:s_number', component: ProfileComponent },
  { path: 'matches', component: MatchesComponent },
  { path: 'messages/:id', component: MessagesComponent },

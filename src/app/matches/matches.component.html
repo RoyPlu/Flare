@@ -61,7 +61,7 @@
             <ng-template #fastMatch>
                 <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
             </ng-template>
-            <a>{{matches[i].person.name}}, {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</a>
+            <a class="nameTag" [routerLink]="['../profile', matches[i].person._id]">{{matches[i].person.name}}, {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</a>
         </h2>
         <p>{{matches[i].person.bio}}</p>
     </div>

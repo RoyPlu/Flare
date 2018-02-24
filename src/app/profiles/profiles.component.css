@@ -46,6 +46,9 @@
     color:inherit;
 }
 
+.nameTag:hover {
+    color: #646464;
+}
 .jobTag {
     text-decoration: none;
     cursor: pointer;
