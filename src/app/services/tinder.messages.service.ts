@@ -12,7 +12,7 @@ import { User } from '../models/user.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "5232a4d3-36ed-4286-a997-75ad8b3d810a";
+const X_AUTH_CODE = "a6569600-ee63-40ef-9e91-0b6d90b60631";
 
 const X_AUTH_CODE_2 = "90299a3c-f0bd-4422-8220-6d7b9c637f05";
 
@@ -22,7 +22,7 @@ const BASE_API_URL_v2 = "https://api.gotinder.com/v2";
 const FACE_API_SUB_KEY = "1cca7a318c2d4c06b1c35030153dc720";
 
 @Injectable()
-export class TinderService {
+export class MessagesService {
     constructor(private http: Http) { }
 
     getMessages(id: string, page_token: string) {
@@ -39,9 +39,12 @@ export class TinderService {
         });
 
         console.log(page_token);
+
+        page_token = "MjAxOC0wMi0yNFQyMDo1NzowMy4wMTFa";
+
         if (page_token != null) {
-            console.log(this.http.get(BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json()));
-            return this.http.get(BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json());
+            console.log(this.http.get(BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json()));
+            return this.http.get(BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json());
         } else {
             console.log(this.http.get(BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json()));
             return this.http.get(BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json());

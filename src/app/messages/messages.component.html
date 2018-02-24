@@ -1,0 +1,8 @@
+<div *ngFor="let message of messages.slice(), let i = index;">
+    <div class="messageCard" *ngIf="(i < 10)">
+        <div>
+            <p>{{message.from}}</p>
+            <h4>{{message.message}}</h4>
+        </div>
+    </div>
+</div>

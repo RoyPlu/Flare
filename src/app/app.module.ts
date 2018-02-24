@@ -19,6 +19,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MessagesService } from './services/tinder.messages.service';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { MessagesComponent } from './messages/messages.component';
       apiKey: 'AIzaSyBuhH3Fi2ofA8t9jfd2iKowr9anDGyXvRA',
     }),
   ],
-  providers: [TinderService],
+  providers: [TinderService, MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
