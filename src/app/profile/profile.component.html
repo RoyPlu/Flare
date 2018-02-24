@@ -38,7 +38,10 @@
         <div class="matchButtons">
             <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile();">Pass</button>
             <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile();">
-                <img class="superlikeButton hvr-bob" src="assets/tinder_super_like_star.png">
+                <div class="hvr-bob">
+                    <img class="superlikeButton" src="assets/tinder_super_like_star.png">
+                    <p class="superlikeCounter">{{ superlikesCounter }}</p>
+                </div>
             </button>
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile();">Like</button>
         </div>

@@ -97,6 +97,14 @@ body {
     width: 20px;
 }
 
+.superlikeCounter {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    bottom: 5px;
+    left: 21px;
+}
+
 .superlikeButton {
     width: 10%;
     padding: 3px;

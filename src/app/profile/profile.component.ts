@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
 
     browserTitle: string;
 
+    superlikesCounter: number;
+
     constructor(private titleService: Title, private route: ActivatedRoute, private service: TinderService) { }
 
     ngOnInit() {
@@ -35,6 +37,7 @@ export class ProfileComponent implements OnInit {
         });
 
         this.getProfile(this.id);
+        this.getSuperlikes();
     }
 
     getProfile(id: string) {
@@ -89,6 +92,17 @@ export class ProfileComponent implements OnInit {
           }
     
         })
+      }
+
+      getSuperlikes(){
+        this.service.getUserProfileV2().subscribe(data => {
+          console.log(data.data.super_likes);
+          this.superlikesCounter = data.data.super_likes.remaining;
+        })
+      }
+    
+      lowerSuperlikes(superlike: number){
+        this.superlikesCounter = this.superlikesCounter - 1;
       }
 
       playNotification() {
