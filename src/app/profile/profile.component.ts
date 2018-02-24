@@ -4,6 +4,7 @@ import { TinderService } from '../services/tinder.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { Profile } from '../models/profile.model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-profile',
@@ -19,7 +20,9 @@ export class ProfileComponent implements OnInit {
     s_number: string;
     matchStatus: string = null;
 
-    constructor(private route: ActivatedRoute, private service: TinderService) { }
+    browserTitle: string;
+
+    constructor(private titleService: Title, private route: ActivatedRoute, private service: TinderService) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
@@ -39,8 +42,14 @@ export class ProfileComponent implements OnInit {
         this.service.getProfile(id).subscribe(data => {
             console.log(data.results);
             this.profile = data.results;
-        })
 
+            this.setTitle(this.profile.name);
+
+        })
+    }
+
+    setTitle(browserTitle: string){
+        this.titleService.setTitle( browserTitle );
     }
 
     likeTinderProfile() {
