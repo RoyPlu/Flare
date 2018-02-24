@@ -36,6 +36,9 @@
     cursor: pointer;
 }
 
+.messageButton {
+    margin-top: 10px;
+}
 
 .clear {
     clear: both;

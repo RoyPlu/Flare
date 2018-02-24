@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { AgmCoreModule } from '@agm/core';
 import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ProfileComponent } from './profile/profile.component';
     PassportComponent,
     AboutComponent,
     ProfileComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
