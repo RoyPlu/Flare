@@ -123,6 +123,11 @@ body {
     color: red;
 }
 
+.superlikesReset {
+    display: inline;
+    font-size: 50%;
+}
+
 .superlikeCounter {
     position: absolute;
     text-align: center;

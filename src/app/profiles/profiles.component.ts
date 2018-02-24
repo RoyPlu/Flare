@@ -21,6 +21,7 @@ export class ProfilesComponent implements OnInit {
   distance_filter: number;
 
   superlikesCounter: number;
+  superlikesReset: Date;
 
   constructor(private service: TinderService) { }
 
@@ -144,8 +145,9 @@ export class ProfilesComponent implements OnInit {
 
   getSuperlikes(){
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data.data.super_likes.remaining);
+      console.log(data.data.super_likes);
       this.superlikesCounter = data.data.super_likes.remaining;
+      this.superlikesReset = data.data.super_likes.resets_at;
     })
   }
 
