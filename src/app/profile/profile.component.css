@@ -1,4 +1,4 @@
-.userPic {
+.profilePic {
     width: 150px;
     border-radius: 5px;
     margin: 3px;
@@ -8,15 +8,16 @@
     vertical-align: middle;
 }
 
-.userCard {
+.profileCard {
     width: auto;
     text-align: center;
     background-color: #333;
     border-radius: 10px;
     margin: auto;
+    margin-top: 20px;
     padding: 3px;
     max-width: 40%;
-    min-width: 20%;
+    min-width: 350px;
 }
 
 .clear {
@@ -41,7 +42,141 @@
     margin: auto;
 }
 
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+    border-radius: 20px;
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: rgb(179, 0, 0);
+    height: 20px;
+    border-radius: 30px;
+}
+
+.buttonBorders {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.nameTag {
+    text-decoration: none;
+    cursor: pointer;
+    color:inherit;
+}
+
+.iconSize {
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.likeButton {
+    /*margin-left: -50%;*/
+    padding: 15px 32px;
+    font-size: 16px;
+}
+
+.passButton {
+    /*margin-left: -50%;*/
+    padding: 15px 32px;
+    font-size: 16px;
+}
+
+
+.clear {
+    clear: both;
+}
+
+body {
+    float: left;
+}
+
 .indicatorColor {
     background-color: rgba(255, 0, 0, 0.5);
     width: 20px;
+}
+
+.superlikeButton {
+    width: 10%;
+    padding: 3px;
+}
+
+@media screen and (max-width: 1500px) {
+    .superlikeButton {
+      width: 15%;
+    }
+  }
+
+.matchButtons {
+    width: 100%;
+    white-space: nowrap;
+}
+
+@-webkit-keyframes hvr-bob {
+    0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+    }
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes hvr-bob {
+    0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+    }
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @-webkit-keyframes hvr-bob-float {
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes hvr-bob-float {
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  .hvr-bob {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+  }
+  .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+    -webkit-animation-name: hvr-bob-float, hvr-bob;
+    animation-name: hvr-bob-float, hvr-bob;
+    -webkit-animation-duration: .3s, 1.5s;
+    animation-duration: .3s, 1.5s;
+    -webkit-animation-delay: 0s, .3s;
+    animation-delay: 0s, .3s;
+    -webkit-animation-timing-function: ease-out, ease-in-out;
+    animation-timing-function: ease-out, ease-in-out;
+    -webkit-animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1, infinite;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: normal, alternate;
+    animation-direction: normal, alternate;
+  }
+
+img.superlikeButton {
+    width: 100%;
 }

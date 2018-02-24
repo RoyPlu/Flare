@@ -10,7 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 export const appRoutes: Routes = [
  { path: 'user', component: UserComponent},
  { path: 'profiles', component: ProfilesComponent },
- { path: 'profile/:id', component: ProfileComponent },
+ { path: 'profile/:id/:s_number', component: ProfileComponent },
  { path: 'matches', component: MatchesComponent },
  { path: 'passport', component: PassportComponent},
  { path: 'facedetection', component: FaceDetectionComponent },
