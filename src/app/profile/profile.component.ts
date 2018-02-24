@@ -48,6 +48,10 @@ export class ProfileComponent implements OnInit {
         })
     }
 
+    findOnFacebook(name: string, school: string) {
+      window.open('https://www.facebook.com/search/people/?q=' + name + '%20' + school);
+    }
+
     setTitle(browserTitle: string){
         this.titleService.setTitle( browserTitle );
     }

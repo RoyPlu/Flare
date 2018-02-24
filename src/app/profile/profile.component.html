@@ -43,8 +43,14 @@
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile();">Like</button>
         </div>
         <h1 class="nameTag">{{profile.name}}</h1>
+        <a class="jobTag" (click)="findOnFacebook(profile.name, profile.schools[0].name)">
+            <div *ngIf='profile.schools != ""'>
+                <h4 *ngIf='profile.schools[0].name != ""'>
+                    <i class="material-icons iconSize">search</i>{{profile.schools[0].name}}</h4>
+            </div>
+        </a>
         <h4 class="distanceTag">{{profile.distance_mi * 1.609344 | number : '1.1-1'}} km | {{profile.distance_mi}} miles</h4>
         <p>{{profile.bio}}</p>
-        <h3>{{profile.schools[0].name}}</h3>
+
     </div>
 </div>
