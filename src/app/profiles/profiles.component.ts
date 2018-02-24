@@ -20,12 +20,15 @@ export class ProfilesComponent implements OnInit {
 
   distance_filter: number;
 
+  superlikesCounter: number;
+
   constructor(private service: TinderService) { }
 
   ngOnInit() {
     this.getProfiles();
     this.getAgeFilter();
     this.getDistanceFilter();
+    this.getSuperlikes();
   }
 
   getProfiles() {
@@ -137,6 +140,17 @@ export class ProfilesComponent implements OnInit {
     })
 
     window.location.reload();
+  }
+
+  getSuperlikes(){
+    this.service.getUserProfileV2().subscribe(data => {
+      console.log(data.data.super_likes.remaining);
+      this.superlikesCounter = data.data.super_likes.remaining;
+    })
+  }
+
+  lowerSuperlikes(superlike: number){
+    this.superlikesCounter = this.superlikesCounter - 1;
   }
 
   playNotification() {

@@ -64,8 +64,11 @@
     <div class="clear">
         <div class="matchButtons">
             <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">Pass</button>
-            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked')">
-                <img class="superlikeButton hvr-bob" src="assets/tinder_super_like_star.png">
+            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
+                <div class="hvr-bob">
+                <img class="superlikeButton" src="assets/tinder_super_like_star.png">
+                <p class="superlikeCounter">{{ superlikesCounter }}</p>
+            </div>
             </button>
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
         </div>

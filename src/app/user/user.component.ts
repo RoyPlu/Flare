@@ -17,10 +17,18 @@ user: User;
 
   ngOnInit(){
     this.getTinderUser();
+    this.getTinderUserV2();
   }
 
   getTinderUser(){
     this.service.getUserProfile().subscribe(data => {
+      console.log(data);
+      this.user = data;
+    })
+  }
+
+  getTinderUserV2(){
+    this.service.getUserProfileV2().subscribe(data => {
       console.log(data);
       this.user = data;
     })

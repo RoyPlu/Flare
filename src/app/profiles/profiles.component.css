@@ -123,6 +123,14 @@ body {
     color: red;
 }
 
+.superlikeCounter {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    bottom: 0px;
+    left: 16px;
+}
+
 .superlikeButton {
     width: 14%;
     padding: 3px;
