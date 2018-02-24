@@ -4,6 +4,7 @@ import { TinderService } from '../services/tinder.service';
 import { MessagesService } from '../services/tinder.messages.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-messages',
@@ -14,8 +15,9 @@ export class MessagesComponent implements OnInit {
 
     id: string;
     messages: string[];
+    user: User;
 
-  constructor(private titleService: Title, private route: ActivatedRoute, private service: MessagesService) { }
+  constructor(private titleService: Title, private route: ActivatedRoute, private messagesService: MessagesService, private service: TinderService ) { }
 
   ngOnInit(){
     this.route.params.subscribe(params => {
@@ -26,13 +28,21 @@ export class MessagesComponent implements OnInit {
     });
 
     this.getMessages();
+    this.getTinderUserV2();
   }
 
   getMessages(){
-    this.service.getMessages(this.id, "").subscribe(data => {
+    this.messagesService.getMessages(this.id, "").subscribe(data => {
         console.log(data.data.messages);
         this.messages = data.data.messages;
       })
+  }
+
+  getTinderUserV2(){
+    this.service.getUserProfileV2().subscribe(data => {
+      console.log(data.data.user);
+      this.user = data.data.user;
+    })
   }
 
 }

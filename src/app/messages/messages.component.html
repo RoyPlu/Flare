@@ -1,7 +1,14 @@
-<div *ngFor="let message of messages.slice(), let i = index;">
+<div>
+    <button class="btn btn-danger">Send</button>
+    <input />
+</div>
+<div *ngFor="let message of messages, let i = index;">
     <div class="messageCard" *ngIf="(i < 10)">
         <div>
-            <p>{{message.from}}</p>
+            <div *ngIf="message.from == user._id">
+                <p>{{user.name}}</p>
+            </div>
+
             <h4>{{message.message}}</h4>
         </div>
     </div>
