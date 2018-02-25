@@ -5,6 +5,7 @@ import { MessagesService } from '../services/tinder.messages.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../models/user.model';
+import { Profile } from '../models/profile.model';
 
 @Component({
   selector: 'app-messages',
@@ -14,8 +15,12 @@ import { User } from '../models/user.model';
 export class MessagesComponent implements OnInit {
 
     id: string;
+    profileId: string;
     messages: string[];
     user: User;
+
+    exampleStringArray: string[] = null;
+    profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
 
     browserTitle: string ="Messages";
 
@@ -24,20 +29,26 @@ export class MessagesComponent implements OnInit {
   ngOnInit(){
     this.route.params.subscribe(params => {
         console.log(params) //log the entire params object
-        console.log(params['id']) //log the value of id
+        console.log(params['id']) //log the value of general id
+        console.log(params['profileId']) // log the value of Profile id
 
         this.id = params['id'];
+        this.profileId = params['profileId'];
     });
 
     this.getMessages();
     this.getTinderUserV2();
+    this.getProfile(this.profileId);
     this.setTitle(this.browserTitle);
+    this.scrollToBottom();
   }
 
   getMessages(){
     this.messagesService.getMessages(this.id, "").subscribe(data => {
         console.log(data.data.messages);
         this.messages = data.data.messages;
+        this.messages = this.messages.slice(0, 10);
+        this.messages = this.messages.reverse();
       })
   }
 
@@ -48,8 +59,20 @@ export class MessagesComponent implements OnInit {
     })
   }
 
+  getProfile(id: string) {
+    console.log(id);
+    this.service.getProfile(id).subscribe(data => {
+        console.log(data.results);
+        this.profile = data.results;
+    })
+}
+
   setTitle(browserTitle: string){
     this.titleService.setTitle( browserTitle );
+}
+
+scrollToBottom() {
+  window.frameElement.scrollIntoView(false);
 }
 
 }

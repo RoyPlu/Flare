@@ -46,7 +46,7 @@
         </a>
     </div>
     <div class="clear">
-            <button class="btn btn-danger messageButton" [routerLink]="['../messages', matches[i]._id]">Message</button>
+            <button class="btn btn-danger messageButton" [routerLink]="['../messages', matches[i]._id, matches[i].person._id]">Message</button>
             <br />
         <div *ngIf="matches[i].is_super_like; then superlike"></div>
         <div *ngIf="matches[i].is_boost_match; then boostMatch"></div>

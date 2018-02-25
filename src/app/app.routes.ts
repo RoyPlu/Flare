@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
  { path: 'profile/:id', component: ProfileComponent },
  { path: 'profile/:id/:s_number', component: ProfileComponent },
  { path: 'matches', component: MatchesComponent },
- { path: 'messages/:id', component: MessagesComponent },
+ { path: 'messages/:id/:profileId', component: MessagesComponent },
  { path: 'passport', component: PassportComponent},
  { path: 'facedetection', component: FaceDetectionComponent },
  { path: 'about', component: AboutComponent },

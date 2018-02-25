@@ -1,15 +1,37 @@
 <div>
-    <button class="btn btn-danger">Send</button>
-    <input />
-</div>
-<div *ngFor="let message of messages, let i = index;">
-    <div class="messageCard" *ngIf="(i < 10)">
-        <div>
+    <div class="messageFrame">
+        <div *ngFor="let message of messages, let i = index;">
             <div *ngIf="message.from == user._id">
-                <p>{{user.name}}</p>
+                <div class="messageCard user" *ngIf="(i < 10)">
+                    <div>
+                        <div *ngIf="message.from == user._id">
+                            <img class="userIcon" [src]="user.photos[0].url" />
+                            <p>{{user.name}}</p>
+                        </div>
+                        <h4>{{message.message}}</h4>
+                    </div>
+                </div>
             </div>
-
-            <h4>{{message.message}}</h4>
+            <div *ngIf="message.from == profile._id">
+                <div class="messageCard profile" *ngIf="(i < 10)">
+                    <div>
+                        <div *ngIf="message.from == profile._id">
+                            <img src="" />
+                            <img class="profileIcon" [src]="profile.photos[0].url" />
+                            <p>{{profile.name}}</p>
+                        </div>
+                        <h4>{{message.message}}</h4>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="messageInput">
+        <span class="input-group">
+            <input type="text" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-danger">Send</button>
+            </span>
+        </span>
     </div>
 </div>

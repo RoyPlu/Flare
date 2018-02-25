@@ -5,3 +5,58 @@
     margin: 5px;
     width: 300px;
 }
+
+.user {
+    color: #333;
+    background-color: #428bca;
+    float: right;
+    clear: both;
+}
+
+.profile {
+    background-color: rgb(90, 90, 90);
+    float: left;
+    clear: both;
+}
+
+.messageFrame {
+    width: 50%;
+    height: auto;
+    min-width: 650px;
+    margin: 10px auto;
+    background-color: #333;
+    border: 2px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.messageInput {
+    display: block;
+    margin: 0 auto;
+    min-width: 650px;
+    width: 50%;
+}
+
+.btn-group {
+    display: inline-block;
+}
+
+.messageInput input {
+}
+
+.messageInput button {
+}
+
+.userIcon {
+    width: 50px;
+    border-radius: 50px;
+    float: right;
+    margin: 10px;
+}
+
+.profileIcon {
+    width: 50px;
+    border-radius: 50px;
+    float: left;
+    margin: 10px;
+}
