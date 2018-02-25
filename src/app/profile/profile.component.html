@@ -36,14 +36,14 @@
     </div>
     <div class="clear">
         <div class="matchButtons">
-            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile();">Pass</button>
+            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile();"><img class="passIcon" src="assets/tinder_pass_icon.png"></button>
             <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile();">
                 <div class="hvr-bob">
                     <img class="superlikeButton" src="assets/tinder_super_like_star.png">
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>
                 </div>
             </button>
-            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile();">Like</button>
+            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile();"><img class="likeIcon" src="assets/tinder_like_icon.png"></button>
         </div>
         <h1 class="nameTag">{{profile.name}}</h1>
         <a class="jobTag" (click)="findOnFacebook(profile.name, profile.schools[0].name)">

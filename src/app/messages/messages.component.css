@@ -61,6 +61,16 @@
     margin: 10px;
 }
 
+.nameTag {
+    text-decoration: none;
+    cursor: pointer;
+    color:inherit;
+}
+
+.nameTag:hover {
+    color: #646464;
+}
+
 .userDateTag {
     font-size: 60%;
     float: right;

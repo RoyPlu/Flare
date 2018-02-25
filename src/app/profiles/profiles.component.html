@@ -62,14 +62,14 @@
     </div>
     <div class="clear">
         <div class="matchButtons">
-            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">Pass</button>
+            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')"><img class="passIcon" src="assets/tinder_pass_icon.png"></button>
             <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
                 <div class="hvr-bob">
                     <img class="superlikeButton" src="assets/tinder_super_like_star.png">
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>
                 </div>
             </button>
-            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">Like</button>
+            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')"><img class="likeIcon" src="assets/tinder_like_icon.png"></button>
         </div>
         <a class="nameTag" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
             data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
