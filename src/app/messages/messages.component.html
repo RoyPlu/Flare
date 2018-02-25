@@ -44,9 +44,9 @@
     </div>
     <div class="messageInput">
         <span class="input-group">
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" [(ngModel)]="messageInput"/>
             <span class="input-group-btn">
-                <button class="btn btn-danger">Send</button>
+                <button class="btn btn-danger" (click)="sendMessage(messageInput, user._id)">Send</button>
             </span>
         </span>
     </div>

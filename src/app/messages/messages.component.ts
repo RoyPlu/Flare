@@ -24,6 +24,8 @@ export class MessagesComponent implements OnInit {
 
     browserTitle: string = "Messages - ";
 
+    messageInput: string = "";
+
   constructor(private titleService: Title, private route: ActivatedRoute, private messagesService: MessagesService, private service: TinderService ) { }
 
   ngOnInit(){
@@ -67,6 +69,22 @@ export class MessagesComponent implements OnInit {
         this.browserTitle += data.results.name;
         this.setTitle(this.browserTitle);
     })
+}
+
+sendMessage(message: string, userId: string ){
+  this.messagesService.sendMessage(this.id, message, userId).subscribe(data => {
+    console.log(data);
+
+    this.getMessages();
+
+    window.location.reload();
+  })
+
+  let index = this.messages.indexOf(message);
+  this.messages.push(message);
+
+  this.messageInput = "";
+
 }
 
   setTitle(browserTitle: string){
