@@ -77,7 +77,7 @@ sendMessage(message: string, userId: string ){
 
     this.getMessages();
 
-    window.location.reload();
+    //window.location.reload();
   })
 
   let index = this.messages.indexOf(message);

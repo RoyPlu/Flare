@@ -110,6 +110,12 @@ body {
     color: #646464;
 }
 
+.lastMessage {
+    background-color: #646464;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 @-webkit-keyframes hvr-pulse {
     25% {
       -webkit-transform: scale(1.1);
