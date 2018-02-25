@@ -22,7 +22,7 @@ export class MessagesComponent implements OnInit {
     exampleStringArray: string[] = null;
     profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
 
-    browserTitle: string ="Messages";
+    browserTitle: string = "Messages - ";
 
   constructor(private titleService: Title, private route: ActivatedRoute, private messagesService: MessagesService, private service: TinderService ) { }
 
@@ -39,7 +39,6 @@ export class MessagesComponent implements OnInit {
     this.getMessages();
     this.getTinderUserV2();
     this.getProfile(this.profileId);
-    this.setTitle(this.browserTitle);
     this.scrollToBottom();
   }
 
@@ -64,6 +63,9 @@ export class MessagesComponent implements OnInit {
     this.service.getProfile(id).subscribe(data => {
         console.log(data.results);
         this.profile = data.results;
+
+        this.browserTitle += data.results.name;
+        this.setTitle(this.browserTitle);
     })
 }
 

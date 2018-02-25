@@ -1,5 +1,9 @@
 <h1 style="text-align: center">
-    <img class="messageIcon" [src]="profile.photos[0].url" />{{profile.name}}</h1>
+    <a [routerLink]="['../../../profile', profile._id]">
+        <img class="messageIcon" [src]="profile.photos[0].url" />{{profile.name}}
+    </a>
+</h1>
+
 <hr style="width: 30%">
 <div>
     <div class="messageFrame">
@@ -14,11 +18,11 @@
                             </h3>
                         </div>
                         <div *ngIf='message.message.includes("https://media2.giphy.com/"); else normalMessage'>
-                            <iframe src="https://media2.giphy.com/media/26BGQb3tjtMeB1iMg/giphy.gif?width=480&height=269" width="300" height="300" class="giphy-embed" allowFullScreen></iframe>
-                            <h4>{{message.message}}</h4>
+                            <iframe src="https://media2.giphy.com/media/26BGQb3tjtMeB1iMg/giphy.gif?width=480&height=269" width="300" height="300" class="giphy-embed"
+                                allowFullScreen></iframe>
                         </div>
                         <ng-template #normalMessage>
-                                <h4>{{message.message}}</h4>
+                            <h4>{{message.message}}</h4>
                         </ng-template>
 
                     </div>
