@@ -37,7 +37,7 @@
     <div class="clear">
         <div class="matchButtons">
             <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile();"><img class="passIcon" src="assets/tinder_pass_icon.png"></button>
-            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile();">
+            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(); lowerSuperlikes(superlikesCounter)">
                 <div class="hvr-bob">
                     <img class="superlikeButton" src="assets/tinder_super_like_star.png">
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>

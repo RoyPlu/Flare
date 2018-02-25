@@ -17,7 +17,7 @@ user: User;
 
   ngOnInit(){
     this.getTinderUser();
-    this.getTinderUserV2();
+    //this.getTinderUserV2();
   }
 
   getTinderUser(){

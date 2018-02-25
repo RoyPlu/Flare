@@ -12,7 +12,7 @@ import { User } from '../models/user.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "86a88931-965b-434f-90bb-8dc0364be7eb";
+const X_AUTH_CODE = "6895f1b6-92db-4a98-9a2f-b872c76ebfb3";
 
 const X_AUTH_CODE_2 = "4bc85df5-b6a0-4ee3-a9af-7f62c219611e";
 
@@ -39,8 +39,6 @@ export class MessagesService {
         });
 
         console.log(page_token);
-
-        page_token = "MjAxOC0wMi0yNFQyMDo1NzowMy4wMTFa";
 
         if (page_token != null) {
             console.log(this.http.get(BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json()));
