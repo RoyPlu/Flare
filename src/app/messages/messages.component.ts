@@ -17,6 +17,8 @@ export class MessagesComponent implements OnInit {
     messages: string[];
     user: User;
 
+    browserTitle: string ="Messages";
+
   constructor(private titleService: Title, private route: ActivatedRoute, private messagesService: MessagesService, private service: TinderService ) { }
 
   ngOnInit(){
@@ -29,6 +31,7 @@ export class MessagesComponent implements OnInit {
 
     this.getMessages();
     this.getTinderUserV2();
+    this.setTitle(this.browserTitle);
   }
 
   getMessages(){
@@ -44,5 +47,9 @@ export class MessagesComponent implements OnInit {
       this.user = data.data.user;
     })
   }
+
+  setTitle(browserTitle: string){
+    this.titleService.setTitle( browserTitle );
+}
 
 }

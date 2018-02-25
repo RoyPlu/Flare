@@ -23,6 +23,8 @@ export class ProfilesComponent implements OnInit {
   superlikesCounter: number;
   superlikesReset: Date;
 
+  boostReset: Date;
+
   constructor(private service: TinderService) { }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class ProfilesComponent implements OnInit {
     this.getAgeFilter();
     this.getDistanceFilter();
     this.getSuperlikes();
+    this.getBoost();
   }
 
   getProfiles() {
@@ -148,6 +151,15 @@ export class ProfilesComponent implements OnInit {
       console.log(data.data.super_likes);
       this.superlikesCounter = data.data.super_likes.remaining;
       this.superlikesReset = data.data.super_likes.resets_at;
+    })
+  }
+
+  getBoost(){
+    this.service.getUserProfileV2().subscribe(data => {
+      console.log(data.data.boost);
+      this.boostReset = data.data.boost.resets_at;
+
+      console.log(this.boostReset);
     })
   }
 

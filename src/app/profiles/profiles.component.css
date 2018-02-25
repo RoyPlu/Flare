@@ -49,6 +49,7 @@
 .nameTag:hover {
     color: #646464;
 }
+
 .jobTag {
     text-decoration: none;
     cursor: pointer;
@@ -127,8 +128,27 @@ body {
 }
 
 .superlikesReset {
-    display: inline;
-    font-size: 50%;
+    display: inline-block;
+    font-size: 40%;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.superlikesReset img {
+    width: 20px;
+}
+
+.boostReset {
+    display: inline-block;
+    font-size: 40%;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.boostReset img {
+    width: 20px;
 }
 
 .superlikeCounter {

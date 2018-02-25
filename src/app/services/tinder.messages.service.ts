@@ -12,9 +12,9 @@ import { User } from '../models/user.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "a6569600-ee63-40ef-9e91-0b6d90b60631";
+const X_AUTH_CODE = "86a88931-965b-434f-90bb-8dc0364be7eb";
 
-const X_AUTH_CODE_2 = "90299a3c-f0bd-4422-8220-6d7b9c637f05";
+const X_AUTH_CODE_2 = "4bc85df5-b6a0-4ee3-a9af-7f62c219611e";
 
 const BASE_API_URL = "https://api.gotinder.com";
 const BASE_API_URL_v2 = "https://api.gotinder.com/v2";
