@@ -3,7 +3,7 @@
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
-    width: 300px;
+    width: 350px;
 }
 
 .user {
@@ -41,12 +41,6 @@
     display: inline-block;
 }
 
-.messageInput input {
-}
-
-.messageInput button {
-}
-
 .userIcon {
     width: 50px;
     border-radius: 50px;
@@ -59,4 +53,20 @@
     border-radius: 50px;
     float: left;
     margin: 10px;
+}
+
+.messageIcon {
+    width: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.userDateTag {
+    font-size: 60%;
+    float: right;
+}
+
+.profileDateTag {
+    font-size: 60%;
+    float: left;
 }

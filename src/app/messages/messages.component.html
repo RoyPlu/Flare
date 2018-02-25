@@ -1,3 +1,6 @@
+<h1 style="text-align: center">
+    <img class="messageIcon" [src]="profile.photos[0].url" />{{profile.name}}</h1>
+<hr style="width: 30%">
 <div>
     <div class="messageFrame">
         <div *ngFor="let message of messages, let i = index;">
@@ -6,9 +9,18 @@
                     <div>
                         <div *ngIf="message.from == user._id">
                             <img class="userIcon" [src]="user.photos[0].url" />
-                            <p>{{user.name}}</p>
+                            <h3>{{user.name}}
+                                <span class="userDateTag"> {{message.sent_date | date : 'd MMM y, HH:mm:ss' }}</span>
+                            </h3>
                         </div>
-                        <h4>{{message.message}}</h4>
+                        <div *ngIf='message.message.includes("https://media2.giphy.com/"); else normalMessage'>
+                            <iframe src="https://media2.giphy.com/media/26BGQb3tjtMeB1iMg/giphy.gif?width=480&height=269" width="300" height="300" class="giphy-embed" allowFullScreen></iframe>
+                            <h4>{{message.message}}</h4>
+                        </div>
+                        <ng-template #normalMessage>
+                                <h4>{{message.message}}</h4>
+                        </ng-template>
+
                     </div>
                 </div>
             </div>
@@ -16,9 +28,9 @@
                 <div class="messageCard profile" *ngIf="(i < 10)">
                     <div>
                         <div *ngIf="message.from == profile._id">
-                            <img src="" />
                             <img class="profileIcon" [src]="profile.photos[0].url" />
-                            <p>{{profile.name}}</p>
+                            <h3 class="profileNameTag">
+                                <span class="profileDateTag">{{message.sent_date | date : 'd MMM y, HH:mm:ss' }} </span> {{profile.name}}</h3>
                         </div>
                         <h4>{{message.message}}</h4>
                     </div>
