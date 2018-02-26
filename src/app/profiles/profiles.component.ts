@@ -126,7 +126,7 @@ export class ProfilesComponent implements OnInit {
       console.log("Changed age filter");
     })
 
-    window.location.reload();
+    //window.location.reload();
   }
 
   getDistanceFilter() {
@@ -143,7 +143,7 @@ export class ProfilesComponent implements OnInit {
       console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
     })
 
-    window.location.reload();
+    //window.location.reload();
   }
 
   getSuperlikes(){

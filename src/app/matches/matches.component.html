@@ -1,4 +1,6 @@
-<h1>Matches</h1>
+<h1>Matches
+    <span class="pageNumber">Page: {{pageNumber}}</span>
+</h1>
 <button class="btn-danger loadButton" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">

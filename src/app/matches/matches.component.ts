@@ -16,6 +16,8 @@ token: string = null;
 totalMatches: string[];
 totalMatchesNumber: number;
 
+pageNumber: number = 0;
+
   constructor(private service: TinderService) { }
 
   ngOnInit(){
@@ -29,6 +31,10 @@ totalMatchesNumber: number;
       console.log(data.data.matches);
       this.matches = data.data.matches;
       this.token = data.data.next_page_token;
+
+      this.pageNumber += 1;
+      
+      console.log(this.pageNumber);
       //console.log(this.token);
     })
 
