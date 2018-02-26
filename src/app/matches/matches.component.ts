@@ -13,10 +13,14 @@ export class MatchesComponent implements OnInit {
 matches: Match[];
 token: string = null;
 
+totalMatches: string[];
+totalMatchesNumber: number;
+
   constructor(private service: TinderService) { }
 
   ngOnInit(){
     this.getTinderMatches();
+    //this.getTotalAmountOfMatches();
     //this.getUpdates();
   }
 
@@ -56,6 +60,17 @@ token: string = null;
 
   scrollToTop(){
     window.scrollTo(0, 0);
+  }
+
+  getTotalAmountOfMatches(){
+    this.service.getTotalAmountOfMatches(this.token).subscribe(data => {
+      //console.log(data.data.matches);
+      this.totalMatches += data.data.matches;
+      this.totalMatchesNumber = this.totalMatches.length;
+      console.log(this.totalMatchesNumber);
+      this.token = data.data.next_page_token;
+      //console.log(this.token);
+    })
   }
 
 }
