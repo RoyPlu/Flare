@@ -16,6 +16,8 @@ const X_AUTH_CODE = "69f5d815-e818-4356-a05b-ef6e3eb3bdaa";
 
 const X_AUTH_CODE_2 = "97ced8dc-ae2e-44f4-aadb-e2c4d654eb17";
 
+const API_PROXY_URL = "http://localhost:8080/";
+
 const BASE_API_URL = "https://api.gotinder.com";
 const BASE_API_URL_v2 = "https://api.gotinder.com/v2";
 
@@ -39,7 +41,7 @@ export class TinderService {
         });
 
 
-        return this.http.get(BASE_API_URL + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", options).map(res => res.json());
+        return this.http.get(API_PROXY_URL + BASE_API_URL + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", options).map(res => res.json());
     }
 
     getUserProfileV2() {
@@ -56,7 +58,7 @@ export class TinderService {
         });
 
 
-        return this.http.get(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", options).map(res => res.json());
+        return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", options).map(res => res.json());
     }
 
     likeProfile(id: string, s_number: string) {
@@ -72,8 +74,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.get(BASE_API_URL + "/like" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json()));
-        return this.http.get(BASE_API_URL + "/like" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json());
+        console.log(this.http.get(API_PROXY_URL + BASE_API_URL + "/like" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json()));
+        return this.http.get(API_PROXY_URL + BASE_API_URL + "/like" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json());
     }
 
     superlikeProfile(id: string, s_number: string) {
@@ -89,8 +91,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.post(BASE_API_URL + "/like" + "/" + id + "/super" + "?locale=en" + "&s_number=" + s_number, null, options).map(res => res.json()));
-        return this.http.post(BASE_API_URL + "/like" + "/" + id + "/super" + "?locale=en" + "&s_number=" + s_number, null, options).map(res => res.json());
+        console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/like" + "/" + id + "/super" + "?locale=en" + "&s_number=" + s_number, null, options).map(res => res.json()));
+        return this.http.post(API_PROXY_URL + BASE_API_URL + "/like" + "/" + id + "/super" + "?locale=en" + "&s_number=" + s_number, null, options).map(res => res.json());
     }
 
     passProfile(id: string, s_number: string) {
@@ -106,8 +108,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.get(BASE_API_URL + "/pass" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json()));
-        return this.http.get(BASE_API_URL + "/pass" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json());
+        console.log(this.http.get(API_PROXY_URL + BASE_API_URL + "/pass" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json()));
+        return this.http.get(API_PROXY_URL + BASE_API_URL + "/pass" + "/" + id + "?locale=en" + "&" + s_number, options).map(res => res.json());
     }
 
     setAgeFilter(minAge: number, maxAge: number){
@@ -123,8 +125,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.post(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { age_filter_min: minAge, age_filter_max: maxAge } }, options).map(res => res.json()));
-        return this.http.post(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { age_filter_min: minAge, age_filter_max: maxAge } }, options).map(res => res.json());
+        console.log(this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { age_filter_min: minAge, age_filter_max: maxAge } }, options).map(res => res.json()));
+        return this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { age_filter_min: minAge, age_filter_max: maxAge } }, options).map(res => res.json());
     }
 
     setDistanceFilter(distance: number){
@@ -140,8 +142,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.post(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { distance_filter: distance } }, options).map(res => res.json()));
-        return this.http.post(BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { distance_filter: distance } }, options).map(res => res.json());
+        console.log(this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { distance_filter: distance } }, options).map(res => res.json()));
+        return this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?include=user%2Cplus_control%2Cboost%2Ctravel%2Ctutorials%2Cnotifications%2Cpurchase%2Cproducts%2Clikes%2Csuper_likes%2Cfacebook%2Cinstagram%2Cspotify%2Cselectl&locale=en", { user: { distance_filter: distance } }, options).map(res => res.json());
     }
 
     getUpdates() {
@@ -156,8 +158,8 @@ export class TinderService {
         });
 
         console.log("get updates");
-        console.log(this.http.post(BASE_API_URL + "/updates", options).map(res => res.json()));
-        return this.http.post(BASE_API_URL + "/updates", options).map(res => res.json());
+        console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/updates", options).map(res => res.json()));
+        return this.http.post(API_PROXY_URL + BASE_API_URL + "/updates", options).map(res => res.json());
     }
 
     getMatches(page_token: string) {
@@ -175,11 +177,11 @@ export class TinderService {
 
         console.log(page_token);
         if (page_token != null) {
-            console.log(this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json()));
-            return this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json());
+            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json()));
+            return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json());
         } else {
-            console.log(this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en", options).map(res => res.json()));
-            return this.http.get(BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en", options).map(res => res.json());
+            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en", options).map(res => res.json()));
+            return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=60" + "&locale=en", options).map(res => res.json());
         }
 
     }
@@ -208,11 +210,11 @@ export class TinderService {
 
         console.log(page_token);
         if (page_token != null) {
-            console.log(this.http.get(BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json()));
-            return this.http.get(BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json());
+            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json()));
+            return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json());
         } else {
-            console.log(this.http.get(BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en", options).map(res => res.json()));
-            return this.http.get(BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en", options).map(res => res.json());
+            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en", options).map(res => res.json()));
+            return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches" + "?count=100" + "&locale=en", options).map(res => res.json());
         }
 
     }
@@ -230,8 +232,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.delete(BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", options).map(res => res.json()));
-        return this.http.delete(BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", options).map(res => res.json());
+        console.log(this.http.delete(API_PROXY_URL + BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", options).map(res => res.json()));
+        return this.http.delete(API_PROXY_URL + BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", options).map(res => res.json());
     }
 
     enableSmartPhotos(profile: Profile) {
@@ -249,11 +251,11 @@ export class TinderService {
         console.log(profile.photo_optimizer_enabled);
 
         if (profile.photo_optimizer_enabled == true) {
-            console.log(this.http.post(BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: true } }, options));
-            return this.http.post(BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: true } }, options);
+            console.log(this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: true } }, options));
+            return this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: true } }, options);
         } else {
-            console.log(this.http.post(BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: false } }, options));
-            return this.http.post(BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: false } }, options);
+            console.log(this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: false } }, options));
+            return this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/profile" + "?locale=en", { user: { photo_optimizer_enabled: false } }, options);
         }
     }
 
@@ -304,8 +306,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.get(BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json()));
-        return this.http.get(BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json());
+        console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json()));
+        return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/recs/core?locale=en", options).map(res => res.json());
     }
 
     getProfile(id: string) {
@@ -321,8 +323,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.get(BASE_API_URL + "/user" + "/" + id, options).map(res => res.json()));
-        return this.http.get(BASE_API_URL + "/user" + "/" + id, options).map(res => res.json());
+        console.log(this.http.get(API_PROXY_URL + BASE_API_URL + "/user" + "/" + id, options).map(res => res.json()));
+        return this.http.get(API_PROXY_URL + BASE_API_URL + "/user" + "/" + id, options).map(res => res.json());
     }
 
     resetPassport(){
@@ -338,8 +340,8 @@ export class TinderService {
         });
 
 
-        console.log(this.http.post(BASE_API_URL + "/passport/user/reset", null, options).map(res => res.json()));
-        return this.http.post(BASE_API_URL + "/passport/user/reset", null, options).map(res => res.json());
+        console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/passport/user/reset", null, options).map(res => res.json()));
+        return this.http.post(API_PROXY_URL + BASE_API_URL + "/passport/user/reset", null, options).map(res => res.json());
     }
 
     changePassportLocation(latitude: number, longitude: number){
@@ -355,7 +357,7 @@ export class TinderService {
         });
 
 
-        console.log(this.http.post(BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json()));
-        return this.http.post(BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json());
+        console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json()));
+        return this.http.post(API_PROXY_URL + BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json());
     }
 }
