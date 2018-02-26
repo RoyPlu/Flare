@@ -47,9 +47,10 @@ export class ProfilesComponent implements OnInit {
   seePossibleMatches(distance: number) {
     this.service.setDistanceFilter(distance).subscribe(data => {
       console.log("Changed distance filter to see possible matches");
+
     })
+
     this.distance_filter = distance;
-    window.location.reload();
   }
 
   openImage(url: string){
@@ -126,6 +127,7 @@ export class ProfilesComponent implements OnInit {
       console.log("Changed age filter");
     })
 
+    this.getProfiles();
     //window.location.reload();
   }
 
@@ -143,6 +145,7 @@ export class ProfilesComponent implements OnInit {
       console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
     })
 
+    this.getProfiles();
     //window.location.reload();
   }
 
@@ -160,6 +163,12 @@ export class ProfilesComponent implements OnInit {
       this.boostReset = data.data.boost.resets_at;
 
       console.log(this.boostReset);
+    })
+  }
+
+  enableBoost(){
+    this.service.enableBoost().subscribe(data => {
+      console.log(data);
     })
   }
 

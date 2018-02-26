@@ -1,6 +1,6 @@
 <h1>New Profiles
     <p class="superlikesReset"><img class="hvr-bob" src="assets/tinder_super_like_star.png"> resets at: {{ superlikesReset | date : 'HH:mm:ss' }}</p>
-    <p class="boostReset"><img class="hvr-bob" src="assets/tinder_boost_icon.png"> resets at: {{ boostReset | date : 'd MMM y, HH:mm:ss' }}</p>
+    <p class="boostReset"><a (click)="enableBoost()" title="Enable Boost"><img class="hvr-bob" src="assets/tinder_boost_icon.png"></a> resets at: {{ boostReset | date : 'd MMM y, HH:mm:ss' }}</p>
 </h1>
 <span class="input-group">
     <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="1"

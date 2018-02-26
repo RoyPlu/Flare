@@ -12,9 +12,9 @@ import { User } from '../models/user.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "b6d4e433-de19-4964-9e01-809dd669743e";
+const X_AUTH_CODE = "69f5d815-e818-4356-a05b-ef6e3eb3bdaa";
 
-const X_AUTH_CODE_2 = "69f5d815-e818-4356-a05b-ef6e3eb3bdaa";
+const X_AUTH_CODE_2 = "b6d4e433-de19-4964-9e01-809dd669743e";
 
 const API_PROXY_URL = "http://localhost:8080/";
 
@@ -359,5 +359,22 @@ export class TinderService {
 
         console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json()));
         return this.http.post(API_PROXY_URL + BASE_API_URL + "/passport/user/travel", { lat: latitude , lon: longitude}, options).map(res => res.json());
+    }
+
+    enableBoost(){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/boost" + "?locale=en", {} ,options).map(res => res.json()));
+        return this.http.post(API_PROXY_URL + BASE_API_URL + "/boost" + "?locale=en", {} ,options).map(res => res.json());
     }
 }
