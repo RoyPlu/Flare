@@ -8,9 +8,9 @@ Flare is a full-fledged Tinder web client made in Angular with extra features su
 I haven't provided a Facebook login system (yet), so you'll have to login on Tinder's own online client, open the developer console with F12, go to the network tab, refresh the main page, and look for an API call containing the word "profile", in here (on the Headers tab) you should find an x-auth-token in the Request Headers section. Take this token and paste it into the constant variable "X_AUTH_CODE" in all the service files in the folder "services/..." You should be logged in now once you run the development server.
 
 ## CORS 
-This application requires the use of a cross-origin resource sharing addon for your browser, this is necessary to add the 'Allow-Control-Allow-Origin: *' response header to every request. I recommend using this one: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
+This application requires the use of cross-origin resource sharing. I have included the proxy server needed to apply CORS. This is necessary to add the appropriate response header to every request going to the external Tinder API.
 
-Will fix this once I have a stable front-end build so I can build a back-end to handle all the API calls
+This proxy server needs to run before you run the main application. To run the server go to the "proxy-server" directory and in that directory run the command "node server.js".
 
 # Features
 (these are subject to change)
