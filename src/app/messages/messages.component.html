@@ -17,9 +17,8 @@
                                 <span class="userDateTag"> {{message.sent_date | date : 'd MMM y, HH:mm:ss' }}</span>
                             </h3>
                         </div>
-                        <div *ngIf='message.message.includes("https://media2.giphy.com/"); else normalMessage'>
-                            <iframe src="https://media2.giphy.com/media/26BGQb3tjtMeB1iMg/giphy.gif?width=480&height=269" width="300" height="300" class="giphy-embed"
-                                allowFullScreen></iframe>
+                        <div *ngIf='message.message.includes("giphy.com"); else normalMessage'>
+                            <img class="gifImage" [src]='message.message'>
                         </div>
                         <ng-template #normalMessage>
                             <h4>{{message.message}}</h4>
@@ -36,7 +35,12 @@
                             <h3 class="profileNameTag">
                                 <span class="profileDateTag">{{message.sent_date | date : 'd MMM y, HH:mm:ss' }} </span> {{profile.name}}</h3>
                         </div>
-                        <h4>{{message.message}}</h4>
+                        <div *ngIf='message.message.includes("giphy.com"); else normalMessage'>
+                            <img class="gifImage" [src]="message.message">
+                        </div>
+                        <ng-template #normalMessage>
+                            <h4>{{message.message}}</h4>
+                        </ng-template>
                     </div>
                 </div>
             </div>
