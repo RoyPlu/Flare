@@ -26,7 +26,9 @@ export class MessagesComponent implements OnInit {
 
     messageInput: string = "";
 
-  constructor(private titleService: Title, private route: ActivatedRoute, private messagesService: MessagesService, private service: TinderService ) { }
+  constructor(private titleService: Title, private route: ActivatedRoute, private messagesService: MessagesService, private service: TinderService ) {
+    setInterval(() => { this.getMessages(); }, 5000);
+   }
 
   ngOnInit(){
     this.route.params.subscribe(params => {
@@ -42,7 +44,11 @@ export class MessagesComponent implements OnInit {
     this.getTinderUserV2();
     this.getProfile(this.profileId);
     this.scrollToBottom();
+
+    
   }
+
+  
 
   getMessages(){
     this.messagesService.getMessages(this.id, "").subscribe(data => {
@@ -94,5 +100,7 @@ sendMessage(message: string, userId: string ){
 scrollToBottom() {
   window.frameElement.scrollIntoView(false);
 }
+
+
 
 }
