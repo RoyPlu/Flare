@@ -12,9 +12,9 @@ import { User } from '../models/user.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "69f5d815-e818-4356-a05b-ef6e3eb3bdaa";
+const X_AUTH_CODE = "b6d4e433-de19-4964-9e01-809dd669743e";
 
-const X_AUTH_CODE_2 = "97ced8dc-ae2e-44f4-aadb-e2c4d654eb17";
+const X_AUTH_CODE_2 = "69f5d815-e818-4356-a05b-ef6e3eb3bdaa";
 
 const API_PROXY_URL = "http://localhost:8080/";
 

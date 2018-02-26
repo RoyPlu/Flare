@@ -61,9 +61,9 @@ body {
     position: relative;
     opacity: 0.8;
     top: 5px;
-    left: 125px;
-    min-width: 50px;
-    width: 50px;
+    left: 150px;
+    min-width: 25px;
+    width: 25px;
     color: red;
     border-radius: 5px;
     background: rgba(255, 0, 0, 0.5);
@@ -75,7 +75,7 @@ body {
 
 @media screen and (max-width: 1900px) {
     .deleteIcon img {
-      left: 68px;
+      left: 93px;
     }
   }
 
