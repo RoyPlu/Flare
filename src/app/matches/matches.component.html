@@ -4,7 +4,7 @@
 <button class="btn-danger loadButton" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">
-    <a class="deleteIcon" title="Unmatch" (click)="deleteTinderMatch(matches[i].id); removeFromList(matches[i], 'Deleted match')">
+    <a class="deleteIcon" title="Unmatch (double click)" (dblclick)="deleteTinderMatch(matches[i].id); removeFromList(matches[i], 'Deleted match')">
         <img src="assets/close_icon.png" />
     </a>
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
