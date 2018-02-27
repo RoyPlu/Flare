@@ -48,7 +48,7 @@
         </a>
     </div>
     <div class="clear">
-        <button class="btn btn-danger messageButton" [routerLink]="['../messages', matches[i]._id, matches[i].person._id]">Message</button>
+        <a class="messageButton btn" target="_blank" [routerLink]="['../messages', matches[i]._id, matches[i].person._id]">Message</a>
         <br />
         <div *ngIf="matches[i].is_super_like; then superlike"></div>
         <div *ngIf="matches[i].is_boost_match; then boostMatch"></div>
@@ -63,7 +63,7 @@
             <ng-template #fastMatch>
                 <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
             </ng-template>
-            <a class="nameTag" [routerLink]="['../profile', matches[i].person._id]">{{matches[i].person.name}}, {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</a>
+            <a class="nameTag" target="_blank" [routerLink]="['../profile', matches[i].person._id]">{{matches[i].person.name}}, {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</a>
         </h2>
         <p>{{matches[i].person.bio}}</p>
         <div class="lastMessage" *ngIf="matches[i].messages[0] != null">

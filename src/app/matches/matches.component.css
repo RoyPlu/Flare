@@ -37,7 +37,19 @@
 }
 
 .messageButton {
-    margin-top: 10px;
+    margin-top: -10px;
+    padding-top: 20px;
+    background-color: rgb(206, 0, 0);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid rgb(20, 20, 20);
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.messageButton:hover {
+    background-color: rgb(177, 0, 0);
 }
 
 .clear {

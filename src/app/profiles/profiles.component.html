@@ -71,7 +71,7 @@
             </button>
             <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')"><img class="likeIcon" src="assets/tinder_like_icon.png"></button>
         </div>
-        <a class="nameTag" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
+        <a class="nameTag" target="_blank" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
             data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
             <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
         </a>
