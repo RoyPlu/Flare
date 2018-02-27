@@ -47,13 +47,17 @@ export class ProfilesComponent implements OnInit {
   seePossibleMatches(distance: number) {
     this.service.setDistanceFilter(distance).subscribe(data => {
       console.log("Changed distance filter to see possible matches");
-
+      this.distance_filter = distance;
     })
 
-    this.distance_filter = distance;
+    setTimeout(() => {
+      this.getProfiles();
+    },
+      1000);
+
   }
 
-  openImage(url: string){
+  openImage(url: string) {
     window.open(url);
   }
 
@@ -149,7 +153,7 @@ export class ProfilesComponent implements OnInit {
     //window.location.reload();
   }
 
-  getSuperlikes(){
+  getSuperlikes() {
     this.service.getUserProfileV2().subscribe(data => {
       console.log(data.data.super_likes);
       this.superlikesCounter = data.data.super_likes.remaining;
@@ -157,7 +161,7 @@ export class ProfilesComponent implements OnInit {
     })
   }
 
-  getBoost(){
+  getBoost() {
     this.service.getUserProfileV2().subscribe(data => {
       console.log(data.data.boost);
       this.boostReset = data.data.boost.resets_at;
@@ -166,13 +170,13 @@ export class ProfilesComponent implements OnInit {
     })
   }
 
-  enableBoost(){
+  enableBoost() {
     this.service.enableBoost().subscribe(data => {
       console.log(data);
     })
   }
 
-  lowerSuperlikes(superlike: number){
+  lowerSuperlikes(superlike: number) {
     this.superlikesCounter = this.superlikesCounter - 1;
   }
 
