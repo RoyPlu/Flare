@@ -131,7 +131,11 @@ export class ProfilesComponent implements OnInit {
       console.log("Changed age filter");
     })
 
-    this.getProfiles();
+    setTimeout(() => {
+      this.getProfiles();
+    },
+      1000);
+
     //window.location.reload();
   }
 
@@ -149,7 +153,10 @@ export class ProfilesComponent implements OnInit {
       console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
     })
 
-    this.getProfiles();
+    setTimeout(() => {
+      this.getProfiles();
+    },
+      1000);
     //window.location.reload();
   }
 
