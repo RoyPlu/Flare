@@ -20,6 +20,7 @@ import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesService } from './services/tinder.messages.service';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { MessagesService } from './services/tinder.messages.service';
     AboutComponent,
     ProfileComponent,
     MessagesComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
