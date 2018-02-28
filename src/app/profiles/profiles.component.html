@@ -14,7 +14,7 @@
     <input class="distanceInput form-control" type="number" [(ngModel)]="autolikeTime" value="{{autolikeTime}}" min="1"
         max="1000">
     <span class="input-group-btn" style="width:0;">
-        <button class="btn btn-primary" id="autolikeButton" style="margin-left: 4px;" onclick="this.disabled=true; stopAutolikeButton.disabled = false" (click)="autolikeProfiles(profiles[0].user._id, profiles[0].s_number)">Autolike every {{autolikeTime}} seconds</button>
+        <button class="btn btn-success" id="autolikeButton" style="margin-left: 4px;" onclick="this.disabled=true; stopAutolikeButton.disabled = false" (click)="autolikeProfiles(profiles[0].user._id, profiles[0].s_number)">Autolike every {{autolikeTime}} seconds</button>
         <button class="btn btn-danger" id="stopAutolikeButton" style="margin-left: 4px;" onclick="autolikeButton.disabled=false; this.disabled = true" (click)="stopAutolikeProfiles()" disabled>Stop Autolike</button>
     </span>
 </span>
