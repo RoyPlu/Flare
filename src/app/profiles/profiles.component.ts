@@ -25,6 +25,9 @@ export class ProfilesComponent implements OnInit {
 
   boostReset: Date;
 
+  autolikeTime: number = 5;
+  autolikeId;
+
   constructor(private service: TinderService) { }
 
   ngOnInit() {
@@ -116,6 +119,19 @@ export class ProfilesComponent implements OnInit {
     console.log(status);
     let index = this.profiles.indexOf(profile);
     this.profiles.splice(index, 1)
+  }
+
+  autolikeProfiles(id: string, s_number: string) {
+    this.autolikeId = setInterval(() => {
+      console.log("autoliked: " + id)
+      this.likeTinderProfile(id, s_number);
+      this.profiles.splice(0, 1);
+    }, this.autolikeTime * 1000);
+
+  }
+
+  stopAutolikeProfiles(){
+    clearInterval(this.autolikeId);
   }
 
   getAgeFilter() {

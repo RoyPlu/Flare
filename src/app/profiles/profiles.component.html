@@ -10,6 +10,14 @@
         <button class="btn btn-success" style="margin-left: 4px;" (click)="seePossibleMatches(1)">Possible Matches</button>
     </span>
 </span>
+<span class="input-group" style="float: right">
+    <input class="distanceInput form-control" type="number" [(ngModel)]="autolikeTime" value="{{autolikeTime}}" min="1"
+        max="1000">
+    <span class="input-group-btn" style="width:0;">
+        <button class="btn btn-primary" id="autolikeButton" style="margin-left: 4px;" onclick="this.disabled=true; stopAutolikeButton.disabled = false" (click)="autolikeProfiles(profiles[0].user._id, profiles[0].s_number)">Autolike every {{autolikeTime}} seconds</button>
+        <button class="btn btn-danger" id="stopAutolikeButton" style="margin-left: 4px;" onclick="autolikeButton.disabled=false; this.disabled = true" (click)="stopAutolikeProfiles()" disabled>Stop Autolike</button>
+    </span>
+</span>
 <span class="input-group">
     <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_min" value="{{age_filter_min}}" min="18" max="1000">
     <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_max" value="{{age_filter_max}}" min="18" max="1000">
