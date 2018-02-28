@@ -122,15 +122,23 @@ export class ProfilesComponent implements OnInit {
   }
 
   autolikeProfiles(id: string, s_number: string) {
-    this.autolikeId = setInterval(() => {
-      console.log("autoliked: " + id)
-      this.likeTinderProfile(id, s_number);
-      this.profiles.splice(0, 1);
-    }, this.autolikeTime * 1000);
 
+    if (this.autolikeTime < 1) {
+      this.autolikeId = setInterval(() => {
+        console.log("autoliked: " + id)
+        this.likeTinderProfile(id, s_number);
+        this.profiles.splice(0, 1);
+      }, 1000);
+    } else {
+      this.autolikeId = setInterval(() => {
+        console.log("autoliked: " + id)
+        this.likeTinderProfile(id, s_number);
+        this.profiles.splice(0, 1);
+      }, this.autolikeTime * 1000);
+    }
   }
 
-  stopAutolikeProfiles(){
+  stopAutolikeProfiles() {
     clearInterval(this.autolikeId);
   }
 
