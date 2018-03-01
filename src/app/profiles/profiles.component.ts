@@ -28,6 +28,8 @@ export class ProfilesComponent implements OnInit {
   autolikeTime: number = 5;
   autolikeId;
 
+  loadingIndicator;
+
   constructor(private service: TinderService) { }
 
   ngOnInit() {
@@ -36,18 +38,28 @@ export class ProfilesComponent implements OnInit {
     this.getDistanceFilter();
     this.getSuperlikes();
     this.getBoost();
+
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
   }
 
   getProfiles() {
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.getProfiles().subscribe(data => {
       console.log(data.data.results);
       this.profiles = data.data.results;
     })
 
     this.scrollToTop();
+
+    setTimeout(() => {
+      this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
+    },
+      1500);
+
   }
 
   seePossibleMatches(distance: number) {
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setDistanceFilter(distance).subscribe(data => {
       console.log("Changed distance filter to see possible matches");
       this.distance_filter = distance;
@@ -122,7 +134,7 @@ export class ProfilesComponent implements OnInit {
   }
 
   autolikeProfiles(id: string, s_number: string) {
-
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     if (this.autolikeTime < 1) {
       this.autolikeId = setInterval(() => {
         console.log("autoliked: " + id)
@@ -140,6 +152,7 @@ export class ProfilesComponent implements OnInit {
 
   stopAutolikeProfiles() {
     clearInterval(this.autolikeId);
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
   }
 
   getAgeFilter() {
@@ -151,9 +164,15 @@ export class ProfilesComponent implements OnInit {
   }
 
   setAgeFilter() {
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setAgeFilter(this.age_filter_min, this.age_filter_max).subscribe(data => {
       console.log("Changed age filter");
     })
+
+    setTimeout(() => {
+      this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
+    },
+      1500);
 
     setTimeout(() => {
       this.getProfiles();
@@ -172,10 +191,16 @@ export class ProfilesComponent implements OnInit {
   }
 
   setDistanceFilter() {
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setDistanceFilter(this.distance_filter).subscribe(data => {
       console.log("Changed distance filter (in miles): " + this.distance_filter);
       console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
     })
+
+    setTimeout(() => {
+      this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
+    },
+      1500);
 
     setTimeout(() => {
       this.getProfiles();

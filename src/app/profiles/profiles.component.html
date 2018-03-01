@@ -1,6 +1,10 @@
-<h1>New Profiles
-    <p class="superlikesReset"><img class="hvr-bob" src="assets/tinder_super_like_star.png"> resets at: {{ superlikesReset | date : 'HH:mm:ss' }}</p>
-    <p class="boostReset"><a (click)="enableBoost()" title="Enable Boost"><img class="hvr-bob" src="assets/tinder_boost_icon.png"></a> resets at: {{ boostReset | date : 'd MMM y, HH:mm:ss' }}</p>
+<h1>New Profiles <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+    <p class="superlikesReset">
+        <img class="hvr-bob" src="assets/tinder_super_like_star.png"> resets at: {{ superlikesReset | date : 'HH:mm:ss' }}</p>
+    <p class="boostReset">
+        <a (click)="enableBoost()" title="Enable Boost">
+            <img class="hvr-bob" src="assets/tinder_boost_icon.png">
+        </a> resets at: {{ boostReset | date : 'd MMM y, HH:mm:ss' }}</p>
 </h1>
 <span class="input-group">
     <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="1"
@@ -11,11 +15,12 @@
     </span>
 </span>
 <span class="input-group" style="float: right">
-    <input class="distanceInput form-control" type="number" [(ngModel)]="autolikeTime" value="{{autolikeTime}}" min="1"
-        max="1000">
+    <input class="distanceInput form-control" type="number" [(ngModel)]="autolikeTime" value="{{autolikeTime}}" min="1" max="1000">
     <span class="input-group-btn" style="width:0;">
-        <button class="btn btn-success" id="autolikeButton" style="margin-left: 4px;" onclick="this.disabled=true; stopAutolikeButton.disabled = false" (click)="autolikeProfiles(profiles[0].user._id, profiles[0].s_number)">Autolike every {{autolikeTime}} seconds</button>
-        <button class="btn btn-danger" id="stopAutolikeButton" style="margin-left: 4px;" onclick="autolikeButton.disabled=false; this.disabled = true" (click)="stopAutolikeProfiles()" disabled>Stop Autolike</button>
+        <button class="btn btn-success" id="autolikeButton" style="margin-left: 4px;" onclick="this.disabled=true; stopAutolikeButton.disabled = false"
+            (click)="autolikeProfiles(profiles[0].user._id, profiles[0].s_number)">Autolike every {{autolikeTime}} seconds</button>
+        <button class="btn btn-danger" id="stopAutolikeButton" style="margin-left: 4px;" onclick="autolikeButton.disabled=false; this.disabled = true"
+            (click)="stopAutolikeProfiles()" disabled>Stop Autolike</button>
     </span>
 </span>
 <span class="input-group">
@@ -70,14 +75,18 @@
     </div>
     <div class="clear">
         <div class="matchButtons">
-            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')"><img class="passIcon" src="assets/tinder_pass_icon.png"></button>
+            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">
+                <img class="passIcon" src="assets/tinder_pass_icon.png">
+            </button>
             <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
                 <div class="hvr-bob">
                     <img class="superlikeButton" src="assets/tinder_super_like_star.png">
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>
                 </div>
             </button>
-            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')"><img class="likeIcon" src="assets/tinder_like_icon.png"></button>
+            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">
+                <img class="likeIcon" src="assets/tinder_like_icon.png">
+            </button>
         </div>
         <a class="nameTag" target="_blank" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
             data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
