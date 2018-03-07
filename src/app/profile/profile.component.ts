@@ -55,6 +55,10 @@ export class ProfileComponent implements OnInit {
       window.open('https://www.facebook.com/search/people/?q=' + name + '%20' + school);
     }
 
+    findOnInstagram(username: string) {
+      window.open('https://www.instagram.com/' + username);
+    }
+
     setTitle(browserTitle: string){
         this.titleService.setTitle( browserTitle );
     }
