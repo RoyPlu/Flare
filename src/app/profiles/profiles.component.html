@@ -10,16 +10,16 @@
     <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="1"
         max="1000">
     <span class="input-group-btn" style="width:0;">
-        <button class="btn btn-danger" (click)="setDistanceFilter()">Change distance filter</button>
-        <button class="btn btn-success" style="margin-left: 4px;" (click)="seePossibleMatches(1)">Possible Matches</button>
+        <button class="btn btn-danger tinderGradient" (click)="setDistanceFilter()">Change distance filter</button>
+        <button class="btn btn-success greenGradient" style="margin-left: 4px;" (click)="seePossibleMatches(1)">Possible Matches</button>
     </span>
 </span>
 <span class="input-group" style="float: right">
     <input class="distanceInput form-control" type="number" [(ngModel)]="autolikeTime" value="{{autolikeTime}}" min="1" max="1000">
     <span class="input-group-btn" style="width:0;">
-        <button class="btn btn-success" id="autolikeButton" style="margin-left: 4px;" onclick="this.disabled=true; stopAutolikeButton.disabled = false"
+        <button class="btn btn-success greenGradient" id="autolikeButton" style="margin-left: 4px;" onclick="this.disabled=true; stopAutolikeButton.disabled = false"
             (click)="autolikeProfiles(profiles[0].user._id, profiles[0].s_number)">Autolike every {{autolikeTime}} seconds</button>
-        <button class="btn btn-danger" id="stopAutolikeButton" style="margin-left: 4px;" onclick="autolikeButton.disabled=false; this.disabled = true"
+        <button class="btn btn-danger tinderGradient" id="stopAutolikeButton" style="margin-left: 4px;" onclick="autolikeButton.disabled=false; this.disabled = true"
             (click)="stopAutolikeProfiles()" disabled>Stop Autolike</button>
     </span>
 </span>
@@ -27,10 +27,10 @@
     <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_min" value="{{age_filter_min}}" min="18" max="1000">
     <input class="ageInput form-control" type="number" [(ngModel)]="age_filter_max" value="{{age_filter_max}}" min="18" max="1000">
     <span class="input-group-btn" style="width:0;">
-        <button class="btn btn-danger" (click)="setAgeFilter()">Change age filter</button>
+        <button class="btn btn-danger tinderGradient" (click)="setAgeFilter()">Change age filter</button>
     </span>
 </span>
-<button class="btn-danger loadButton" (click)="getProfiles()">Load more profiles</button>
+<button class="btn btn-danger loadButton tinderGradient" (click)="getProfiles()">Load more profiles</button>
 <hr>
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
@@ -75,16 +75,16 @@
     </div>
     <div class="clear">
         <div class="matchButtons">
-            <button class="btn-danger passButton buttonBorders" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">
+            <button class="btn-danger passButton buttonBorders tinderGradient" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">
                 <img class="passIcon" src="assets/tinder_pass_icon.png">
             </button>
-            <button class="btn-primary superlikeButton buttonBorders" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
+            <button class="btn-primary superlikeButton buttonBorders blueGradient" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
                 <div class="hvr-bob">
-                    <img class="superlikeButton" src="assets/tinder_super_like_star.png">
+                    <img class="superlikeButton superlikeBorder" src="assets/tinder_super_like_star.png">
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>
                 </div>
             </button>
-            <button class="btn-success likeButton buttonBorders" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">
+            <button class="btn-success likeButton buttonBorders greenGradient" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">
                 <img class="likeIcon" src="assets/tinder_like_icon.png">
             </button>
         </div>

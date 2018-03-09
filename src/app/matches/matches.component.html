@@ -1,7 +1,7 @@
 <h1>Matches
     <span class="pageNumber">Page: {{pageNumber}}</span>
 </h1>
-<button class="btn-danger loadButton" (click)="getTinderMatches()">Load next page of matches</button>
+<button class="btn btn-danger loadButton tinderGradient" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">
     <a class="deleteIcon" title="Unmatch (double click)" (dblclick)="deleteTinderMatch(matches[i].id); removeFromList(matches[i], 'Deleted match')">
@@ -48,7 +48,7 @@
         </a>
     </div>
     <div class="clear">
-        <a class="messageButton btn" target="_blank" [routerLink]="['../messages', matches[i]._id, matches[i].person._id]">Message</a>
+        <a class="messageButton btn tinderGradient" target="_blank" [routerLink]="['../messages', matches[i]._id, matches[i].person._id]">Message</a>
         <br />
         <div *ngIf="matches[i].is_super_like; then superlike"></div>
         <div *ngIf="matches[i].is_boost_match; then boostMatch"></div>
