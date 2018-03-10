@@ -1,5 +1,6 @@
 <h1>Matches
     <span class="pageNumber">Page: {{pageNumber}}</span>
+    <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
 </h1>
 <button class="btn btn-danger loadButton tinderGradient" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
@@ -10,7 +11,8 @@
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of matches[i].person.photos, let j = index; let isFirst=first" [class.active]="isFirst"></li>
+            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                *ngFor="let photo of matches[i].person.photos, let j = index; let isFirst=first" [class.active]="isFirst"></li>
         </ol>
 
         <!-- Wrapper for slides -->

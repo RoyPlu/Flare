@@ -18,15 +18,20 @@ totalMatchesNumber: number;
 
 pageNumber: number = 0;
 
+loadingIndicator;
+
   constructor(private service: TinderService) { }
 
   ngOnInit(){
     this.getTinderMatches();
     //this.getTotalAmountOfMatches();
     //this.getUpdates();
+
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
   }
 
   getTinderMatches(){
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.getMatches(this.token).subscribe(data => {
       console.log(data.data.matches);
       this.matches = data.data.matches;
@@ -39,6 +44,11 @@ pageNumber: number = 0;
     })
 
     this.scrollToTop();
+
+    setTimeout(() => {
+      this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
+    },
+      1500);
   }
 
   deleteTinderMatch(id: string){
