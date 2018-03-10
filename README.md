@@ -1,4 +1,4 @@
-# Tinder-Angular ![alt text](https://cdn4.iconfinder.com/data/icons/social-media-pro-icons/1080/Tinder-01-128.png "Flare - Tinder Client")
+# Flare ![alt text](https://i.imgur.com/UdhMhNL.png "Flare - Tinder Client")
 
 Flare is a full-fledged Tinder web client made in Angular with extra features such as the ability to see profile picture success rate (If Smart Photos is enabled), See possible matches, Search profile on Facebook/Instagram, an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
 
@@ -58,6 +58,8 @@ This proxy server needs to run before you run the main application. To run the s
 
 ## Face detection (experimental)
 - input for images to detect specific face attributes and emotions such as age, gender, happiness, anger, etc...
+
+
 
 # Default Angular commands
 
