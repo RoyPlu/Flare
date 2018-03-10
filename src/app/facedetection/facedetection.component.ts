@@ -11,7 +11,7 @@ export class FaceDetectionComponent implements OnInit {
 
 faceDetect: string[];
 
-imageURL: string = "http://dreamicus.com/data/face/face-02.jpg";
+imageURL: string = "";
 
   constructor(private service: TinderService) { }
 
@@ -30,6 +30,10 @@ imageURL: string = "http://dreamicus.com/data/face/face-02.jpg";
 
       this.faceDetect = data;
     })
+  }
+
+  clearFaceDetection(){
+    this.imageURL = "";
   }
 
 }
