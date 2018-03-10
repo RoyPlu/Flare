@@ -34,25 +34,15 @@
 <hr>
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
+        
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li [attr.data-target]="'#myCarousel' + i" data-slide-to="0" class="active indicatorColor"></li>
-            <li [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of profiles[i].user.photos, let j = index;"></li>
+            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active matchesPic">
-                <img (click)="openImage(profiles[i].user.photos[0].url)" class="matchesPic" [src]="profiles[i].user.photos[0].url">
-                <div class="carousel-caption">
-                    <div *ngIf="profiles[i].user.photos[0].successRate != null; then successrate"></div>
-                    <ng-template #successrate>
-                        <h4>Success rate: {{profiles[i].user.photos[0].successRate | number : '1.2-4'}}</h4>
-                    </ng-template>
-                </div>
-            </div>
-
-            <div class="item" *ngFor="let photo of profiles[i].user.photos, let j = index;">
+            <div class="item matchesPic" *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst">
                 <img (click)="openImage(profiles[i].user.photos[j].url)" class="matchesPic" [src]="profiles[i].user.photos[j].url">
                 <div class="carousel-caption">
                     <div *ngIf="profiles[i].user.photos[j].successRate != null; then successrate"></div>
