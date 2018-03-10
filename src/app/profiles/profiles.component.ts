@@ -73,7 +73,7 @@ export class ProfilesComponent implements OnInit {
   }
 
   openImage(url: string) {
-    window.open(url);
+    window.open(url, "Project Flare", "menubar=no,location=no,resizable=no,scrollbars=no,status=yes,width=750,height=750");
   }
 
   getProfile(id: string) {
