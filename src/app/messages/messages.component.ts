@@ -44,8 +44,6 @@ export class MessagesComponent implements OnInit {
     this.getTinderUserV2();
     this.getProfile(this.profileId);
     this.scrollToBottom();
-
-    
   }
 
   
@@ -98,7 +96,7 @@ sendMessage(message: string, userId: string ){
 }
 
 scrollToBottom() {
-  window.frameElement.scrollIntoView(false);
+  window.scrollTo(0, 1000);
 }
 
 

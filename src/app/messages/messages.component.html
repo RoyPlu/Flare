@@ -9,7 +9,7 @@
     <div class="messageFrame">
         <div *ngFor="let message of messages, let i = index;">
             <div *ngIf="message.from == user._id">
-                <div class="messageCard user" *ngIf="(i < 10)">
+                <div class="messageCard user blueGradient" *ngIf="(i < 10)">
                     <div>
                         <div *ngIf="message.from == user._id">
                             <img class="userIcon" [src]="user.photos[0].url" />
@@ -28,12 +28,14 @@
                 </div>
             </div>
             <div *ngIf="message.from == profile._id">
-                <div class="messageCard profile" *ngIf="(i < 10)">
+                <div class="messageCard profile tinderGradient" *ngIf="(i < 10)">
                     <div>
                         <div *ngIf="message.from == profile._id">
                             <img class="profileIcon" [src]="profile.photos[0].url" />
                             <h3 class="profileNameTag">
-                                <span class="profileDateTag">{{message.sent_date | date : 'd MMM y, HH:mm:ss' }} </span> {{profile.name}}</h3>
+                                <span class="profileDateTag">{{message.sent_date | date : 'd MMM y, HH:mm:ss' }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp; {{profile.name}}
+                            </h3>
                         </div>
                         <div *ngIf='message.message.includes("giphy.com"); else normalMessage'>
                             <img class="gifImage" [src]="message.message">
@@ -48,9 +50,9 @@
     </div>
     <div class="messageInput">
         <span class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="messageInput"/>
+            <input style="height: 42px;" type="text" class="form-control" [(ngModel)]="messageInput" />
             <span class="input-group-btn">
-                <button class="btn btn-danger" (click)="sendMessage(messageInput, user._id)">Send</button>
+                <button class="btn btn-primary blueGradient" (click)="sendMessage(messageInput, user._id)"><i style="font-size: 23px;" class="material-icons">send</i></button>
             </span>
         </span>
     </div>
