@@ -1,6 +1,8 @@
-# Flare ![alt text](https://i.imgur.com/UdhMhNL.png "Flare - Tinder Client")
+# Project Flare ![alt text](https://i.imgur.com/UdhMhNL.png "Project Flare logo")
 
-Flare is a full-fledged Tinder web client made in Angular with extra features such as the ability to see profile picture success rate (If Smart Photos is enabled), See possible matches, Search profile on Facebook/Instagram, an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
+Project Flare is a full-fledged Tinder web client made in Angular with extra features such as the ability to see profile picture success rate (If Smart Photos is enabled), See possible matches, Search profile on Facebook/Instagram, an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
+
+![alt text](https://i.imgur.com/7iMZrfA.jpg?1 "Project Flare")
 
 # Required
 
