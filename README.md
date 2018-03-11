@@ -1,4 +1,10 @@
-# Project Flare ![alt text](https://i.imgur.com/UdhMhNL.png "Project Flare logo")
+<h1 align="center">
+  <br>
+  <img src="https://i.imgur.com/r3mT7Sz.png" alt="Project Flare" width="200">
+  <br>
+  Project Flare
+  <br>
+</h1>
 
 Project Flare is a full-fledged Tinder web client made in Angular with extra features such as the ability to see profile picture success rate (If Smart Photos is enabled), See possible matches, Search profile on Facebook/Instagram, an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
 
