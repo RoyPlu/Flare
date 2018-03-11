@@ -21,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesService } from './services/tinder.messages.service';
 import { LoginComponent } from './login/login.component';
+import { ProfileLocationComponent } from './profilelocation/profilelocation.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { LoginComponent } from './login/login.component';
     ProfileComponent,
     MessagesComponent,
     LoginComponent,
+    ProfileLocationComponent,
   ],
   imports: [
     BrowserModule,

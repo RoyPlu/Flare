@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { AgmMap } from '@agm/core';
 import { TinderService } from '../services/tinder.service';
 import { Profile } from '../models/profile.model';
 
@@ -9,6 +9,9 @@ import { Profile } from '../models/profile.model';
   styleUrls: ['./profiles.component.css']
 })
 export class ProfilesComponent implements OnInit {
+
+  @ViewChild(AgmMap)
+  public agmMap: AgmMap
 
   exampleStringArray: string[] = null;
   profiles: Profile[];
@@ -33,6 +36,7 @@ export class ProfilesComponent implements OnInit {
   constructor(private service: TinderService) { }
 
   ngOnInit() {
+
     this.getProfiles();
     this.getAgeFilter();
     this.getDistanceFilter();

@@ -1,4 +1,5 @@
-<h1>New Profiles <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+<h1>New Profiles
+    <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
     <p class="superlikesReset">
         <img class="hvr-bob" src="assets/tinder_super_like_star.png"> resets at: {{ superlikesReset | date : 'HH:mm:ss' }}</p>
     <p class="boostReset">
@@ -33,11 +34,15 @@
 <button class="btn btn-danger loadButton tinderGradient" (click)="getProfiles()">Load more profiles</button>
 <hr>
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
+    <a class="locationIcon" [attr.data-target]="'#profileLocation' + i" data-toggle="collapse">
+            <img class="blueGradient" src="assets/small_black_marker.png" />
+    </a>
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
-        
+
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst"></li>
+            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -99,5 +104,8 @@
             <p class="possibleMatch">Possible Match</p>
         </ng-template>
         <p>{{profiles[i].user.bio}}</p>
+        <div style="z-index: 200" id="profileLocation{{i}}" class="collapse">
+            <app-profilelocation [distanceFromUser]="profiles[i].distance_mi"></app-profilelocation>
+        </div>
     </div>
 </div>

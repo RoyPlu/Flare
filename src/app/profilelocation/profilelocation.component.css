@@ -1,0 +1,13 @@
+.profileMap {
+    z-index: 200;
+}
+
+agm-map {
+    height: 300px;
+    width: auto;
+  }
+
+.blueGradient {
+    background-image:  linear-gradient(262deg, #00b2df, #0078da);
+    border: 0px;
+}
