@@ -30,6 +30,7 @@ This proxy server needs to run before you run the main application. To run the s
 - All profile information (Name, age, bio, distance)
 - Change distance & age filters
 - Possible matches feature
+- Approximate location feature
 - Fullscreen profile images
 - See the success rate of other people's pictures
 - Open a separate profile window to Like/Pass/Superlike this specific profile when you want
