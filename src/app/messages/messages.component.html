@@ -33,8 +33,8 @@
                         <div *ngIf="message.from == profile._id">
                             <img class="profileIcon" [src]="profile.photos[0].url" />
                             <h3 class="profileNameTag">
-                                <span class="profileDateTag">{{message.sent_date | date : 'd MMM y, HH:mm:ss' }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp; {{profile.name}}
+                                <span class="profileDateTag">{{message.sent_date | date : 'd MMM y, HH:mm:ss' }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                &nbsp; {{profile.name}}
                             </h3>
                         </div>
                         <div *ngIf='message.message.includes("giphy.com"); else normalMessage'>

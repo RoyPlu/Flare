@@ -1,16 +1,26 @@
 <h1>Passport</h1>
 <hr>
 <h3>lat: {{lat}}, lon: {{lon}}
-    <span *ngIf="is_traveling == true; else nottraveling">| User is traveling <i class="material-icons">airplanemode_active</i></span>
-    <span><ng-template #nottraveling>| User is not traveling <i class="material-icons">airplanemode_inactive</i></ng-template></span>
+    <span *ngIf="is_traveling == true; else nottraveling">| User is traveling
+        <i class="material-icons">airplanemode_active</i>
+    </span>
+    <span>
+        <ng-template #nottraveling>| User is not traveling
+            <i class="material-icons">airplanemode_inactive</i>
+        </ng-template>
+    </span>
 </h3>
 <h4>{{cityName}} {{countryName}}</h4>
-<agm-map [latitude]='lat' [longitude]='lon' [gestureHandling]="greedy" (mapClick)="placeMarker($event)">
-    <agm-marker [latitude]='lat' [longitude]='lon'></agm-marker>
+<agm-map [backgroundColor]="''" [streetViewControl]="false" [zoom]="10" [disableDefaultUI]="true" [latitude]='lat' [longitude]='lon' [gestureHandling]="'greedy'" (mapClick)="placeMarker($event)">
+    <agm-marker [latitude]='lat' [longitude]='lon' [opacity]="0.9" [iconUrl]="'assets/flare_tinder_logo_small.png'"></agm-marker>
+    
+    <agm-circle [latitude]="lat" [longitude]="lon" [radius]="distance_filter" [fillColor]="'grey'" [fillOpacity]="0.25" [strokeOpacity]="0.5"
+        [strokeColor]="'red'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false" [editable]="false" [clickable]="false"
+        [zIndex]="103"></agm-circle>
 </agm-map>
 <div style="margin: 5px;">
-<button class="btn btn-danger tinderGradient" (click)="changeTinderPassportLocation()">Set travel location</button>
-<button class="btn btn-danger tinderGradient" (click)="resetTinderPassport()">Reset travel location</button>
-<button class="btn btn-primary blueGradient" (click)="getUserLocation()">Get user location</button>
-<button class="btn btn-primary blueGradient" (click)="getUserTravelLocation()">Get travel location (if using Passport travel)</button>
+    <button class="btn btn-danger tinderGradient" (click)="changeTinderPassportLocation()">Set travel location</button>
+    <button class="btn btn-danger tinderGradient" (click)="resetTinderPassport()">Reset travel location</button>
+    <button class="btn btn-primary blueGradient" (click)="getUserLocation()">Get user location</button>
+    <button class="btn btn-primary blueGradient" (click)="getUserTravelLocation()">Get travel location (if using Passport travel)</button>
 </div>

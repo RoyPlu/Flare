@@ -11,6 +11,7 @@ export class FaceDetectionComponent implements OnInit {
 
 faceDetect: string[];
 
+
 imageURL: string = "";
 
   constructor(private service: TinderService) { }
