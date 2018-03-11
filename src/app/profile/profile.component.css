@@ -224,3 +224,36 @@ img.superlikeButton {
     background-image:  linear-gradient(262deg, #00b2df, #0078da);
     border: 0px;
 }
+
+.locationIcon {
+    position: absolute;
+    z-index: 99;
+}
+.locationIcon img {
+    position: relative;
+    opacity: 0.8;
+    top: 5px;
+    right: 290px;
+    min-width: 25px;
+    width: 35px;
+    color: red;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1850px) {
+    .locationIcon img {
+      right: 240px;
+    }
+  }
+
+@media screen and (max-width: 1550px) {
+    .locationIcon img {
+      right: 200px;
+    }
+  }
+
+@media screen and (max-width: 1300px) {
+    .locationIcon img {
+      right: 165px;
+    }
+  }

@@ -64,7 +64,7 @@ export class PassportComponent implements OnInit {
       this.lon = data.pos.lon;
       this.countryName = data.pos_info.country.name;
       this.cityName = null;
-      this.distance_filter = (data.distance_filter * 1000);
+      this.distance_filter = (data.distance_filter * 1000 * 1.609344);
     })
   }
 

@@ -1,4 +1,7 @@
 <div class="profileCard">
+        <a class="locationIcon" data-target="#profileLocation" data-toggle="collapse">
+                <img class="blueGradient" src="assets/small_black_marker.png" />
+        </a>
     <div id="myCarousel" class="carousel slide center" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -49,6 +52,8 @@
         </div>
         <h4 class="distanceTag">{{profile.distance_mi * 1.609344 | number : '1.1-1'}} km | {{profile.distance_mi}} miles</h4>
         <p>{{profile.bio}}</p>
-
+        <div style="z-index: 200" id="profileLocation" class="collapse">
+                <app-profilelocation [distanceFromUser]="profile.distance_mi"></app-profilelocation>
+            </div>
     </div>
 </div>

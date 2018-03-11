@@ -2,7 +2,7 @@
     <button class="btn btn-primary blueGradient" (click)="refreshMap()">Refresh</button>
     <agm-map [latitude]='lat' [longitude]='lon'>
         <agm-marker [latitude]='lat' [longitude]='lon' [opacity]="0.9" [iconUrl]="'assets/flare_tinder_favicon.ico'"></agm-marker>
-        <agm-circle [latitude]="lat" [longitude]="lon" [radius]="distanceFromUser * 1000" [fillColor]="'grey'" [fillOpacity]="0.25"
+        <agm-circle [latitude]="lat" [longitude]="lon" [radius]="distanceFromUser * 1000 * 1.609344" [fillColor]="'grey'" [fillOpacity]="0.25"
             [strokeOpacity]="0.5" [strokeColor]="'red'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false"
             [editable]="false" [clickable]="false" [zIndex]="103"></agm-circle>
     </agm-map>
