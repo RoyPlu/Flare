@@ -24,11 +24,21 @@ export class PassportComponent implements OnInit {
 
   ngOnInit() {
     this.getUserTraveling();
-    this.getUserLocation();
-    //this.getUserTravelLocation();
+
+    setTimeout(() => {
+      if (this.is_traveling == true) {
+        this.getUserTravelLocation();
+      } else {
+        this.getUserLocation();
+      }
+    },
+      1000);
+    
+
+
   }
 
-  getUserTraveling(){
+  getUserTraveling() {
     this.service.getUserProfileV2().subscribe(data => {
       console.log(data);
       this.is_traveling = data.data.travel.is_traveling;
@@ -47,7 +57,7 @@ export class PassportComponent implements OnInit {
 
         this.cityName = data.data.travel.travel_location_info[0].locality.long_name;
         this.countryName = data.data.travel.travel_location_info[0].country.long_name;
-
+        this.distance_filter = (data.data.user.distance_filter * 1000 * 1.609344);
         console.log(this.countryName);
 
       } else {
@@ -74,6 +84,8 @@ export class PassportComponent implements OnInit {
 
     this.lat = $event.coords.lat;
     this.lon = $event.coords.lng;
+
+    this.distance_filter = 0;
   }
 
   resetTinderPassport() {
@@ -90,6 +102,7 @@ export class PassportComponent implements OnInit {
     this.service.changePassportLocation(this.lat, this.lon).subscribe(data => {
       console.log(data);
     })
+
 
     this.is_traveling = true;
   }

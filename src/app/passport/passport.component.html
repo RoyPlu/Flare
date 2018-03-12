@@ -12,7 +12,7 @@
 </h3>
 <h4>{{cityName}} {{countryName}}</h4>
 <agm-map [backgroundColor]="''" [streetViewControl]="false" [zoom]="10" [disableDefaultUI]="true" [latitude]='lat' [longitude]='lon' [gestureHandling]="'greedy'" (mapClick)="placeMarker($event)">
-    <agm-marker [latitude]='lat' [longitude]='lon' [opacity]="0.9" [iconUrl]="'assets/flare_tinder_logo_small.png'"></agm-marker>
+    <agm-marker [latitude]='lat' [longitude]='lon' [opacity]="0.9" [iconUrl]="'assets/flare_map_marker_icon.ico'"></agm-marker>
     
     <agm-circle [latitude]="lat" [longitude]="lon" [radius]="distance_filter" [fillColor]="'grey'" [fillOpacity]="0.25" [strokeOpacity]="0.5"
         [strokeColor]="'red'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false" [editable]="false" [clickable]="false"
