@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { AgmMap } from '@agm/core';
 import { TinderService } from '../services/tinder.service';
 import { Profile } from '../models/profile.model';
+import { Match } from '../models/match.model';
 
 // jQuery Sign $
 declare let $: any;
@@ -20,6 +21,9 @@ export class ProfilesComponent implements OnInit {
   profiles: Profile[];
   profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
   matchStatus: string = null;
+
+
+  match = { _id: "123", participants: ["0", "1"] } //: Match = new Match("12345", this.exampleStringArray);
 
   age_filter_min: number;
   age_filter_max: number;
@@ -104,6 +108,8 @@ export class ProfilesComponent implements OnInit {
   likeTinderProfile(id: string, s_number: string, photoUrl:string ) {
     this.service.likeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
+      this.match = data.match;
+
       if (data.match.following == true) {
         this.matchStatus = "Yes!";
         console.log("Match!")
