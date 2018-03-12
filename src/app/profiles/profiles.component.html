@@ -33,10 +33,12 @@
 </span>
 <button class="btn btn-danger loadButton tinderGradient" (click)="getProfiles()">Load more profiles</button>
 <hr>
+
+
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
-    <a class="locationIcon" [attr.data-target]="'#profileLocation' + i" data-toggle="collapse">
-            <img class="blueGradient" src="assets/small_black_marker.png" />
-    </a>
+    <!-- <a class="locationIcon" data-toggle="modal" data-target="#matchModal">
+        <img class="blueGradient" src="assets/small_black_marker.png" />
+    </a> -->
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
 
         <!-- Indicators -->
@@ -73,13 +75,13 @@
             <button class="btn-danger passButton buttonBorders tinderGradient" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">
                 <img class="passIcon" src="assets/tinder_pass_icon.png">
             </button>
-            <button class="btn-primary superlikeButton buttonBorders blueGradient" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
+            <button class="btn-primary superlikeButton buttonBorders blueGradient" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
                 <div class="hvr-bob">
                     <img class="superlikeButton superlikeBorder" src="assets/tinder_super_like_star.png">
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>
                 </div>
             </button>
-            <button class="btn-success likeButton buttonBorders greenGradient" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'liked')">
+            <button class="btn-success likeButton buttonBorders greenGradient" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'liked')">
                 <img class="likeIcon" src="assets/tinder_like_icon.png">
             </button>
         </div>
@@ -107,5 +109,23 @@
         <div style="z-index: 200" id="profileLocation{{i}}" class="collapse">
             <!-- <app-profilelocation [distanceFromUser]="profiles[i].distance_mi"></app-profilelocation> -->
         </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="matchModal" role="dialog" #matchModal>
+    <div class="modal-dialog designModal">
+
+        <!-- Modal content-->
+        <div style="background-color: rgba(255, 255, 255, 0.8);" class="modal-content centerModal">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <img class="modalMatchImage" src="assets/its-a-match-transparent.png">
+                <br>
+                <br>
+                <img id="modalProfileImage" class="modalProfileImage" src="" />
+            </div>
+        </div>
+
     </div>
 </div>

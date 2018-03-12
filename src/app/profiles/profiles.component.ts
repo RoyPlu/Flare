@@ -1,7 +1,10 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { AgmMap } from '@agm/core';
 import { TinderService } from '../services/tinder.service';
 import { Profile } from '../models/profile.model';
+
+// jQuery Sign $
+declare let $: any;
 
 @Component({
   selector: 'app-profiles',
@@ -32,6 +35,8 @@ export class ProfilesComponent implements OnInit {
   autolikeId;
 
   loadingIndicator;
+
+  @ViewChild('matchModal') matchModal:ElementRef;
 
   constructor(private service: TinderService) { }
 
@@ -96,12 +101,16 @@ export class ProfilesComponent implements OnInit {
     window.open('https://www.instagram.com/' + username);
   }
 
-  likeTinderProfile(id: string, s_number: string) {
+  likeTinderProfile(id: string, s_number: string, photoUrl:string ) {
     this.service.likeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
       if (data.match.following == true) {
         this.matchStatus = "Yes!";
         this.playNotification();
+
+        $(this.matchModal.nativeElement).modal('show');
+
+        document.getElementById("modalProfileImage").setAttribute('src', photoUrl);
       } else {
         this.matchStatus = "No";
       }
@@ -118,12 +127,14 @@ export class ProfilesComponent implements OnInit {
     })
   }
 
-  superlikeTinderProfile(id: string, s_number: string) {
+  superlikeTinderProfile(id: string, s_number: string, photoUrl: string) {
     this.service.superlikeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
       if (data.match == true) {
         this.matchStatus = "Yes!";
         this.playNotification();
+        $(this.matchModal.nativeElement).modal('show');
+        document.getElementById("modalProfileImage").setAttribute('src', photoUrl);
       } else {
         this.matchStatus = "No";
       }
@@ -142,13 +153,13 @@ export class ProfilesComponent implements OnInit {
     if (this.autolikeTime < 1) {
       this.autolikeId = setInterval(() => {
         console.log("autoliked: " + id)
-        this.likeTinderProfile(id, s_number);
+        this.likeTinderProfile(id, s_number, "noImage");
         this.profiles.splice(0, 1);
       }, 1000);
     } else {
       this.autolikeId = setInterval(() => {
         console.log("autoliked: " + id)
-        this.likeTinderProfile(id, s_number);
+        this.likeTinderProfile(id, s_number, "noImage");
         this.profiles.splice(0, 1);
       }, this.autolikeTime * 1000);
     }

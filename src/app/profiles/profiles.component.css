@@ -356,3 +356,20 @@ loadingVisible {
       right: 115px;
     }
   }
+
+.centerModal {
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.modalMatchImage {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+.modalProfileImage {
+    width: 300px;
+    border-radius: 50%;
+}
