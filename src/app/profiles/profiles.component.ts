@@ -106,12 +106,14 @@ export class ProfilesComponent implements OnInit {
       console.log(data.match);
       if (data.match.following == true) {
         this.matchStatus = "Yes!";
+        console.log("Match!")
         this.playNotification();
 
         $(this.matchModal.nativeElement).modal('show');
 
         document.getElementById("modalProfileImage").setAttribute('src', photoUrl);
       } else {
+        console.log("No match")
         this.matchStatus = "No";
       }
 
@@ -148,18 +150,18 @@ export class ProfilesComponent implements OnInit {
     this.profiles.splice(index, 1)
   }
 
-  autolikeProfiles(id: string, s_number: string) {
+  autolikeProfiles(id: string, s_number: string, photoUrl: string) {
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     if (this.autolikeTime < 1) {
       this.autolikeId = setInterval(() => {
         console.log("autoliked: " + id)
-        this.likeTinderProfile(id, s_number, "noImage");
+        this.likeTinderProfile(id, s_number, photoUrl);
         this.profiles.splice(0, 1);
       }, 1000);
     } else {
       this.autolikeId = setInterval(() => {
         console.log("autoliked: " + id)
-        this.likeTinderProfile(id, s_number, "noImage");
+        this.likeTinderProfile(id, s_number, photoUrl);
         this.profiles.splice(0, 1);
       }, this.autolikeTime * 1000);
     }
