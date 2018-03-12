@@ -52,6 +52,8 @@ export class ProfilesComponent implements OnInit {
     this.getSuperlikes();
     this.getBoost();
 
+    this.match.participants[1]="123";
+
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
   }
 
