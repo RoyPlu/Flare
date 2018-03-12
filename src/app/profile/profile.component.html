@@ -1,20 +1,41 @@
 <div class="profileCard">
-        <a class="locationIcon" data-target="#profileLocation" data-toggle="collapse">
-                <img class="blueGradient" src="assets/small_black_marker.png" />
-        </a>
+    <a class="locationIcon" data-target="#profileLocation" data-toggle="collapse">
+        <img class="blueGradient" src="assets/small_black_marker.png" />
+    </a>
     <div id="myCarousel" class="carousel slide center" data-ride="carousel">
         <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst"></li>
-        </ol>
+        <div *ngIf='profile.instagram != null; else carouselNoInstagram'>
+            <ol class="carousel-indicators">
+                <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                    *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst"></li>
+                <li style="width: 20px; margin-left: 2px; margin-right: 2px; background-image: linear-gradient(262deg, #00b2df, #0078da)"
+                    [attr.data-target]="'#myCarousel' + k" [attr.data-slide-to]="k" *ngFor='let photo of profile.instagram.photos | slice:0; let k = index;'></li>
+            </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item" *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst">
-                <img [src]="profile.photos[j].url">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item" *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst">
+                    <img [src]="profile.photos[j].url">
+                </div>
+
+                <div class="item" *ngFor="let photo of profile.instagram.photos | slice:0; let k = index;">
+                    <img [src]="profile.instagram.photos[k].image">
+                </div>
             </div>
-
         </div>
+        <ng-template #carouselNoInstagram>
+            <ol class="carousel-indicators">
+                <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                    *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item" *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst">
+                    <img [src]="profile.photos[j].url">
+                </div>
+            </div>
+        </ng-template>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -27,14 +48,18 @@
     </div>
     <div class="clear">
         <div class="matchButtons">
-            <button class="btn-danger passButton buttonBorders tinderGradient" (click)="passTinderProfile();"><img class="passIcon" src="assets/tinder_pass_icon.png"></button>
+            <button class="btn-danger passButton buttonBorders tinderGradient" (click)="passTinderProfile();">
+                <img class="passIcon" src="assets/tinder_pass_icon.png">
+            </button>
             <button class="btn-primary superlikeButton buttonBorders blueGradient" (click)="superlikeTinderProfile(); lowerSuperlikes(superlikesCounter)">
                 <div class="hvr-bob">
                     <img class="superlikeButton superlikeBorder" src="assets/tinder_super_like_star.png">
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>
                 </div>
             </button>
-            <button class="btn-success likeButton buttonBorders greenGradient" (click)="likeTinderProfile();"><img class="likeIcon" src="assets/tinder_like_icon.png"></button>
+            <button class="btn-success likeButton buttonBorders greenGradient" (click)="likeTinderProfile();">
+                <img class="likeIcon" src="assets/tinder_like_icon.png">
+            </button>
         </div>
         <h1 class="nameTag">{{profile.name}}</h1>
         <a class="jobTag" (click)="findOnFacebook(profile.name, profile.schools[0].name)">
@@ -53,7 +78,7 @@
         <h4 class="distanceTag">{{profile.distance_mi * 1.609344 | number : '1.1-1'}} km | {{profile.distance_mi}} miles</h4>
         <p>{{profile.bio}}</p>
         <div style="z-index: 200" id="profileLocation" class="collapse">
-                <app-profilelocation [distanceFromUser]="profile.distance_mi"></app-profilelocation>
-            </div>
+            <app-profilelocation [distanceFromUser]="profile.distance_mi"></app-profilelocation>
+        </div>
     </div>
 </div>
