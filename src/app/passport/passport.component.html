@@ -45,6 +45,6 @@
     </h2>
     <hr>
     <div>
-        <span *ngFor="let location of popularLocations; let i = index;"><button style="margin: 5px;" class="btn btn-primary blueGradient" (click)="setLatLon(location.lat, location.lon)">{{location.locality.long_name}}</button></span>
+        <span *ngFor="let location of popularLocations; let i = index;"><button style="margin: 5px;" class="btn btn-primary greenGradient" (click)="setLatLon(location.lat, location.lon)">{{location.locality.long_name}}</button></span>
     </div>
 </div>

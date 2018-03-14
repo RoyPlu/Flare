@@ -9,10 +9,7 @@ import { $ } from 'protractor';
 import { Match } from '../models/match.model';
 import { User } from '../models/user.model';
 
-const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
-const USER_ID = "100000954286974";
-
-const X_AUTH_CODE = "a2a31939-37cb-4fd2-ab9d-524b321df554";
+const X_AUTH_CODE = localStorage.getItem('x-auth-token');
 
 const X_AUTH_CODE_2 = "b6d4e433-de19-4964-9e01-809dd669743e";
 
@@ -43,12 +40,10 @@ export class TinderService {
         return this.http.get(API_PROXY_URL + BASE_API_URL + "/profile", options).map(res => res.json());
     }
 
-    facebookLogin(fb_token, fb_user_id){
+    TinderLogin(fb_token){
         const headers = new Headers({
-            'Access-Control-Allow-Origin': '*',
             'Content-type': 'application/json',
-            'x-auth-token': X_AUTH_CODE,
-            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36',
         });
 
         const options = new RequestOptions({
@@ -56,7 +51,7 @@ export class TinderService {
         });
 
 
-        return this.http.post(API_PROXY_URL + BASE_API_URL + "/auth", {"facebook_token": fb_token, "facebook_id": fb_user_id} ,options).map(res => res.json());
+        return this.http.post(API_PROXY_URL + BASE_API_URL_v2 + "/auth" + "/login" + "/facebook" + "?locale=en", {"token": fb_token} ,options).map(res => res.json());
     }
 
 

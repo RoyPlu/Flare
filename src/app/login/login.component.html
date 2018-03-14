@@ -1,2 +1,33 @@
-<a href="https://www.facebook.com/v2.6/dialog/oauth?redirect_uri=fb464891386855067%3A%2F%2Fauthorize%2F&state=%7B%22challenge%22%3A%22q1WMwhvSfbWHvd8xz5PT6lk6eoA%253D%22%2C%220_auth_logger_id%22%3A%2254783C22-558A-4E54-A1EE-BB9E357CC11F%22%2C%22com.facebook.sdk_client_state%22%3Atrue%2C%223_method%22%3A%22sfvc_auth%22%7D&scope=user_birthday%2Cuser_photos%2Cuser_education_history%2Cemail%2Cuser_relationship_details%2Cuser_friends%2Cuser_work_history%2Cuser_likes&response_type=token%2Csigned_request&default_audience=friends&return_scopes=true&auth_type=rerequest&client_id=464891386855067&ret=login&sdk=ios&logger_id=54783C22-558A-4E54-A1EE-BB9E357CC11F#_=">Test</a>
-<button (click)="facebookLogin()"></button>
+<div class="container">
+    <h1 style="text-align: center">Login</h1>
+    <hr style="width: 20%">
+    <div class="login">
+        <div class="facebookLogin">
+            <h2>Step 1</h2>
+            <h4>Click the button below to open the Facebook authentication dialog</h4>
+            <button class="btn btn-primary blueGradient" (click)="facebookLogin()">Facebook Login</button>
+        </div>
+        <br>
+        <div>
+            <h2>Step 2</h2>
+            <h4>You will see a dialog that says you have already authorized Tinder. At this point, open your browser’s developer
+                tools. (Cmd + Option + I on Mac) or (F12, Ctrl + Shift + I on Windows) or right click the page anywhere and
+                select 'Inspect'. Switch to the 'Network' tab in your developer tools window. Your dev tools window should
+                look like the image below.</h4>
+        </div>
+        <br>
+        <div>
+                <h2>Step 3</h2>
+                <h4>Press the 'Okay' button on the Tinder dialog, and you will see some activity in the Network tab.
+                        In the Network tab, locate the new 'confirm?dpr=1' entry, and right click it.
+                        Select the 'Copy Response' option from the context menu like in the image below.</h4>
+            </div>
+            <br>
+            <div>
+                    <h2>Step 4</h2>
+                    <h4>After copying the response, paste it into the text field below, press the 'Submit' button, and your Facebook access token will be parsed from the response. then your Tinder auth token will be fetched and will log you into Flare.</h4>
+                </div>
+        <input class="form-control" type="text" [(ngModel)]="facebook_token" />
+        <button class="btn btn-primary blueGradient" (click)="getTinderAuthToken()">Submit</button>
+    </div>
+</div>

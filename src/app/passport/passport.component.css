@@ -11,3 +11,8 @@ agm-map {
     background-image:  linear-gradient(262deg, #00b2df, #0078da);
     border: 0px;
 }
+
+.greenGradient {
+    background-image:  linear-gradient(140deg, #6cda6c, #47a047);
+    border: 0px;
+}
