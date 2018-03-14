@@ -10,12 +10,7 @@ Project Flare is a full-fledged Tinder web client made in Angular with extra fea
 
 ![alt text](https://i.imgur.com/7iMZrfA.jpg?1 "Project Flare")
 
-<div align="center" style="vertical-align: middle; margin: 10px;">
-<img src="https://i.imgur.com/PjMqCAj.png" alt="Match" width="400">
-<img src="https://i.imgur.com/ZyBmVLF.png" alt="Messages" width="400">
-<img src="https://i.imgur.com/t5Hq1gV.jpg" alt="Matches" width="400">
-<img src="https://i.imgur.com/YH2HioR.png" alt="Passport" width="400">
-</div>
+![alt text](https://i.imgur.com/BAFfQlL.jpg "Project Flare")
 
 # Features
 (these are subject to change)
