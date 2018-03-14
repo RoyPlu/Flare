@@ -5,20 +5,16 @@
   Project Flare
   <br>
 </h1>
+<p align="center">
+<img src="https://i.imgur.com/PjMqCAj.png" alt="Match" width="400">
+<img src="https://i.imgur.com/ZyBmVLF.png" alt="Messages" width="400">
+<img src="https://i.imgur.com/t5Hq1gV.jpg" alt="Matches" width="400">
+<img src="https://i.imgur.com/YH2HioR.png" alt="Passport" width="400">
+</p>
 
-Project Flare is a full-fledged Tinder web client made in Angular with extra features such as the ability to see profile picture success rate (If Smart Photos is enabled), See possible matches, Search profile on Facebook/Instagram, an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
+Project Flare is a full-fledged Tinder web client made in Angular with extra features such as the ability to see profile picture success rate (If Smart Photos is enabled), see possible matches, search profile on Facebook/Instagram, change location without Tinder plus, see a person's approximate location, an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
 
 ![alt text](https://i.imgur.com/7iMZrfA.jpg?1 "Project Flare")
-
-# Required
-
-## X-Auth-Code
-I haven't provided a Facebook login system (yet), so you'll have to login on Tinder's own online client, open the developer console with F12, go to the network tab, refresh the main page, and look for an API call containing the word "profile", in here (on the Headers tab) you should find an x-auth-token in the Request Headers section. Take this token and paste it into the constant variable "X_AUTH_CODE" in all the service files in the folder "services/..." You should be logged in now once you run the development server.
-
-## CORS 
-This application requires the use of cross-origin resource sharing. I have included the proxy server needed to apply CORS. This is necessary to add the appropriate response header to every request going to the external Tinder API.
-
-This proxy server needs to run before you run the main application. To run the server go to the "proxy-server" directory and in that directory run the command "node server.js".
 
 # Features
 (these are subject to change)
@@ -43,15 +39,18 @@ This proxy server needs to run before you run the main application. To run the s
 - Facebook search (if job or school is mentioned in profile)
 - Instagram search (if Instagram is linked)
 - Superlike/Boost countdown feature to see when your superlikes/boost get refreshed
+- Enable Boost
 
 #### (Planned features coming soon) 
 - Ability to see if someone superliked you before matching
-- Enable boost
 
 ## Matches
 - Unmatch feature
 - See last sent message
 - Ability to see if a match is a Superlike/Fast(Tinder Gold)/Boost match
+
+#### (Planned features coming soon)
+- Tinder Gold matches
 
 ## Messages
 - Send messages like in the app (Only last 10 sent messages are visible for now)
@@ -62,14 +61,20 @@ This proxy server needs to run before you run the main application. To run the s
 
 ## Passport (Must have Tinder Plus/Gold)
 - Change your location to anywhere on the world map
-- See your actual location & your location you're traveling to
+- Change travel location
+- See your actual location & the location you're traveling to
 - Reset travel location
+- Popular locations
 
 ## Face detection (experimental)
 - input for images to detect specific face attributes and emotions such as age, gender, happiness, anger, etc...
 
 
+# How to use
 
+### Run the command `ng serve -o` in the main directory of this project. Follow the instructions on screen to log in.
+#
+#
 # Default Angular commands
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
