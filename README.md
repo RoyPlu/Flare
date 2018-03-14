@@ -12,6 +12,8 @@ Project Flare is a full-fledged Tinder web client made in Angular with extra fea
 
 ![alt text](https://i.imgur.com/BAFfQlL.jpg "Project Flare")
 
+![alt text](https://i.imgur.com/KlzgLeP.png "Project Flare")
+
 # Features
 (these are subject to change)
 ## User
