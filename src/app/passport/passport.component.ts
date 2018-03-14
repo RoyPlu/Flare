@@ -98,6 +98,18 @@ export class PassportComponent implements OnInit {
     this.getUserLocation();
   }
 
+  setUserLocation() {
+    this.service.setUserLocation(this.lat, this.lon).subscribe(data => {
+      console.log(data);
+    })
+
+    setTimeout(() => {
+      this.getUserLocation();
+    },
+      1000);
+    
+  }
+
   changeTinderPassportLocation() {
     this.service.changePassportLocation(this.lat, this.lon).subscribe(data => {
       console.log(data);
@@ -105,6 +117,12 @@ export class PassportComponent implements OnInit {
 
 
     this.is_traveling = true;
+    
+    setTimeout(() => {
+      this.getUserTravelLocation();
+    },
+      1000);
+    
   }
 
 }
