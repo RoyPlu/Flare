@@ -5,16 +5,17 @@
   Project Flare
   <br>
 </h1>
-<p align="center">
-<img src="https://i.imgur.com/PjMqCAj.png" alt="Match" width="400">
-<img src="https://i.imgur.com/ZyBmVLF.png" alt="Messages" width="400">
-<img src="https://i.imgur.com/t5Hq1gV.jpg" alt="Matches" width="400">
-<img src="https://i.imgur.com/YH2HioR.png" alt="Passport" width="400">
-</p>
 
 Project Flare is a full-fledged Tinder web client made in Angular with extra features such as the ability to see profile picture success rate (If Smart Photos is enabled), see possible matches, search profile on Facebook/Instagram, change location without Tinder plus, see a person's approximate location, an input for images to detect specific face attributes and emotions such as age, gender, happiness, etc...
 
 ![alt text](https://i.imgur.com/7iMZrfA.jpg?1 "Project Flare")
+
+<div align="center" style="vertical-align: middle; margin: 10px;">
+<img src="https://i.imgur.com/PjMqCAj.png" alt="Match" width="400">
+<img src="https://i.imgur.com/ZyBmVLF.png" alt="Messages" width="400">
+<img src="https://i.imgur.com/t5Hq1gV.jpg" alt="Matches" width="400">
+<img src="https://i.imgur.com/YH2HioR.png" alt="Passport" width="400">
+</div>
 
 # Features
 (these are subject to change)
