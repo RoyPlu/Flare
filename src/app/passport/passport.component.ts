@@ -20,6 +20,8 @@ export class PassportComponent implements OnInit {
 
   distance_filter: number;
 
+  popularLocations;
+
   constructor(private service: TinderService) { }
 
   ngOnInit() {
@@ -33,7 +35,8 @@ export class PassportComponent implements OnInit {
       }
     },
       1000);
-    
+
+    this.getPopularLocations();
 
 
   }
@@ -107,7 +110,7 @@ export class PassportComponent implements OnInit {
       this.getUserLocation();
     },
       1000);
-    
+
   }
 
   changeTinderPassportLocation() {
@@ -117,12 +120,26 @@ export class PassportComponent implements OnInit {
 
 
     this.is_traveling = true;
-    
+
     setTimeout(() => {
       this.getUserTravelLocation();
     },
       1000);
-    
+
+  }
+
+  getPopularLocations() {
+    this.service.getPopularLocations().subscribe(data => {
+      console.log(data.results);
+
+      this.popularLocations = data.results;
+
+    })
+  }
+
+  setLatLon(lat: number, lon: number){
+    this.lat = lat;
+    this.lon = lon;
   }
 
 }

@@ -11,16 +11,19 @@
     </span>
 </h3>
 <h4>{{cityName}} {{countryName}}</h4>
-<agm-map [backgroundColor]="''" [streetViewControl]="false" [zoom]="10" [disableDefaultUI]="true" [latitude]='lat' [longitude]='lon'
-    [gestureHandling]="'greedy'" (mapClick)="placeMarker($event)">
-    <agm-marker [latitude]='lat' [longitude]='lon' [opacity]="0.9" [iconUrl]="'assets/flare_map_marker_icon.ico'"></agm-marker>
+<div>
+    <agm-map [backgroundColor]="''" [streetViewControl]="false" [zoom]="10" [disableDefaultUI]="true" [latitude]='lat' [longitude]='lon'
+        [gestureHandling]="'greedy'" (mapClick)="placeMarker($event)">
+        <agm-marker [latitude]='lat' [longitude]='lon' [opacity]="0.9" [iconUrl]="'assets/flare_map_marker_icon.ico'"></agm-marker>
 
-    <agm-circle [latitude]="lat" [longitude]="lon" [radius]="distance_filter" [fillColor]="'grey'" [fillOpacity]="0.25" [strokeOpacity]="0.5"
-        [strokeColor]="'red'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false" [editable]="false" [clickable]="false"
-        [zIndex]="103"></agm-circle>
-</agm-map>
+        <agm-circle [latitude]="lat" [longitude]="lon" [radius]="distance_filter" [fillColor]="'grey'" [fillOpacity]="0.25" [strokeOpacity]="0.5"
+            [strokeColor]="'red'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false" [editable]="false" [clickable]="false"
+            [zIndex]="103"></agm-circle>
+    </agm-map>
+</div>
 <div style="float: left;">
-    <h2><i class="material-icons" title="You need to have Tinder Plus in order for these functions to work">info</i> Tinder Plus</h2>
+    <h2>
+        <i class="material-icons" title="You need to have Tinder Plus in order for these functions to work">info</i> Tinder Plus</h2>
     <div style="margin: 5px;">
         <button class="btn btn-danger tinderGradient" (click)="changeTinderPassportLocation()">Set travel location</button>
         <button class="btn btn-danger tinderGradient" (click)="resetTinderPassport()">Reset travel location</button>
@@ -28,9 +31,20 @@
     </div>
 </div>
 <div style="float: right;">
-    <h2><i class="material-icons" title="Use at your own risk!">warning</i> Change your actual Tinder location</h2>
+    <h2>
+        <i class="material-icons" title="Use at your own risk!">warning</i> Change your actual Tinder location</h2>
     <div style="margin: 5px;">
         <button class="btn btn-danger tinderGradient" (click)="setUserLocation()">Set user location</button>
         <button class="btn btn-primary blueGradient" (click)="getUserLocation()">Get user location</button>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div>
+    <h2>
+        Popular locations
+    </h2>
+    <hr>
+    <div>
+        <span *ngFor="let location of popularLocations; let i = index;"><button style="margin: 5px;" class="btn btn-primary blueGradient" (click)="setLatLon(location.lat, location.lon)">{{location.locality.long_name}}</button></span>
     </div>
 </div>

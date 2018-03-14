@@ -411,6 +411,21 @@ export class TinderService {
         return this.http.post(API_PROXY_URL + BASE_API_URL + "/user" + "/ping", { lat: latitude , lon: longitude}, options).map(res => res.json());
     }
 
+    getPopularLocations() {
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+        return this.http.get(API_PROXY_URL + BASE_API_URL + "/location" + "/popular" + "?locale=en", options).map(res => res.json());
+    }
+
     enableBoost(){
         const headers = new Headers({
             'Access-Control-Allow-Origin': "*",
