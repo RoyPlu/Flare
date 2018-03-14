@@ -40,6 +40,8 @@ export class ProfilesComponent implements OnInit {
 
   loadingIndicator;
 
+  currentProfileId: string;
+
   @ViewChild('matchModal') matchModal:ElementRef;
 
   constructor(private service: TinderService) { }
@@ -111,6 +113,7 @@ export class ProfilesComponent implements OnInit {
     this.service.likeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
       this.match = data.match;
+      this.currentProfileId = id;
 
       if (data.match.following == true) {
         this.matchStatus = "Yes!";
@@ -140,6 +143,8 @@ export class ProfilesComponent implements OnInit {
   superlikeTinderProfile(id: string, s_number: string, photoUrl: string) {
     this.service.superlikeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
+      this.match = data.match;
+      this.currentProfileId = id;
       if (data.match == true) {
         this.matchStatus = "Yes!";
         this.playNotification();

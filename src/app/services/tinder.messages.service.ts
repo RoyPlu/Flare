@@ -12,7 +12,7 @@ import { User } from '../models/user.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "6bc6e397-8d6c-4d34-b5b7-0ff76d97eddd";
+const X_AUTH_CODE = "a2a31939-37cb-4fd2-ab9d-524b321df554";
 
 const X_AUTH_CODE_2 = "b6d4e433-de19-4964-9e01-809dd669743e";
 

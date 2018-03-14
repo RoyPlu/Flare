@@ -12,7 +12,7 @@ import { User } from '../models/user.model';
 const USER_TOKEN = "973840342772878|OUv2k17CiphO6zHRrvrRRt63vAU";
 const USER_ID = "100000954286974";
 
-const X_AUTH_CODE = "6bc6e397-8d6c-4d34-b5b7-0ff76d97eddd";
+const X_AUTH_CODE = "a2a31939-37cb-4fd2-ab9d-524b321df554";
 
 const X_AUTH_CODE_2 = "b6d4e433-de19-4964-9e01-809dd669743e";
 
@@ -26,6 +26,39 @@ const FACE_API_SUB_KEY = "1cca7a318c2d4c06b1c35030153dc720";
 @Injectable()
 export class TinderService {
     constructor(private http: Http) { }
+
+    getFacebookToken(){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        return this.http.get(API_PROXY_URL + BASE_API_URL + "/profile", options).map(res => res.json());
+    }
+
+    facebookLogin(fb_token, fb_user_id){
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+
+        return this.http.post(API_PROXY_URL + BASE_API_URL + "/auth", {"facebook_token": fb_token, "facebook_id": fb_user_id} ,options).map(res => res.json());
+    }
+
 
     getUserProfile() {
 
@@ -190,7 +223,8 @@ export class TinderService {
         return Object.keys(rawMatches).map(key => {
             let match = rawMatches[key];
             return new Match(
-                match._id
+                match._id,
+                match.personalId
             );
         });
     }

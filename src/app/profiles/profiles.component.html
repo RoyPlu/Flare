@@ -117,18 +117,18 @@
     <div class="modal-dialog designModal">
 
         <!-- Modal content-->
-        <div style="background-color: rgb(240, 240, 240); margin: 0 auto" class="modal-content centerModal">
+        <div style="background-color: #333; margin: 0 auto" class="modal-content centerModal">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <img class="modalMatchImage" src="assets/its-a-match-transparent.png">
+                <img class="modalMatchImage" src="assets/its-a-match-transparent-gradient.png">
                 <br>
                 <br>
                 <img id="modalProfileImage" class="modalProfileImage" src="" />
                 <br>
-                <div *ngIf='matchStatus == "Yes!"'>
+                <!-- <div *ngIf='matchStatus == "No"'> -->
                     <button style="width: 40%; padding: 10px; margin-top: 10px;" class="btn btn-danger tinderGradient" data-dismiss="modal" target="_blank"
-                        [routerLink]="['../messages', match._id, match.participants[1]]">Send Message</button>
-                </div>
+                        [routerLink]="['../messages', match._id, currentProfileId]">Send Message</button>
+               <!-- </div> -->
             </div>
         </div>
 
