@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { TinderService } from '../services/tinder.service';
 var tinder = require('tinder');
 var client = new tinder.TinderClient();
@@ -18,6 +18,9 @@ export class LoginComponent {
 
     facebook_token = "";
 
+    token_regex = /access_token=(.*)&/;
+    token;
+
     constructor(private service: TinderService, private router: Router) {
 
     }
@@ -29,18 +32,20 @@ export class LoginComponent {
     }
 
     getTinderAuthToken() {
-        //var token = this.facebook_token.match("/access_token=(.+)&/");
+        
+        this.token = this.facebook_token.match(this.token_regex);
 
-        this.service.TinderLogin(this.facebook_token).subscribe(login => {
+        console.log(this.token);
+        this.service.TinderLogin(this.token[1]).subscribe(login => {
             console.log(login);
 
             localStorage.setItem('x-auth-token', login.data.api_token);
-            
-            console.log(localStorage.getItem('x-auth-token'));
-          })
 
-          if(localStorage.getItem('x-auth-token') != null){
-          this.router.navigate(['/profiles']);
+            console.log(localStorage.getItem('x-auth-token'));
+        })
+
+        if (localStorage.getItem('x-auth-token') != null) {
+            this.router.navigate(['/profiles']);
         }
     }
 }
