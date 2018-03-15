@@ -3,17 +3,18 @@
     <div id="myCarousel" class="carousel slide center" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j" *ngFor="let photo of user.photos | slice:0; let j = index; let isFirst = first" [class.active]="isFirst"></li>
+            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                *ngFor="let photo of user.user.photos | slice:0; let j = index; let isFirst = first" [class.active]="isFirst"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item" *ngFor="let photo of user.photos | slice:0; let j = index; let isFirst = first" [class.active]="isFirst">
-                <img [src]="user.photos[j].url">
+            <div class="item" *ngFor="let photo of user.user.photos | slice:0; let j = index; let isFirst = first" [class.active]="isFirst">
+                <img [src]="user.user.photos[j].url">
                 <div class="carousel-caption">
-                    <div *ngIf="user.photos[j].successRate != null; then successrate"></div>
+                    <div *ngIf="user.user.photos[j].successRate != null; then successrate"></div>
                     <ng-template #successrate>
-                        <h3>Success rate: {{user.photos[j].successRate | number : '1.2-4'}}</h3>
+                        <h3>Success rate: {{user.user.photos[j].successRate | number : '1.2-4'}}</h3>
                     </ng-template>
                 </div>
             </div>
@@ -30,10 +31,21 @@
         </a>
     </div>
     <div class="clear">
-        <h1>{{user.name}}</h1>
-        <p>{{user.bio}}</p>
-        <p>Smart Photos: {{user.photo_optimizer_enabled}}</p>
+        <h1>{{user.user.name}}</h1>
+        <p>{{user.user.bio}}</p>
+        <p>Smart Photos: {{user.user.photo_optimizer_enabled}}</p>
         <!-- <input id="optimizerToggle" (change)="enableSmartPhotos()" type="checkbox" checked data-toggle="toggle" data-onstyle="danger"> -->
         <button class="btn btn-danger gradient" (click)="enableSmartPhotos()">Enable Smart Photos</button>
+    </div>
+    <br>
+    <div *ngIf="user.spotify.spotify_theme_track != null">
+        <div>
+            <img style="border-radius: 5px" [src]="user.spotify.spotify_theme_track.album.images[2].url" />
+            <h4>{{user.spotify.spotify_theme_track.name}}</h4>
+            <h5>{{user.spotify.spotify_theme_track.artists[0].name}}</h5>
+            <audio controls controlsList="nodownload">
+                <source [src]="user.spotify.spotify_theme_track.preview_url" type="audio/mpeg"> Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 </div>

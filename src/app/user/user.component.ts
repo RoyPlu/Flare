@@ -16,8 +16,8 @@ user: User;
   constructor(private service: TinderService) { }
 
   ngOnInit(){
-    this.getTinderUser();
-    //this.getTinderUserV2();
+    //this.getTinderUser();
+    this.getTinderUserV2();
   }
 
   getTinderUser(){
@@ -30,7 +30,7 @@ user: User;
   getTinderUserV2(){
     this.service.getUserProfileV2().subscribe(data => {
       console.log(data);
-      this.user = data;
+      this.user = data.data;
     })
   }
 

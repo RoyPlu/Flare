@@ -106,6 +106,17 @@
             <p class="possibleMatch">Possible Match</p>
         </ng-template>
         <p>{{profiles[i].user.bio}}</p>
+        <br>
+        <div *ngIf="profiles[i].spotify.spotify_theme_track != null">
+            <div>
+                <img style="border-radius: 5px" [src]="profiles[i].spotify.spotify_theme_track.album.images[2].url" />
+                <h4>{{profiles[i].spotify.spotify_theme_track.name}}</h4>
+                <h5>{{profiles[i].spotify.spotify_theme_track.artists[0].name}}</h5>
+                <audio controls controlsList="nodownload">
+                    <source [src]="profiles[i].spotify.spotify_theme_track.preview_url" type="audio/mpeg"> Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
         <div style="z-index: 200" id="profileLocation{{i}}" class="collapse">
             <!-- <app-profilelocation [distanceFromUser]="profiles[i].distance_mi"></app-profilelocation> -->
         </div>
@@ -126,9 +137,9 @@
                 <img id="modalProfileImage" class="modalProfileImage" src="" />
                 <br>
                 <!-- <div *ngIf='matchStatus == "No"'> -->
-                    <button style="width: 40%; padding: 10px; margin-top: 10px;" class="btn btn-danger tinderGradient" data-dismiss="modal" target="_blank"
-                        [routerLink]="['../messages', match._id, currentProfileId]">Send Message</button>
-               <!-- </div> -->
+                <button style="width: 40%; padding: 10px; margin-top: 10px;" class="btn btn-danger tinderGradient" data-dismiss="modal" target="_blank"
+                    [routerLink]="['../messages', match._id, currentProfileId]">Send Message</button>
+                <!-- </div> -->
             </div>
         </div>
 
