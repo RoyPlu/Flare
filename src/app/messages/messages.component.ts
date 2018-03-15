@@ -27,7 +27,7 @@ export class MessagesComponent implements OnInit {
     messageInput: string = "";
 
   constructor(private titleService: Title, private route: ActivatedRoute, private messagesService: MessagesService, private service: TinderService ) {
-    setInterval(() => { this.getMessages(); }, 5000);
+    setInterval(() => { this.getMessages(); }, 2000);
    }
 
   ngOnInit(){

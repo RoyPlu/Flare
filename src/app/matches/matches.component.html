@@ -1,7 +1,12 @@
 <h1>Matches
     <span class="pageNumber">Page: {{pageNumber}}</span>
     <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+    <button class="btn fastMatchesButton">
+        Fast Matches
+        <img style="width: 30px;" src="assets/TinderGold_cropped_transparent.gif" />
+    </button>
 </h1>
+
 <button class="btn btn-danger loadButton tinderGradient" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
 <div class="matchesCard" *ngFor="let match of matches, let i = index;">
