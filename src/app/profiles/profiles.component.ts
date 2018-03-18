@@ -62,11 +62,24 @@ export class ProfilesComponent implements OnInit {
   getProfiles() {
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.getProfiles().subscribe(data => {
+      
+
+      if(this.profiles == null){
       console.log(data.data.results);
       this.profiles = data.data.results;
+    } else {
+      
+      data.data.results.forEach(element => {
+        this.profiles.push(element);
+        
+      });
+      
+      console.log(this.profiles);
+    }
+
     })
 
-    this.scrollToTop();
+    //this.scrollToTop();
 
     setTimeout(() => {
       this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
