@@ -14,7 +14,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 1000;
     width: 100%  !important;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;

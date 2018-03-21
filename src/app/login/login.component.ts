@@ -44,12 +44,8 @@ export class LoginComponent {
             console.log(localStorage.getItem('x-auth-token'));
         })
 
-        setTimeout(() => {
             if (localStorage.getItem('x-auth-token') != null) {
                 this.router.navigate(['/profiles']);
             }
-          },
-            1000);
-        
     }
 }

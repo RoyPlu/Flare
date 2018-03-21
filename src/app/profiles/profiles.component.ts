@@ -42,7 +42,7 @@ export class ProfilesComponent implements OnInit {
 
   currentProfileId: string;
 
-  @ViewChild('matchModal') matchModal:ElementRef;
+  @ViewChild('matchModal') matchModal: ElementRef;
 
   constructor(private service: TinderService) { }
 
@@ -54,7 +54,7 @@ export class ProfilesComponent implements OnInit {
     this.getSuperlikes();
     this.getBoost();
 
-    this.match.participants[1]="123";
+    this.match.participants[1] = "123";
 
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
   }
@@ -62,20 +62,20 @@ export class ProfilesComponent implements OnInit {
   getProfiles() {
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.getProfiles().subscribe(data => {
-      
 
-      if(this.profiles == null){
-      console.log(data.data.results);
-      this.profiles = data.data.results;
-    } else {
-      
-      data.data.results.forEach(element => {
-        this.profiles.push(element);
-        
-      });
-      
-      console.log(this.profiles);
-    }
+
+      if (this.profiles == null) {
+        console.log(data.data.results);
+        this.profiles = data.data.results;
+      } else {
+
+        data.data.results.forEach(element => {
+          this.profiles.push(element);
+
+        });
+
+        console.log(this.profiles);
+      }
 
     })
 
@@ -94,6 +94,8 @@ export class ProfilesComponent implements OnInit {
       console.log("Changed distance filter to see possible matches");
       this.distance_filter = distance;
     })
+
+    this.profiles = null;
 
     setTimeout(() => {
       this.getProfiles();
@@ -122,7 +124,7 @@ export class ProfilesComponent implements OnInit {
     window.open('https://www.instagram.com/' + username);
   }
 
-  likeTinderProfile(id: string, s_number: string, photoUrl:string ) {
+  likeTinderProfile(id: string, s_number: string, photoUrl: string) {
     this.service.likeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
       this.match = data.match;
@@ -207,12 +209,12 @@ export class ProfilesComponent implements OnInit {
   }
 
   setAgeFilter() {
-    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
+    //this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setAgeFilter(this.age_filter_min, this.age_filter_max).subscribe(data => {
       console.log("Changed age filter");
     })
 
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
     },
       1500);
@@ -220,9 +222,14 @@ export class ProfilesComponent implements OnInit {
     setTimeout(() => {
       this.getProfiles();
     },
-      1000);
+      1000);*/
 
-    //window.location.reload();
+    /*setTimeout(() => {
+      window.location.reload();
+    },
+      1000);*/
+
+
   }
 
   getDistanceFilter() {
@@ -234,13 +241,13 @@ export class ProfilesComponent implements OnInit {
   }
 
   setDistanceFilter() {
-    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
+    //this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setDistanceFilter(this.distance_filter).subscribe(data => {
       console.log("Changed distance filter (in miles): " + this.distance_filter);
       console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
     })
 
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
     },
       1500);
@@ -248,8 +255,12 @@ export class ProfilesComponent implements OnInit {
     setTimeout(() => {
       this.getProfiles();
     },
-      1000);
-    //window.location.reload();
+      1000);*/
+
+    /*setTimeout(() => {
+      window.location.reload();
+    },
+      500);*/
   }
 
   getSuperlikes() {
