@@ -77,20 +77,11 @@
     width: 50%;
 }
 
-.likeButton {
-    /*margin-left: -50%;*/
+.vote-button {
     padding: 5px;
     font-size: 16px;
     width: 100px;
 }
-
-.passButton {
-    /*margin-left: -50%;*/
-    padding: 5px;
-    font-size: 16px;
-    width: 100px;
-}
-
 
 .clear {
     clear: both;
@@ -180,7 +171,7 @@ body {
 		drop-shadow(1px -1px 0 white)
       		drop-shadow(-1px -1px 0 white);
 
-	filter: drop-shadow(1px 1px 0 white) 
+	filter: drop-shadow(1px 1px 0 white)
 		drop-shadow(-1px 1px 0 white)
 		drop-shadow(1px -1px 0 white)
        		drop-shadow(-1px -1px 0 white);
