@@ -1,0 +1,62 @@
+<h1>Fast Matches
+    <span class="pageNumber">Page: {{pageNumber}}</span>
+    <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+    <button class="btn fastMatchesButton">
+        <a href="matches">Matches</a>
+        <img style="width: 20px;" src="assets/flare_tinder_logo_small.png" />
+    </button>
+</h1>
+
+<button class="btn btn-danger loadButton tinderGradient" (click)="getTinderFastMatches()">Load next page of matches</button>
+<hr>
+<div class="matchesCard" *ngFor="let fastmatch of fastmatches, let i = index;">
+    <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                *ngFor="let photo of fastmatches[i].user.photos, let j = index; let isFirst=first" [class.active]="isFirst"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item" *ngFor="let photo of fastmatches[i].user.photos | slice: 0, let j = index; let isFirst=first" [class.active]="isFirst">
+                <img (click)="openImage(fastmatches[i].user.photos[j].url)" class="matchesPic" [src]="fastmatches[i].user.photos[j].url">
+                <div class="carousel-caption">
+                    <div *ngIf="fastmatches[i].user.photos[j].successRate != null; then successrate"></div>
+                    <ng-template #successrate>
+                        <h4>Success rate: {{fastmatches[i].user.photos[j].successRate | number : '1.2-4'}}</h4>
+                    </ng-template>
+                </div>
+            </div>
+
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="clear">
+        <br />
+        <div *ngIf="fastmatches[i].is_super_like; then superlike"></div>
+        <div *ngIf="fastmatches[i].is_boost_match; then boostMatch"></div>
+        <div *ngIf="fastmatches[i].is_fast_match; then fastMatch"></div>
+        <h2>
+            <ng-template #superlike>
+                <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
+            </ng-template>
+            <ng-template #boostMatch>
+                <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
+            </ng-template>
+            <ng-template #fastMatch>
+                <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
+            </ng-template>
+            <a class="nameTag" target="_blank" [routerLink]="['../profile', fastmatches[i].user._id]">{{fastmatches[i].user.name}}, {{2018 - (fastmatches[i].user.birth_date | date : 'yyyy') - 1}}</a>
+        </h2>
+        <p>{{fastmatches[i].user.bio}}</p>
+    </div>
+</div>

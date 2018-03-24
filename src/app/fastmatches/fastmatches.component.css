@@ -1,0 +1,221 @@
+.matchesCard {
+    width: auto;
+    text-align: center;
+    background-color: #333;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 3px;
+    max-width: 24%;
+    min-width: 250px;
+    float: left;
+    height: 100%;
+    min-height: 600px;
+    max-height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+    border-radius: 20px;
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: rgb(179, 0, 0);
+    height: 20px;
+    border-radius: 30px;
+}
+
+
+.matchesPic {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+
+.messageButton {
+    margin-top: -10px;
+    padding-top: 20px;
+    background-color: rgb(206, 0, 0);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid rgb(20, 20, 20);
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.messageButton:hover {
+    background-color: rgb(177, 0, 0);
+}
+
+.clear {
+    clear: both;
+}
+
+body {
+    float: left;
+}
+
+.active {
+    background-image:  linear-gradient(262deg, rgb(255, 120, 84), rgb(253, 38, 125));
+}
+
+.deleteIcon {
+    position: absolute;
+    z-index: 99;
+}
+.deleteIcon img {
+    position: relative;
+    opacity: 0.8;
+    top: 5px;
+    left: 150px;
+    min-width: 25px;
+    width: 25px;
+    color: red;
+    border-radius: 5px;
+    background-image:  linear-gradient(262deg, rgb(255, 120, 84), rgb(253, 38, 125));
+}
+
+.deleteIcon img:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1900px) {
+    .deleteIcon img {
+      left: 93px;
+    }
+  }
+
+.superlike {
+    width: 60px;
+    padding: 3px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.boostMatch {
+    width: 60px;
+    padding: 3px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.fastMatch {
+    width: 60px;
+    padding: 3px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.nameTag {
+    text-decoration: none;
+    cursor: pointer;
+    color:inherit;
+}
+
+.nameTag:hover {
+    color: #646464;
+}
+
+.lastMessage {
+    background-color: #646464;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@-webkit-keyframes hvr-pulse {
+    25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  @keyframes hvr-pulse {
+    25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  .hvr-pulse {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-animation-name: hvr-pulse;
+    animation-name: hvr-pulse;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.loadButton {
+    position: fixed;
+    top: 50px;
+    left: 1px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 99;
+}
+
+.pageNumber {
+    font-size: 40%;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.fastMatchesButton {
+    vertical-align: middle;
+    float: right; 
+    padding-left: 20px; 
+    padding-right: 20px; 
+    background-color: #333;
+}
+
+.fastMatchesButton:hover {
+    color: white;
+}
+
+.fastMatchesButton:focus {
+    color: inherit;
+}
+
+.tinderGradient {
+    background-image:  linear-gradient(262deg, rgb(255, 120, 84), rgb(253, 38, 125));
+    border: 0px;
+}
+
+.yellowGradient {
+    background-image:  linear-gradient(262deg, #ffc400, #f1e100);
+}

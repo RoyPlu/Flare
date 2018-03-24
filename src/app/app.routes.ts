@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessagesComponent } from './messages/messages.component';
 import { LoginComponent } from './login/login.component';
+import { FastMatchesComponent } from './fastmatches/fastmatches.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -16,6 +17,7 @@ export const appRoutes: Routes = [
     { path: 'profile/:id', component: ProfileComponent },
     { path: 'profile/:id/:s_number', component: ProfileComponent },
     { path: 'matches', component: MatchesComponent },
+    { path: 'fastmatches', component: FastMatchesComponent },
     { path: 'messages/:id/:profileId', component: MessagesComponent },
     { path: 'passport', component: PassportComponent },
     { path: 'facedetection', component: FaceDetectionComponent },

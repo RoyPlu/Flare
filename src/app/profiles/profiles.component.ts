@@ -209,20 +209,22 @@ export class ProfilesComponent implements OnInit {
   }
 
   setAgeFilter() {
-    //this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setAgeFilter(this.age_filter_min, this.age_filter_max).subscribe(data => {
       console.log("Changed age filter");
     })
 
-    /*setTimeout(() => {
+    this.profiles = null;
+
+    setTimeout(() => {
       this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
     },
-      1500);
+      500);
 
     setTimeout(() => {
       this.getProfiles();
     },
-      1000);*/
+      1000);
 
     /*setTimeout(() => {
       window.location.reload();
@@ -241,21 +243,23 @@ export class ProfilesComponent implements OnInit {
   }
 
   setDistanceFilter() {
-    //this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
+    this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setDistanceFilter(this.distance_filter).subscribe(data => {
       console.log("Changed distance filter (in miles): " + this.distance_filter);
       console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
     })
 
-    /*setTimeout(() => {
+    this.profiles = null;
+
+    setTimeout(() => {
       this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
     },
-      1500);
+      500);
 
     setTimeout(() => {
       this.getProfiles();
     },
-      1000);*/
+      1000);
 
     /*setTimeout(() => {
       window.location.reload();

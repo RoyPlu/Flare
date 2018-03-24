@@ -22,12 +22,14 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessagesService } from './services/tinder.messages.service';
 import { LoginComponent } from './login/login.component';
 import { ProfileLocationComponent } from './profilelocation/profilelocation.component';
+import { FastMatchesComponent } from './fastmatches/fastmatches.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MatchesComponent,
+    FastMatchesComponent,
     UserComponent,
     ProfilesComponent,
     FaceDetectionComponent,

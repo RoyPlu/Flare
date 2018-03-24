@@ -214,6 +214,30 @@ export class TinderService {
 
     }
 
+    getFastMatches(page_token: string) {
+
+        const headers = new Headers({
+            'Access-Control-Allow-Origin': "*",
+            'Content-type': 'application/json',
+            'x-auth-token': X_AUTH_CODE,
+            //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+        console.log(page_token);
+        if (page_token != null) {
+            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/fast-match" + "?count=20" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json()));
+            return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/fast-match" + "?count=20" + "&locale=en" + "&page_token=" + page_token, options).map(res => res.json());
+        } else {
+            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/fast-match" + "?count=20" + "&locale=en", options).map(res => res.json()));
+            return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/fast-match" + "?count=20" + "&locale=en", options).map(res => res.json());
+        }
+
+    }
+
     parseMatchesData(rawMatches: any): Match[] {
         return Object.keys(rawMatches).map(key => {
             let match = rawMatches[key];
