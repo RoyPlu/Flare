@@ -51,12 +51,6 @@ loadingIndicator;
       1500);
   }
 
-  deleteTinderMatch(id: string){
-    this.service.deleteMatch(id).subscribe(data => {
-      console.log(data);
-    })
-  }
-
   removeFromList(profile, status){
     console.log(status);
     let index = this.fastmatches.indexOf(profile);
@@ -78,15 +72,12 @@ loadingIndicator;
     window.scrollTo(0, 0);
   }
 
-  getTotalAmountOfMatches(){
-    this.service.getTotalAmountOfMatches(this.token).subscribe(data => {
-      //console.log(data.data.matches);
-      this.totalMatches += data.data.matches;
-      this.totalMatchesNumber = this.totalMatches.length;
-      console.log(this.totalMatchesNumber);
-      this.token = data.data.next_page_token;
-      //console.log(this.token);
-    })
+  findOnFacebook(name: string, teaser: string) {
+    window.open('https://www.facebook.com/search/people/?q=' + name + '%20' + teaser);
+  }
+
+  findOnInstagram(username: string) {
+    window.open('https://www.instagram.com/' + username);
   }
 
 }
