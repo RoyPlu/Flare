@@ -31,7 +31,14 @@
         </a>
     </div>
     <div class="clear">
-        <h1>{{user.user.name}}</h1>
+        <h1>{{user.user.name}}
+                <div *ngIf="user.purchase.purchases[0].product_type == 'plus'">
+                        <h3 style="color:rgb(253, 38, 125)">Tinder Plus</h3>
+                </div>
+            <div *ngIf="user.purchase.purchases[0].product_type == 'gold'">
+                <img style="width: 30px;" src="assets/TinderGold_cropped_transparent.gif" />
+            </div>
+        </h1>
         <p>{{user.user.bio}}</p>
         <p>Smart Photos: {{user.user.photo_optimizer_enabled}}</p>
         <!-- <input id="optimizerToggle" (change)="enableSmartPhotos()" type="checkbox" checked data-toggle="toggle" data-onstyle="danger"> -->
