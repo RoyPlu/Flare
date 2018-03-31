@@ -87,8 +87,12 @@
         </div>
         <a class="nameTag" target="_blank" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
             data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
-            <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
+            <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2> 
         </a>
+        <div *ngIf="profiles[i].is_super_like; then superlike"></div>
+        <ng-template #superlike>
+            <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
+        </ng-template>
         <a class="jobTag" (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)">
             <h5 *ngIf='profiles[i].teaser.string != "";'>
                 <i class="material-icons iconSize">search</i>{{profiles[i].teaser.string}}</h5>

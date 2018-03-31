@@ -33,7 +33,7 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     cursor: pointer;
-}
+} 
 
 .buttonBorders {
     border-bottom-left-radius: 10px;
@@ -205,6 +205,50 @@ body {
     margin-left: -37.5%;
     z-index: 101;
 }
+
+.superlike {
+    width: 60px;
+    padding: 3px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+@-webkit-keyframes hvr-pulse {
+    25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  @keyframes hvr-pulse {
+    25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  .hvr-pulse {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-animation-name: hvr-pulse;
+    animation-name: hvr-pulse;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+
 
 @-webkit-keyframes hvr-bob {
     0% {
