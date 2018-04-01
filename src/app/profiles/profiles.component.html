@@ -50,7 +50,15 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item matchesPic" *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst">
-                <img (click)="openImage(profiles[i].user.photos[j].url)" class="matchesPic" [src]="profiles[i].user.photos[j].url">
+                <div *ngIf="profiles[i].user.photos[j].url != 'https://images-ssl.gotinder.com/0001unknown/unknown.jpg';else noPictures">
+                    <img (click)="openImage(profiles[i].user.photos[j].url)" class="matchesPic" [src]="profiles[i].user.photos[j].url">
+                </div>
+                
+                <ng-template #noPictures>
+                    <img class="matchesPic" src="assets/profile-placeholder.jpg">
+                </ng-template>
+                
+                
                 <div class="carousel-caption">
                     <div *ngIf="profiles[i].user.photos[j].successRate != null; then successrate"></div>
                     <ng-template #successrate>
