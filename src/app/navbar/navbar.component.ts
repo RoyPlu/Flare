@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { TinderService } from '../services/tinder.service';
+import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,10 +12,23 @@ import { TinderService } from '../services/tinder.service';
 export class NavbarComponent implements OnInit {
   title = 'Project Flare';
 
-  constructor(private service: TinderService) { }
+  ProfilePic: string = "assets/profile-placeholder.jpg";
+
+  constructor(private service: TinderService, private router: Router) { }
 
   ngOnInit(){
-    
+    this.getTinderUserV2();
+  }
+
+  getTinderUserV2(){
+    this.service.getUserProfileV2().subscribe(data => {
+      console.log(data.data.user);
+      this.ProfilePic = data.data.user.photos[0].processedFiles[3].url;
+    })
+  }
+
+  goToUser(){
+    this.router.navigate(['/user']);
   }
 
 }

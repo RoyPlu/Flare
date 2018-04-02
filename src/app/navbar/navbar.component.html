@@ -12,9 +12,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li>
-          <a href="user">User</a>
-        </li>
-        <li>
           <a href="profiles">Profiles</a>
         </li>
         <li>
@@ -28,6 +25,11 @@
         </li>
         <button style="margin-top: 8px; margin-left: 5px;" class="btn btn-danger faceDetectionButton tinderGradient" data-target="#facedetection"
           data-toggle="collapse">Face Detection</button>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <img href="user" (click)="goToUser()" class="navbar-image navbarProfile" [src]="ProfilePic" />
+        </li>
       </ul>
     </div>
   </div>
