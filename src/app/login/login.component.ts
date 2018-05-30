@@ -18,7 +18,7 @@ export class LoginComponent {
 
     facebook_token = "";
 
-    token_regex = /access_token=(.*)&/;
+    token_regex = /access_token=(.*)&e/;
     token;
 
     constructor(private service: TinderService, private router: Router) {

@@ -12,23 +12,25 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li>
-          <a href="profiles">Profiles</a>
+          <a [routerLink]="['../profiles']">Profiles</a>
         </li>
         <li>
-          <a href="matches">Matches</a>
+          <a [routerLink]="['../matches']">Matches</a>
         </li>
         <li>
-          <a href="passport">Passport</a>
+          <a [routerLink]="['../passport']">Passport</a>
         </li>
         <li>
-          <a href="about">About</a>
+          <a [routerLink]="['../about']">About</a>
         </li>
         <button style="margin-top: 8px; margin-left: 5px;" class="btn btn-danger faceDetectionButton tinderGradient" data-target="#facedetection"
           data-toggle="collapse">Face Detection</button>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item">
-          <img href="user" (click)="goToUser()" class="navbar-image navbarProfile" [src]="ProfilePic" />
+          <a [routerLink]="['../user']" style="padding: 0">
+            <img class="navbar-image navbarProfile" [src]="ProfilePic" />
+          </a>
         </li>
       </ul>
     </div>

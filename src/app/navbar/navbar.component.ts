@@ -26,9 +26,4 @@ export class NavbarComponent implements OnInit {
       this.ProfilePic = data.data.user.photos[0].processedFiles[3].url;
     })
   }
-
-  goToUser(){
-    this.router.navigate(['/user']);
-  }
-
 }

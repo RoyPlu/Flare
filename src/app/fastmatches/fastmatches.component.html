@@ -3,8 +3,8 @@
     <span class="pageNumber">Page: {{pageNumber}}</span>
     <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
     <button class="btn fastMatchesButton">
-        <a href="matches">Matches</a>
-        <img style="width: 20px;" src="assets/flare_tinder_logo_small.png" />
+        <a [routerLink]="['../matches']" style="text-decoration: none; color: #9d9d9d">Matches</a>
+        <img style="width: 30px;" src="assets/flare_tinder_logo_small.png" />
     </button>
 </h1>
 
