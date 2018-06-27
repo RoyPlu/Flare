@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, HttpModule, Headers, RequestOptions } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { AdsenseModule } from 'ng2-adsense';
 
 import { AppComponent } from './app.component';
 import { TinderService } from './services/tinder.service';
@@ -48,6 +49,10 @@ import { FastMatchesComponent } from './fastmatches/fastmatches.component';
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBuhH3Fi2ofA8t9jfd2iKowr9anDGyXvRA',
+    }),
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-7259492805945889',
+      adSlot: 8829996303,
     }),
   ],
   providers: [TinderService, MessagesService],
