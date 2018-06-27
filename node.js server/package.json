@@ -1,0 +1,18 @@
+{
+  "name": "node-server",
+  "version": "0.0.0",
+  "description": "node server",
+  "main": "server.js",
+  "author": "Roy",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
+    "express": "~4.7.2",
+    "method-override": "^2.3.10",
+    "mongoose": "~3.6.2",
+    "morgan": "^1.9.0",
+    "node-static": "^0.7.10",
+    "routes": "^2.1.0",
+    "serve-static": "^1.13.2"
+  }
+}
