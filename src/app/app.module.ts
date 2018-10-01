@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, HttpModule, Headers, RequestOptions } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
 import { AdsenseModule } from 'ng2-adsense';
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,8 @@ import { MessagesService } from './services/tinder.messages.service';
 import { LoginComponent } from './login/login.component';
 import { ProfileLocationComponent } from './profilelocation/profilelocation.component';
 import { FastMatchesComponent } from './fastmatches/fastmatches.component';
+import { AdvertisementComponent } from './advertisement/advertisement.component';
+import { CloudmersiveComponent } from './cloudmersive/cloudmersive.component';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { FastMatchesComponent } from './fastmatches/fastmatches.component';
     UserComponent,
     ProfilesComponent,
     FaceDetectionComponent,
+    CloudmersiveComponent,
     NavbarComponent,
     PassportComponent,
     AboutComponent,
@@ -41,19 +44,18 @@ import { FastMatchesComponent } from './fastmatches/fastmatches.component';
     MessagesComponent,
     LoginComponent,
     ProfileLocationComponent,
+    AdvertisementComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBuhH3Fi2ofA8t9jfd2iKowr9anDGyXvRA',
     }),
-    AdsenseModule.forRoot({
-      adClient: 'ca-pub-7259492805945889',
-      adSlot: 8829996303,
-    }),
+    AdsenseModule,
   ],
   providers: [TinderService, MessagesService],
   bootstrap: [AppComponent]

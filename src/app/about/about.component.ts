@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 import { TinderService } from '../services/tinder.service';
 
@@ -9,10 +9,11 @@ import { TinderService } from '../services/tinder.service';
 })
 export class AboutComponent implements OnInit {
 
+  @Input() data;
+  
   constructor(private service: TinderService) { }
 
   ngOnInit(){
 
   }
-
 }

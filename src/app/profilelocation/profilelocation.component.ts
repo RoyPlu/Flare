@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { AgmMap } from '@agm/core';
+import { AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 import { TinderService } from '../services/tinder.service';
 
 @Component({
