@@ -21,6 +21,8 @@
                 <div class="item" *ngFor="let photo of profile.instagram.photos | slice:0; let k = index;">
                     <img [src]="profile.instagram.photos[k].image">
                 </div>
+
+                
             </div>
         </div>
         <ng-template #carouselNoInstagram>
@@ -33,9 +35,20 @@
             <div class="carousel-inner">
                 <div class="item" *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst">
                     <img [src]="profile.photos[j].url">
+                    <div class="carousel-caption">
+                        <h4>{{cloudmersiveData}}</h4>
+                        <button class="btn-success smallButton smallBorders greyGradient" (click)="imageURLtoFile(profile.photos[j].url);">
+                            <img class="likeIcon" src="assets/ai_brain_icon.png">
+                        </button>
+                    </div>
                 </div>
+
+                
+
             </div>
         </ng-template>
+
+
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>

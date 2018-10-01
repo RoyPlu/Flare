@@ -93,6 +93,18 @@
     width: 100px;
 }
 
+.smallButton {    
+    /*margin-left: -50%;*/
+    padding: 5px;
+    font-size: 16px;
+    width: 50px;
+
+}
+
+.smallBorders {
+    border-radius: 5px;
+}
+
 
 .clear {
     clear: both;
@@ -226,6 +238,11 @@ img.superlikeButton {
 
 .blueGradient {
     background-image:  linear-gradient(262deg, #00b2df, #0078da);
+    border: 0px;
+}
+
+.greyGradient {
+    background-image:  linear-gradient(262deg, #d6d6d6, #6b6b6b);
     border: 0px;
 }
 
