@@ -1,0 +1,11 @@
+<div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="file" class="form-control" id="imageFile" (change)="onFileChange($event)" #fileInput>
+        <button class="btn btn-danger detectButton greenGradient" (click)="onSubmit()">Detect</button>
+        <button class="btn btn-danger clearButton tinderGradient" (click)="clearFaceDetection()">Clear</button>
+        <div>
+                <img style="clear: both" class="previewImage" id="blah" [src]="image || 'http://placehold.it/180'" alt="your image" />
+                <h3>Information: {{cloudmersiveData.BestOutcome.Description}}</h3>
+        </div>
+        </form>
+</div>

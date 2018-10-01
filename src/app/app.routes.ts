@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MessagesComponent } from './messages/messages.component';
 import { LoginComponent } from './login/login.component';
 import { FastMatchesComponent } from './fastmatches/fastmatches.component';
+import { CloudmersiveComponent } from './cloudmersive/cloudmersive.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -21,6 +22,7 @@ export const appRoutes: Routes = [
     { path: 'messages/:id/:profileId', component: MessagesComponent },
     { path: 'passport', component: PassportComponent },
     { path: 'facedetection', component: FaceDetectionComponent },
+    { path: 'cloudmersive', component: CloudmersiveComponent },
     { path: 'about', component: AboutComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];

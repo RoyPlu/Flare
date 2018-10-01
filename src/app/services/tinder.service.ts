@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions, ResponseContentType } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/map';
@@ -8,6 +8,7 @@ import { Profile } from '../models/profile.model';
 import { $ } from 'protractor';
 import { Match } from '../models/match.model';
 import { User } from '../models/user.model';
+import { FormGroup } from '@angular/forms';
 
 const X_AUTH_CODE = localStorage.getItem('x-auth-token');
 
@@ -461,4 +462,27 @@ export class TinderService {
         console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/boost" + "?locale=en", {} ,options).map(res => res.json()));
         return this.http.post(API_PROXY_URL + BASE_API_URL + "/boost" + "?locale=en", {} ,options).map(res => res.json());
     }
+
+    cloudmersiveDetect(form: FormGroup) {
+        const headers = new Headers({
+            'ApiKey': '59710ec3-24ee-4d4c-a90e-efb6170e2f50',
+        });
+
+        const options = new RequestOptions({
+            headers: headers
+        });
+
+        console.log("cloudmersiveDetect");
+        console.log(this.http.post("https://api.cloudmersive.com/image/recognize/describe", form ,options).map(res => res.json()));
+        return this.http.post("https://api.cloudmersive.com/image/recognize/describe", form ,options).map(res => res.json());
+    }
+
+
+    getImage(imageUrl: string): Observable<Blob> {
+        return this.http
+            .get(API_PROXY_URL + imageUrl, { responseType: ResponseContentType.Blob })
+            .map(res => res.blob());
+    }
+
+    
 }
