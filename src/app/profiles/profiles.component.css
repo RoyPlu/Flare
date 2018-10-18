@@ -213,6 +213,15 @@ body {
     margin-top: 10px;
 }
 
+.commonInterest {
+    margin: 5px;
+    border-radius: 5px;
+    color: white !important;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
 @-webkit-keyframes hvr-pulse {
     25% {
       -webkit-transform: scale(1.1);

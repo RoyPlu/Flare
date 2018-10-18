@@ -53,12 +53,12 @@
                 <div *ngIf="profiles[i].user.photos[j].url != 'https://images-ssl.gotinder.com/0001unknown/unknown.jpg';else noPictures">
                     <img (click)="openImage(profiles[i].user.photos[j].url)" class="matchesPic" [src]="profiles[i].user.photos[j].url">
                 </div>
-                
+
                 <ng-template #noPictures>
                     <img class="matchesPic" src="assets/profile-placeholder.jpg">
                 </ng-template>
-                
-                
+
+
                 <div class="carousel-caption">
                     <div *ngIf="profiles[i].user.photos[j].successRate != null; then successrate"></div>
                     <ng-template #successrate>
@@ -89,13 +89,13 @@
                     <p class="superlikeCounter">{{ superlikesCounter }}</p>
                 </div>
             </button>
-          <button class="btn-success vote-button buttonBorders greenGradient" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'liked')">
-            <img class="likeIcon" src="assets/tinder_like_icon.png">
-          </button>
+            <button class="btn-success vote-button buttonBorders greenGradient" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'liked')">
+                <img class="likeIcon" src="assets/tinder_like_icon.png">
+            </button>
         </div>
         <a class="nameTag" target="_blank" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
             data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
-            <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2> 
+            <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
         </a>
         <div *ngIf="profiles[i].is_super_like; then superlike"></div>
         <ng-template #superlike>
@@ -118,6 +118,11 @@
             <p class="possibleMatch">Possible Match</p>
         </ng-template>
         <p>{{profiles[i].user.bio}}</p>
+        <div>
+            <span class="commonInterest blueGradient" *ngFor="let interest of profiles[i].facebook.common_interests">
+                <a class="commonInterest" (click)="findProfileByCommonLike(profiles[i].user.name, interest.id)">{{ interest.name }}</a>
+            </span>
+        </div>
         <br>
         <div *ngIf="profiles[i].spotify.spotify_theme_track != null">
             <div>

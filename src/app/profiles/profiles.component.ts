@@ -124,6 +124,10 @@ export class ProfilesComponent implements OnInit {
     window.open('https://www.instagram.com/' + username);
   }
 
+  findProfileByCommonLike(name: string, id: string) {
+    window.open('https://www.facebook.com/search/str/' + name + '/users-named/' + id + '/likers/intersect')
+  }
+
   likeTinderProfile(id: string, s_number: string, photoUrl: string) {
     this.service.likeProfile(id, s_number).subscribe(data => {
       console.log(data.match);
