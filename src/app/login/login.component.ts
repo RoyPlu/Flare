@@ -27,8 +27,7 @@ export class LoginComponent {
 
     facebookLogin() {
 
-        this.loginWindow = window.open(this.url, "Project Flare", "menubar=no,location=no,resizable=no,scrollbars=no,status=yes,width=600,height=600");
-
+        this.loginWindow = window.open(this.url, "Project Flare", "menubar=no,location=no,resizable=no,scrollbars=no,toolbar=no,status=yes,width=600,height=600");
     }
 
     getTinderAuthToken() {

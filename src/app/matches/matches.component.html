@@ -9,61 +9,63 @@
 
 <button class="btn btn-danger loadButton tinderGradient" (click)="getTinderMatches()">Load next page of matches</button>
 <hr>
-<div class="matchesCard" *ngFor="let match of matches, let i = index;">
-    <a class="deleteIcon" title="Unmatch (double click)" (dblclick)="deleteTinderMatch(matches[i].id); removeFromList(matches[i], 'Deleted match')">
-        <img src="assets/close_icon.png" />
-    </a>
-    <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
-                *ngFor="let photo of matches[i].person.photos, let j = index; let isFirst=first" [class.active]="isFirst"></li>
-        </ol>
+<div class="matchesParent">
+    <div class="matchesCard" *ngFor="let match of matches, let i = index;">
+        <a class="deleteIcon" title="Unmatch (double click)" (dblclick)="deleteTinderMatch(matches[i].id); removeFromList(matches[i], 'Deleted match')">
+            <img src="assets/close_icon.png" />
+        </a>
+        <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                    *ngFor="let photo of matches[i].person.photos, let j = index; let isFirst=first" [class.active]="isFirst"></li>
+            </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item" *ngFor="let photo of matches[i].person.photos | slice: 0, let j = index; let isFirst=first" [class.active]="isFirst">
-                <img (click)="openImage(matches[i].person.photos[j].url)" class="matchesPic" [src]="matches[i].person.photos[j].url">
-                <div class="carousel-caption">
-                    <div *ngIf="matches[i].person.photos[j].successRate != null; then successrate"></div>
-                    <ng-template #successrate>
-                        <h4>Success rate: {{matches[i].person.photos[j].successRate | number : '1.2-4'}}</h4>
-                    </ng-template>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item" *ngFor="let photo of matches[i].person.photos | slice: 0, let j = index; let isFirst=first" [class.active]="isFirst">
+                    <img (click)="openImage(matches[i].person.photos[j].url)" class="matchesPic" [src]="matches[i].person.photos[j].url">
+                    <div class="carousel-caption">
+                        <div *ngIf="matches[i].person.photos[j].successRate != null; then successrate"></div>
+                        <ng-template #successrate>
+                            <h4>Success rate: {{matches[i].person.photos[j].successRate | number : '1.2-4'}}</h4>
+                        </ng-template>
+                    </div>
                 </div>
-            </div>
 
+            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <div class="clear">
-        <a class="messageButton btn tinderGradient" target="_blank" [routerLink]="['../messages', matches[i]._id, matches[i].person._id]">Message</a>
-        <br />
-        <div *ngIf="matches[i].is_super_like; then superlike"></div>
-        <div *ngIf="matches[i].is_boost_match; then boostMatch"></div>
-        <div *ngIf="matches[i].is_fast_match; then fastMatch"></div>
-        <h2>
-            <ng-template #superlike>
-                <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
-            </ng-template>
-            <ng-template #boostMatch>
-                <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
-            </ng-template>
-            <ng-template #fastMatch>
-                <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
-            </ng-template>
-            <a class="nameTag" target="_blank" [routerLink]="['../profile', matches[i].person._id]">{{matches[i].person.name}}, {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</a>
-        </h2>
-        <p>{{matches[i].person.bio}}</p>
-        <div class="lastMessage" *ngIf="matches[i].messages[0] != null">
-            <h4>{{matches[i].messages[0].message}}</h4>
+        <div class="clear">
+            <a class="messageButton btn tinderGradient" target="_blank" [routerLink]="['../messages', matches[i]._id, matches[i].person._id]">Message</a>
+            <br />
+            <div *ngIf="matches[i].is_super_like; then superlike"></div>
+            <div *ngIf="matches[i].is_boost_match; then boostMatch"></div>
+            <div *ngIf="matches[i].is_fast_match; then fastMatch"></div>
+            <h2>
+                <ng-template #superlike>
+                    <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
+                </ng-template>
+                <ng-template #boostMatch>
+                    <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
+                </ng-template>
+                <ng-template #fastMatch>
+                    <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
+                </ng-template>
+                <a class="nameTag" target="_blank" [routerLink]="['../profile', matches[i].person._id]">{{matches[i].person.name}}, {{2018 - (matches[i].person.birth_date | date : 'yyyy') - 1}}</a>
+            </h2>
+            <p>{{matches[i].person.bio}}</p>
+            <div class="lastMessage" *ngIf="matches[i].messages[0] != null">
+                <h4>{{matches[i].messages[0].message}}</h4>
+            </div>
         </div>
     </div>
 </div>

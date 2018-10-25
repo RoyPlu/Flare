@@ -10,6 +10,7 @@
 
 <button class="btn btn-warning loadButton yellowGradient" (click)="getTinderFastMatches()">Load next page</button>
 <hr>
+<div class="matchesParent">
 <div class="matchesCard" *ngFor="let fastmatch of fastmatches, let i = index;">
     <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
         <!-- Indicators -->
@@ -82,4 +83,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

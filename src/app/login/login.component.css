@@ -1,3 +1,7 @@
+.container {
+    width: auto;
+}
+
 .blueGradient {
     background-image:  linear-gradient(262deg, #00b2df, #0078da);
 }
@@ -6,8 +10,4 @@
     margin: 0 auto; 
     text-align: center;
     vertical-align: middle;
-}
-
-.facebookLogin {
-    
 }

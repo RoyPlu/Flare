@@ -34,7 +34,7 @@
 <button class="btn btn-danger loadButton tinderGradient" (click)="getProfiles()">Load more profiles</button>
 <hr>
 
-
+<div class="matchesParent">
 <div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
     <a class="locationIcon" data-toggle="modal" data-target="#matchModal">
         <img class="blueGradient" src="assets/small_black_marker.png" />
@@ -139,7 +139,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="matchModal" role="dialog" #matchModal>
     <div class="modal-dialog designModal">
