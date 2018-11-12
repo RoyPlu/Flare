@@ -1,8 +1,11 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, NgModule } from '@angular/core';
 import { AgmMap } from '@agm/core';
 import { TinderService } from '../services/tinder.service';
 import { Profile } from '../models/profile.model';
 import { Match } from '../models/match.model';
+
+import * as _ from 'lodash';
+
 
 // jQuery Sign $
 declare let $: any;
@@ -12,13 +15,14 @@ declare let $: any;
   templateUrl: './profiles.component.html',
   styleUrls: ['./profiles.component.css']
 })
+
 export class ProfilesComponent implements OnInit {
 
   @ViewChild(AgmMap)
   public agmMap: AgmMap
 
   exampleStringArray: string[] = null;
-  profiles: Profile[];
+  profiles: any[];
   profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
   matchStatus: string = null;
 
@@ -73,9 +77,17 @@ export class ProfilesComponent implements OnInit {
           this.profiles.push(element);
 
         });
-
-        console.log(this.profiles);
       }
+
+      console.log(this.profiles);
+
+      this.profiles = this.profiles.filter((thing, index, self) =>
+        index === self.findIndex((t) => (
+          t.user._id === thing.user._id
+        ))
+      )
+
+      console.log(this.profiles);
 
     })
 

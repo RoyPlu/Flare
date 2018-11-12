@@ -35,110 +35,110 @@
 <hr>
 
 <div class="matchesParent">
-<div class="matchesCard" *ngFor="let profile of profiles, let i = index;">
-    <a class="locationIcon" data-toggle="modal" data-target="#matchModal">
-        <img class="blueGradient" src="assets/small_black_marker.png" />
-    </a>
-    <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
+    <div class="matchesCard" *ngFor="let profile of profiles, let i = index">
+        <a class="locationIcon" data-toggle="modal" data-target="#matchModal">
+            <img class="blueGradient" src="assets/small_black_marker.png" />
+        </a>
+        <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
 
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
-                *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst"></li>
-        </ol>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                    *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst"></li>
+            </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item matchesPic" *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst">
-                <div *ngIf="profiles[i].user.photos[j].url != 'https://images-ssl.gotinder.com/0001unknown/unknown.jpg';else noPictures">
-                    <img (click)="openImage(profiles[i].user.photos[j].url)" class="matchesPic" [src]="profiles[i].user.photos[j].url">
-                </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item matchesPic" *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst">
+                    <div *ngIf="profiles[i].user.photos[j].url != 'https://images-ssl.gotinder.com/0001unknown/unknown.jpg';else noPictures">
+                        <img (click)="openImage(profiles[i].user.photos[j].url)" class="matchesPic" [src]="profiles[i].user.photos[j].url">
+                    </div>
 
-                <ng-template #noPictures>
-                    <img class="matchesPic" src="assets/profile-placeholder.jpg">
-                </ng-template>
-
-
-                <div class="carousel-caption">
-                    <div *ngIf="profiles[i].user.photos[j].successRate != null; then successrate"></div>
-                    <ng-template #successrate>
-                        <h4>Success rate: {{profiles[i].user.photos[j].successRate | number : '1.2-4'}}</h4>
+                    <ng-template #noPictures>
+                        <img class="matchesPic" src="assets/profile-placeholder.jpg">
                     </ng-template>
+
+
+                    <div class="carousel-caption">
+                        <div *ngIf="profiles[i].user.photos[j].successRate != null; then successrate"></div>
+                        <ng-template #successrate>
+                            <h4>Success rate: {{profiles[i].user.photos[j].successRate | number : '1.2-4'}}</h4>
+                        </ng-template>
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <div class="clear">
-        <div class="matchButtons">
-            <button class="btn-danger vote-button buttonBorders tinderGradient" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">
-                <img class="passIcon" src="assets/tinder_pass_icon.png">
-            </button>
-            <button class="btn-primary superlikeButton buttonBorders blueGradient" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
-                <div class="hvr-bob">
-                    <img class="superlikeButton superlikeBorder" src="assets/tinder_super_like_star.png">
-                    <p class="superlikeCounter">{{ superlikesCounter }}</p>
-                </div>
-            </button>
-            <button class="btn-success vote-button buttonBorders greenGradient" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'liked')">
-                <img class="likeIcon" src="assets/tinder_like_icon.png">
-            </button>
-        </div>
-        <a class="nameTag" target="_blank" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
-            data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
-            <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
-        </a>
-        <div *ngIf="profiles[i].is_super_like; then superlike"></div>
-        <ng-template #superlike>
-            <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
-        </ng-template>
-        <a class="jobTag" (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)">
-            <h5 *ngIf='profiles[i].teaser.string != "";'>
-                <i class="material-icons iconSize">search</i>{{profiles[i].teaser.string}}</h5>
-        </a>
-        <div *ngIf='profiles[i].instagram != null;'>
-            <a class="instaTag" (click)="findOnInstagram(profiles[i].instagram.username)">
-
-                <h5 *ngIf='profiles[i].instagram.username != "";'>
-                    <i class="material-icons iconSize">photo_camera</i>{{profiles[i].instagram.username}}</h5>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
             </a>
         </div>
-        <p class="distanceTag">{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km | {{profiles[i].distance_mi}} miles</p>
-        <div *ngIf='profiles[i].distance_mi > distance_filter; then possibleMatch'></div>
-        <ng-template #possibleMatch>
-            <p class="possibleMatch">Possible Match</p>
-        </ng-template>
-        <p>{{profiles[i].user.bio}}</p>
-        <div>
-            <span class="commonInterest blueGradient" *ngFor="let interest of profiles[i].facebook.common_interests">
-                <a class="commonInterest" (click)="findProfileByCommonLike(profiles[i].user.name, interest.id)">{{ interest.name }}</a>
-            </span>
-        </div>
-        <br>
-        <div *ngIf="profiles[i].spotify.spotify_theme_track != null">
+        <div class="clear">
+            <div class="matchButtons">
+                <button class="btn-danger vote-button buttonBorders tinderGradient" (click)="passTinderProfile(profiles[i].user._id, profiles[i].s_number); removeFromList(profiles[i], 'passed')">
+                    <img class="passIcon" src="assets/tinder_pass_icon.png">
+                </button>
+                <button class="btn-primary superlikeButton buttonBorders blueGradient" (click)="superlikeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'superliked'); lowerSuperlikes(superlikesCounter)">
+                    <div class="hvr-bob">
+                        <img class="superlikeButton superlikeBorder" src="assets/tinder_super_like_star.png">
+                        <p class="superlikeCounter">{{ superlikesCounter }}</p>
+                    </div>
+                </button>
+                <button class="btn-success vote-button buttonBorders greenGradient" (click)="likeTinderProfile(profiles[i].user._id, profiles[i].s_number, profiles[i].user.photos[0].url); removeFromList(profiles[i], 'liked')">
+                    <img class="likeIcon" src="assets/tinder_like_icon.png">
+                </button>
+            </div>
+            <a class="nameTag" target="_blank" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
+                data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
+                <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
+            </a>
+            <div *ngIf="profiles[i].is_super_like; then superlike"></div>
+            <ng-template #superlike>
+                <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
+            </ng-template>
+            <a class="jobTag" (click)="findOnFacebook(profiles[i].user.name, profiles[i].teaser.string)">
+                <h5 *ngIf='profiles[i].teaser.string != "";'>
+                    <i class="material-icons iconSize">search</i>{{profiles[i].teaser.string}}</h5>
+            </a>
+            <div *ngIf='profiles[i].instagram != null;'>
+                <a class="instaTag" (click)="findOnInstagram(profiles[i].instagram.username)">
+
+                    <h5 *ngIf='profiles[i].instagram.username != "";'>
+                        <i class="material-icons iconSize">photo_camera</i>{{profiles[i].instagram.username}}</h5>
+                </a>
+            </div>
+            <p class="distanceTag">{{profiles[i].distance_mi * 1.609344 | number : '1.1-1'}} km | {{profiles[i].distance_mi}} miles</p>
+            <div *ngIf='profiles[i].distance_mi > distance_filter; then possibleMatch'></div>
+            <ng-template #possibleMatch>
+                <p class="possibleMatch">Possible Match</p>
+            </ng-template>
+            <p>{{profiles[i].user.bio}}</p>
             <div>
-                <img style="border-radius: 5px" [src]="profiles[i].spotify.spotify_theme_track.album.images[2].url" />
-                <h4>{{profiles[i].spotify.spotify_theme_track.name}}</h4>
-                <h5>{{profiles[i].spotify.spotify_theme_track.artists[0].name}}</h5>
-                <audio controls controlsList="nodownload">
-                    <source [src]="profiles[i].spotify.spotify_theme_track.preview_url" type="audio/mpeg"> Your browser does not support the audio element.
-                </audio>
+                <span class="commonInterest blueGradient" *ngFor="let interest of profiles[i].facebook.common_interests">
+                    <a class="commonInterest" (click)="findProfileByCommonLike(profiles[i].user.name, interest.id)">{{ interest.name }}</a>
+                </span>
+            </div>
+            <br>
+            <div *ngIf="profiles[i].spotify.spotify_theme_track != null">
+                <div>
+                    <img style="border-radius: 5px" [src]="profiles[i].spotify.spotify_theme_track.album.images[2].url" />
+                    <h4>{{profiles[i].spotify.spotify_theme_track.name}}</h4>
+                    <h5>{{profiles[i].spotify.spotify_theme_track.artists[0].name}}</h5>
+                    <audio controls controlsList="nodownload">
+                        <source [src]="profiles[i].spotify.spotify_theme_track.preview_url" type="audio/mpeg"> Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <div style="z-index: 200" id="profileLocation{{i}}" class="collapse">
+                <!-- <app-profilelocation [distanceFromUser]="profiles[i].distance_mi"></app-profilelocation> -->
             </div>
         </div>
-        <div style="z-index: 200" id="profileLocation{{i}}" class="collapse">
-            <!-- <app-profilelocation [distanceFromUser]="profiles[i].distance_mi"></app-profilelocation> -->
-        </div>
     </div>
-</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="matchModal" role="dialog" #matchModal>
