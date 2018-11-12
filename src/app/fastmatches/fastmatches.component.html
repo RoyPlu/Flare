@@ -11,77 +11,77 @@
 <button class="btn btn-warning loadButton yellowGradient" (click)="getTinderFastMatches()">Load next page</button>
 <hr>
 <div class="matchesParent">
-<div class="matchesCard" *ngFor="let fastmatch of fastmatches, let i = index;">
-    <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
-                *ngFor="let photo of fastmatches[i].user.photos, let j = index; let isFirst=first" [class.active]="isFirst"></li>
-        </ol>
+    <div class="matchesCard" *ngFor="let fastmatch of fastmatches, let i = index;">
+        <div id="myCarousel{{i}}" class="carousel slide center" data-ride="carousel" data-interval="false">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li style="width: 20px; margin-left: 2px; margin-right: 2px;" [attr.data-target]="'#myCarousel' + i" [attr.data-slide-to]="j"
+                    *ngFor="let photo of fastmatches[i].user.photos, let j = index; let isFirst=first" [class.active]="isFirst"></li>
+            </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item" *ngFor="let photo of fastmatches[i].user.photos | slice: 0, let j = index; let isFirst=first" [class.active]="isFirst">
-                <img (click)="openImage(fastmatches[i].user.photos[j].url)" class="matchesPic" [src]="fastmatches[i].user.photos[j].url">
-                <div class="carousel-caption">
-                    <div *ngIf="fastmatches[i].user.photos[j].successRate != null; then successrate"></div>
-                    <ng-template #successrate>
-                        <h4>Success rate: {{fastmatches[i].user.photos[j].successRate | number : '1.2-4'}}</h4>
-                    </ng-template>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item" *ngFor="let photo of fastmatches[i].user.photos | slice: 0, let j = index; let isFirst=first" [class.active]="isFirst">
+                    <img (click)="openImage(fastmatches[i].user.photos[j].url)" class="matchesPic" [src]="fastmatches[i].user.photos[j].url">
+                    <div class="carousel-caption">
+                        <div *ngIf="fastmatches[i].user.photos[j].successRate != null; then successrate"></div>
+                        <ng-template #successrate>
+                            <h4>Success rate: {{fastmatches[i].user.photos[j].successRate | number : '1.2-4'}}</h4>
+                        </ng-template>
+                    </div>
                 </div>
-            </div>
 
+            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel{{i}}" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel{{i}}" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <div class="clear">
-        <br />
-        <div *ngIf="fastmatches[i].is_super_like; then superlike"></div>
-        <div *ngIf="fastmatches[i].is_boost_match; then boostMatch"></div>
-        <div *ngIf="fastmatches[i].is_fast_match; then fastMatch"></div>
-        <h2>
-            <ng-template #superlike>
-                <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
-            </ng-template>
-            <ng-template #boostMatch>
-                <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
-            </ng-template>
-            <ng-template #fastMatch>
-                <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
-            </ng-template>
-            <a class="nameTag" target="_blank" [routerLink]="['../profile', fastmatches[i].user._id]">{{fastmatches[i].user.name}}, {{2018 - (fastmatches[i].user.birth_date | date : 'yyyy') - 1}}</a>
-            <a class="jobTag" (click)="findOnFacebook(fastmatches[i].user.name, fastmatches[i].teasers[0].string)">
+        <div class="clear">
+            <br />
+            <div *ngIf="fastmatches[i].is_super_like; then superlike"></div>
+            <div *ngIf="fastmatches[i].is_boost_match; then boostMatch"></div>
+            <div *ngIf="fastmatches[i].is_fast_match; then fastMatch"></div>
+            <h2>
+                <ng-template #superlike>
+                    <img class="superlike hvr-pulse" src="assets/tinder_super_like_star.png" />
+                </ng-template>
+                <ng-template #boostMatch>
+                    <img class="boostMatch hvr-pulse" src="assets/tinder_boost_icon.png" />
+                </ng-template>
+                <ng-template #fastMatch>
+                    <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
+                </ng-template>
+                <a class="nameTag" target="_blank" [routerLink]="['../profile', fastmatches[i].user._id]">{{fastmatches[i].user.name}}, {{2018 - (fastmatches[i].user.birth_date | date : 'yyyy') - 1}}</a>
+                <a class="jobTag" (click)="findOnFacebook(fastmatches[i].user.name, fastmatches[i].teasers[0].string)">
                     <h5 *ngIf='fastmatches[i].teasers[0] != null;'>
                         <i class="material-icons iconSize">search</i>{{fastmatches[i].teasers[0].string}}</h5>
                 </a>
-        </h2>
-        <div *ngIf='fastmatches[i].instagram != null;'>
-            <a class="instaTag" (click)="findOnInstagram(fastmatches[i].instagram.username)">
+            </h2>
+            <div *ngIf='fastmatches[i].instagram != null;'>
+                <a class="instaTag" (click)="findOnInstagram(fastmatches[i].instagram.username)">
 
-                <h5 *ngIf='fastmatches[i].instagram.username != "";'>
-                    <i class="material-icons iconSize">photo_camera</i>{{fastmatches[i].instagram.username}}</h5>
-            </a>
-        </div>
-        <p class="distanceTag">{{fastmatches[i].distance_mi * 1.609344 | number : '1.1-1'}} km | {{fastmatches[i].distance_mi}} miles</p>
-        <p>{{fastmatches[i].user.bio}}</p>
-        <div *ngIf="fastmatches[i].spotify.spotify_theme_track != null">
-            <div>
-                <img style="border-radius: 5px" [src]="fastmatches[i].spotify.spotify_theme_track.album.images[2].url" />
-                <h4>{{fastmatches[i].spotify.spotify_theme_track.name}}</h4>
-                <h5>{{fastmatches[i].spotify.spotify_theme_track.artists[0].name}}</h5>
-                <audio controls controlsList="nodownload">
-                    <source [src]="fastmatches[i].spotify.spotify_theme_track.preview_url" type="audio/mpeg"> Your browser does not support the audio element.
-                </audio>
+                    <h5 *ngIf='fastmatches[i].instagram.username != "";'>
+                        <i class="material-icons iconSize">photo_camera</i>{{fastmatches[i].instagram.username}}</h5>
+                </a>
+            </div>
+            <p class="distanceTag">{{fastmatches[i].distance_mi * 1.609344 | number : '1.1-1'}} km | {{fastmatches[i].distance_mi}} miles</p>
+            <p>{{fastmatches[i].user.bio}}</p>
+            <div *ngIf="fastmatches[i].spotify.spotify_theme_track != null">
+                <div>
+                    <img style="border-radius: 5px" [src]="fastmatches[i].spotify.spotify_theme_track.album.images[2].url" />
+                    <h4>{{fastmatches[i].spotify.spotify_theme_track.name}}</h4>
+                    <h5>{{fastmatches[i].spotify.spotify_theme_track.artists[0].name}}</h5>
+                    <audio controls controlsList="nodownload">
+                        <source [src]="fastmatches[i].spotify.spotify_theme_track.preview_url" type="audio/mpeg"> Your browser does not support the audio element.
+                    </audio>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

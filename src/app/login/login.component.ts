@@ -45,6 +45,7 @@ export class LoginComponent {
 
             if (localStorage.getItem('x-auth-token') != null) {
                 this.router.navigate(['/profiles']);
+                location.reload();
             }
     }
 }
