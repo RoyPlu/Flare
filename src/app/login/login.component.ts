@@ -31,7 +31,7 @@ export class LoginComponent {
     }
 
     getTinderAuthToken() {
-        
+
         this.token = this.facebook_token.match(this.token_regex);
 
         console.log(this.token);
@@ -43,9 +43,15 @@ export class LoginComponent {
             console.log(localStorage.getItem('x-auth-token'));
         })
 
-            if (localStorage.getItem('x-auth-token') != null) {
-                this.router.navigate(['/profiles']);
+        if (localStorage.getItem('x-auth-token') != null) {
+            this.router.navigate(['/profiles']);
+
+
+            setTimeout(() => {
                 location.reload();
-            }
+            },
+                1000);
+
+        }
     }
 }
