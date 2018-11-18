@@ -24,13 +24,28 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item" *ngFor="let photo of matches[i].person.photos | slice: 0, let j = index; let isFirst=first" [class.active]="isFirst">
-                    <img (click)="openImage(matches[i].person.photos[j].url)" class="matchesPic" [src]="matches[i].person.photos[j].url">
+                    <ng-container *ngIf="matches[i].person.photos[j].processedVideos; then matchVideo; else matchImage">
+                    </ng-container>
+
+                    <ng-template #matchVideo>
+                        <div>
+                                <video class="matchesPic" height="auto" autoplay loop>
+                                        <source [src]="matches[i].person.photos[j].processedVideos[0].url" type="video/mp4">
+                                      Your browser does not support the video tag.
+                                      </video>
+                        </div>
+                    </ng-template>
+                    <ng-template #matchImage>
+                        <div>
+                            <img (click)="openImage(matches[i].person.photos[j].url)" class="matchesPic" [src]="matches[i].person.photos[j].url">
+                        </div>
+                    </ng-template>
                     <div class="carousel-caption">
                         <div *ngIf="matches[i].person.photos[j].successRate != null; then successrate"></div>
                         <ng-template #successrate>
                             <h4>Success rate: {{matches[i].person.photos[j].successRate | number : '1.2-4'}}</h4>
                         </ng-template>
-                            <h5>Match seen you: {{matches[i].seen.match_seen}}</h5>
+                        <h5>Match seen you: {{matches[i].seen.match_seen}}</h5>
                     </div>
                 </div>
 

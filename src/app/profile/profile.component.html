@@ -22,7 +22,7 @@
                     <img [src]="profile.instagram.photos[k].image">
                 </div>
 
-                
+
             </div>
         </div>
         <ng-template #carouselNoInstagram>
@@ -34,7 +34,21 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item" *ngFor="let photo of profile.photos | slice:0; let j = index; let isFirst=first" [class.active]="isFirst">
-                    <img [src]="profile.photos[j].url">
+                    <ng-container *ngIf="profile.photos[j].processedVideos; then matchVideo; else matchImage">
+                    </ng-container>
+                    <ng-template #matchVideo>
+                        <div>
+                            <video class="matchesPic" height="auto" autoplay loop>
+                                <source [src]="profile.photos[j].processedVideos[0].url" type="video/mp4"> Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </ng-template>
+                    <ng-template #matchImage>
+                        <div>
+                            <img class="matchesPic" [src]="profile.photos[j].url">
+                        </div>
+                    </ng-template>
+
                     <div class="carousel-caption">
                         <h4>{{cloudmersiveData}}</h4>
                         <button class="btn-success smallButton smallBorders greyGradient" (click)="imageURLtoFile(profile.photos[j].url);">
@@ -43,7 +57,7 @@
                     </div>
                 </div>
 
-                
+
 
             </div>
         </ng-template>

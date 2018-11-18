@@ -8,6 +8,13 @@
     vertical-align: middle;
 }
 
+.matchesPic {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+
 .profileCard {
     width: auto;
     text-align: center;
