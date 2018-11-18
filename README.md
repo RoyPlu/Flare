@@ -38,6 +38,9 @@ Project Flare is a full-fledged Tinder web client made in Angular with extra fea
 - Instagram search (if Instagram is linked)
 - Superlike/Boost countdown feature to see when your superlikes/boost get refreshed
 - Enable Boost
+- Common Facebook Likes
+- Cloudmersive AI Image detection
+- Tinder Loops feature
 
 #### (Planned features coming soon) 
 - Ability to see if someone superliked you before matching
@@ -46,6 +49,7 @@ Project Flare is a full-fledged Tinder web client made in Angular with extra fea
 - Unmatch feature
 - See last sent message
 - Ability to see if a match is a Superlike/Fast(Tinder Gold)/Boost match
+- Has a match seen your profile? feature
 
 #### (Planned features coming soon)
 - Tinder Gold matches
