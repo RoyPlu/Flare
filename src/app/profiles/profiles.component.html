@@ -62,7 +62,7 @@
                     <ng-template #matchImage>
                         <div *ngIf="profiles[i].user.photos[j].url != 'https://images-ssl.gotinder.com/0001unknown/unknown.jpg';else noPictures">
                             <div>
-                                <img class="matchesPic" [src]="profiles[i].user.photos[j].url">
+                                <img class="matchesPic" (click)="openImage(profiles[i].user.photos[j].url)" [src]="profiles[i].user.photos[j].url">
                             </div>
                             <ng-template #noPictures>
                                 <img class="matchesPic" src="assets/profile-placeholder.jpg">
