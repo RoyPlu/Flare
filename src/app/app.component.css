@@ -26,6 +26,11 @@
     fill: #646464;
 }
 
+.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
 .footer svg {
     width: 20px;
     height: 20px;
