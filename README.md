@@ -71,6 +71,8 @@ Project Flare is a full-fledged Tinder web client made in Angular with extra fea
 ## Face detection (experimental)
 - input for images to detect specific face attributes and emotions such as age, gender, happiness, anger, etc...
 
+# DISCLAIMER
+I take no responsibility if this tool gets you banned in any way, This tool is not made by Tinder and has features Tinder doesn't want you to see. Use at your own risk!
 
 # How to use
 
