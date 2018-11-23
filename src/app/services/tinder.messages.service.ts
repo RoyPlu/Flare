@@ -11,8 +11,6 @@ import { User } from '../models/user.model';
 
 const X_AUTH_CODE = localStorage.getItem('x-auth-token');
 
-const X_AUTH_CODE_2 = "b6d4e433-de19-4964-9e01-809dd669743e";
-
 const API_PROXY_URL = "https://flare-proxy.herokuapp.com/" //"http://localhost:8080/";
 
 const BASE_API_URL = "https://api.gotinder.com";
