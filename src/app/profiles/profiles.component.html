@@ -1,11 +1,13 @@
 <h1>New Profiles
     <span id="loadingIndicator" style="display: none" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
     <p class="superlikesReset">
-        <img class="hvr-bob" src="assets/tinder_super_like_star.png"> resets at: {{ superlikesReset | date : 'HH:mm:ss' }}</p>
+        <img class="hvr-bob" src="assets/tinder_super_like_star.png"> Resets at: {{ superlikesReset | date : 'HH:mm:ss' }}</p>
     <p class="boostReset">
         <a (click)="enableBoost()" title="Enable Boost">
             <img class="hvr-bob" src="assets/tinder_boost_icon.png">
-        </a> resets at: {{ boostReset | date : 'd MMM y, HH:mm:ss' }}</p>
+        </a> Resets at: {{ boostReset | date : 'd MMM y, HH:mm:ss' }}</p>
+    <p class="superlikesReset">
+        <img class="hvr-bob" title="Always 100 for Tinder Plus/Gold members on page refresh" src="assets/tinder_like_icon.png"> Likes left: {{likesLeft}}</p>
 </h1>
 <span class="input-group">
     <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="1"

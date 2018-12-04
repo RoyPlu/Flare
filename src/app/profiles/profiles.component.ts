@@ -39,6 +39,8 @@ export class ProfilesComponent implements OnInit {
 
   boostReset: Date;
 
+  likesLeft: number;
+
   autolikeTime: number = 5;
   autolikeId;
 
@@ -55,8 +57,7 @@ export class ProfilesComponent implements OnInit {
     this.getProfiles();
     this.getAgeFilter();
     this.getDistanceFilter();
-    this.getSuperlikes();
-    this.getBoost();
+    this.getExtraFeatures();
 
     this.match.participants[1] = "123";
 
@@ -145,6 +146,7 @@ export class ProfilesComponent implements OnInit {
       console.log(data.match);
       this.match = data.match;
       this.currentProfileId = id;
+      this.likesLeft -= 1;
 
       if (data.match.following == true) {
         this.matchStatus = "Yes!";
@@ -283,20 +285,18 @@ export class ProfilesComponent implements OnInit {
       500);*/
   }
 
-  getSuperlikes() {
+  getExtraFeatures() {
     this.service.getUserProfileV2().subscribe(data => {
       console.log(data.data.super_likes);
+      console.log(data.data.boost);
+      console.log(data.data.likes);
+
       this.superlikesCounter = data.data.super_likes.remaining;
       this.superlikesReset = data.data.super_likes.resets_at;
-    })
-  }
 
-  getBoost() {
-    this.service.getUserProfileV2().subscribe(data => {
-      console.log(data.data.boost);
       this.boostReset = data.data.boost.resets_at;
 
-      console.log(this.boostReset);
+      this.likesLeft = data.data.likes.likes_remaining;
     })
   }
 
