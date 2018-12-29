@@ -57,7 +57,7 @@
                 <ng-template #fastMatch>
                     <img class="fastMatch hvr-pulse" src="assets/tinder_fastmatch_icon.png" />
                 </ng-template>
-                <a class="nameTag" target="_blank" [routerLink]="['../profile', fastmatches[i].user._id]">{{fastmatches[i].user.name}}, {{2018 - (fastmatches[i].user.birth_date | date : 'yyyy') - 1}}</a>
+                <a class="nameTag" target="_blank" [routerLink]="['../profile', fastmatches[i].user._id]">{{fastmatches[i].user.name}}, {{(date | date:'yyyy') - (fastmatches[i].user.birth_date | date : 'yyyy')}}</a>
                 <a class="jobTag" (click)="findOnFacebook(fastmatches[i].user.name, fastmatches[i].teasers[0].string)">
                     <h5 *ngIf='fastmatches[i].teasers[0] != null;'>
                         <i class="material-icons iconSize">search</i>{{fastmatches[i].teasers[0].string}}</h5>

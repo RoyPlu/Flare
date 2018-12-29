@@ -48,6 +48,8 @@ export class ProfilesComponent implements OnInit {
 
   currentProfileId: string;
 
+  date = new Date();
+
   @ViewChild('matchModal') matchModal: ElementRef;
 
   constructor(private service: TinderService) { }

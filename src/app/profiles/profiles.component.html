@@ -107,7 +107,7 @@
             </div>
             <a class="nameTag" target="_blank" [routerLink]="['../profile', profiles[i].user._id, profiles[i].s_number]" data-target="#profileDetail"
                 data-toggle="collapse" (click)="getProfile(profiles[i].user._id)">
-                <h2>{{profiles[i].user.name}}, {{2018 - (profiles[i].user.birth_date | date : 'yyyy') - 1}}</h2>
+                <h2>{{profiles[i].user.name}}, {{(date | date:'yyyy') - (profiles[i].user.birth_date | date : 'yyyy')}}</h2>
             </a>
             <div *ngIf="profiles[i].is_super_like; then superlike"></div>
             <ng-template #superlike>

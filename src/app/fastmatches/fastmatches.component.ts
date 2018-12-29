@@ -20,6 +20,8 @@ pageNumber: number = 0;
 
 loadingIndicator;
 
+date = new Date();
+
   constructor(private service: TinderService) { }
 
   ngOnInit(){
