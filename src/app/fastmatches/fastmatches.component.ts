@@ -35,14 +35,10 @@ date = new Date();
   getTinderFastMatches(){
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.getFastMatches(this.token).subscribe(data => {
-      console.log(data.data.results);
       this.fastmatches = data.data.results;
       this.token = data.data.next_page_token;
 
       this.pageNumber += 1;
-      
-      console.log(this.pageNumber);
-      //console.log(this.token);
     })
 
     this.scrollToTop();
@@ -54,14 +50,12 @@ date = new Date();
   }
 
   removeFromList(profile, status){
-    console.log(status);
     let index = this.fastmatches.indexOf(profile);
     this.fastmatches.splice(index, 1)
   }
 
   getUpdates(){
     this.service.getUpdates().subscribe(data => {
-      console.log("TEST");
       console.log(data);
     })
   }

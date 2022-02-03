@@ -4,15 +4,15 @@
     <agm-map [latitude]='lat' [longitude]='lon' [gestureHandling]="'greedy'">
         <agm-marker [latitude]='lat' [longitude]='lon' [opacity]="0.9" [iconUrl]="'assets/flare_map_marker_icon.ico'"></agm-marker>
         <agm-circle [latitude]="lat" [longitude]="lon" [radius]="distanceFromUser * 1000 * 1.609344" [fillColor]="'grey'" [fillOpacity]="0.25"
-            [strokeOpacity]="0.5" [strokeColor]="'red'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false"
+            [strokeOpacity]="0.5" [strokeColor]="'red'" [strokeWeight]="2" [circleDraggable]="false"
             [editable]="false" [clickable]="false" [zIndex]="103"></agm-circle>
 
             <agm-circle [latitude]="lat + 0.1" [longitude]="lon" [radius]="(distanceFromUser2 * 1000 * 1.609344)" [fillColor]="'grey'" [fillOpacity]="0.25"
-            [strokeOpacity]="0.5" [strokeColor]="'green'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false"
+            [strokeOpacity]="0.5" [strokeColor]="'green'" [strokeWeight]="2" [circleDraggable]="false"
             [editable]="false" [clickable]="false" [zIndex]="103"></agm-circle>
 
             <agm-circle [latitude]="lat" [longitude]="lon + 0.1" [radius]="(distanceFromUser3 * 1000 * 1.609344)" [fillColor]="'grey'" [fillOpacity]="0.25"
-            [strokeOpacity]="0.5" [strokeColor]="'blue'" [strokeWeight]="2" [strokePosition]="CENTER" [circleDraggable]="false"
+            [strokeOpacity]="0.5" [strokeColor]="'blue'" [strokeWeight]="2" [circleDraggable]="false"
             [editable]="false" [clickable]="false" [zIndex]="103"></agm-circle>
     </agm-map>
 </div>

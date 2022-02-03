@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TinderService } from '../services/tinder.service';
 import { Match } from '../models/match.model';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
@@ -22,7 +24,9 @@ loadingIndicator;
 
 date = new Date();
 
-  constructor(private service: TinderService) { }
+fastMatchPreview;
+
+  constructor(private service: TinderService, private _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit(){
     this.getTinderMatches();
@@ -30,6 +34,7 @@ date = new Date();
     //this.getUpdates();
 
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "none";
+    this.getFastMatchPreview();
   }
 
   getTinderMatches(){
@@ -88,6 +93,14 @@ date = new Date();
       console.log(this.totalMatchesNumber);
       this.token = data.data.next_page_token;
       //console.log(this.token);
+    })
+  }
+
+  getFastMatchPreview(){
+    this.service.getFastMatchPreview().subscribe(data => {
+      const file = new Blob([data], {type: 'image/jpeg'})
+      const fileUrl = URL.createObjectURL(file);
+      this.fastMatchPreview = this._DomSanitizationService.bypassSecurityTrustUrl(fileUrl);
     })
   }
 

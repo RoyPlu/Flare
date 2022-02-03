@@ -30,12 +30,10 @@ export class ProfileLocationComponent implements OnInit {
   refreshMap() {
     this.getUserLocation();
     this.agmMap.triggerResize();
-    console.log(this.id);
   }
 
   getUserLocation() {
     this.service.getUserProfile().subscribe(data => {
-      console.log(data);
       this.lat = data.pos.lat;
       this.lon = data.pos.lon;
     })
@@ -43,7 +41,6 @@ export class ProfileLocationComponent implements OnInit {
 
   
   triangulateLocation(){
-    console.log(this.id);
     this.triangulation();
   }
 
@@ -52,7 +49,6 @@ export class ProfileLocationComponent implements OnInit {
     setTimeout(() => {
       this.service.setUserLocation(this.lat + 0.1, this.lon).subscribe(data => {
         console.log(data);
-  
       })
     },
       1000);
@@ -63,9 +59,6 @@ export class ProfileLocationComponent implements OnInit {
         console.log(data);
 
         this.distanceFromUser2 = data.results.distance_mi;
-
-        
-
       })
     },
       2000);

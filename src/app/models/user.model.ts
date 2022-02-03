@@ -5,8 +5,11 @@ export class User {
     photos: string[];
     photo_optimizer_enabled: boolean;
     pos: string[];
+    user: any;
+    purchase: any;
+    spotify: any;
 
-    constructor(_id: string, name: string, bio: string, photos: string[], photo_optimizer_enabled: boolean, pos: string[]) {
+    constructor(_id: string, name: string, bio: string, photos: string[], photo_optimizer_enabled: boolean, pos: string[], user: any, purchase: any, spotify: any) {
 
         this._id = _id;
         this.name = name;
@@ -14,5 +17,8 @@ export class User {
         this.photos = photos;
         this.photo_optimizer_enabled = photo_optimizer_enabled;
         this.pos = pos;
+        this.user = user;
+        this.purchase = purchase;
+        this.spotify = spotify;
     }
 }

@@ -20,7 +20,7 @@ export class MessagesComponent implements OnInit {
     user: User;
 
     exampleStringArray: string[] = null;
-    profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
+    profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray, null, null, null, null);
 
     browserTitle: string = "Messages - ";
 
@@ -50,7 +50,6 @@ export class MessagesComponent implements OnInit {
 
   getMessages(){
     this.messagesService.getMessages(this.id, "").subscribe(data => {
-        console.log(data.data.messages);
         this.messages = data.data.messages;
         this.messages = this.messages.slice(0, 10);
         this.messages = this.messages.reverse();
@@ -59,15 +58,12 @@ export class MessagesComponent implements OnInit {
 
   getTinderUserV2(){
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data.data.user);
       this.user = data.data.user;
     })
   }
 
   getProfile(id: string) {
-    console.log(id);
     this.service.getProfile(id).subscribe(data => {
-        console.log(data.results);
         this.profile = data.results;
 
         this.browserTitle += data.results.name;
@@ -77,7 +73,6 @@ export class MessagesComponent implements OnInit {
 
 sendMessage(message: string, userId: string ){
   this.messagesService.sendMessage(this.id, message, userId).subscribe(data => {
-    console.log(data);
 
     this.getMessages();
 

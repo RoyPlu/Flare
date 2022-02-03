@@ -11,40 +11,39 @@ import { Match } from '../models/match.model';
 })
 export class UserComponent implements OnInit {
 
-user: User;
+  exampleStringArray: string[] = null;
+  user: User;
 
   constructor(private service: TinderService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     //this.getTinderUser();
     this.getTinderUserV2();
+    console.log(this.user);
   }
 
-  getTinderUser(){
+  getTinderUser() {
     this.service.getUserProfile().subscribe(data => {
-      console.log(data);
       this.user = data;
     })
   }
 
-  getTinderUserV2(){
+  getTinderUserV2() {
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data);
       this.user = data.data;
     })
   }
 
-  enableSmartPhotos(){
+  enableSmartPhotos() {
 
-    if(this.user.photo_optimizer_enabled == false){
+    if (this.user.photo_optimizer_enabled == false) {
       this.user.photo_optimizer_enabled = true;
     } else {
       this.user.photo_optimizer_enabled = false;
     }
 
-    this.service.enableSmartPhotos(this.user).subscribe(user => {
+    this.service.enableSmartPhotos(this.user.user).subscribe(user => {
       this.user.photo_optimizer_enabled != this.user.photo_optimizer_enabled;
-      console.log(this.user.photo_optimizer_enabled);
     })
   }
 

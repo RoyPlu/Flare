@@ -44,6 +44,8 @@ faceDetectionButton {
     padding: 2px;
     margin: 2px;
     width: 46px !important;
+    height: 46px !important;
+    object-fit: cover;
     border-radius: 50%;
     border: 1px;
     background: -webkit-linear-gradient(262deg, rgb(255, 120, 84), rgb(253, 38, 125));

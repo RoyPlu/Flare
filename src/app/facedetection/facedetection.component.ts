@@ -9,7 +9,7 @@ import { TinderService } from '../services/tinder.service';
 })
 export class FaceDetectionComponent implements OnInit {
 
-faceDetect: string[];
+faceDetect: any;
 
 
 imageURL: string = "";
@@ -26,8 +26,6 @@ imageURL: string = "";
 
   faceDetection(){
     this.service.faceDetection(this.imageURL).subscribe(data => {
-      console.log("face detection");
-      console.log(data);
 
       this.faceDetect = data;
     })

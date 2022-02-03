@@ -35,13 +35,9 @@ export class MessagesService {
             headers: headers
         });
 
-        console.log(page_token);
-
         if (page_token != null) {
-            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json()));
             return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json());
         } else {
-            console.log(this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json()));
             return this.http.get(API_PROXY_URL + BASE_API_URL_v2 + "/matches/" + id + "/messages" + "?count=100" + "&locale=en", options).map(res => res.json());
         }
 
@@ -61,7 +57,6 @@ export class MessagesService {
 
         var tempMessageId = "0.46451920417002346";
 
-        console.log(this.http.post(API_PROXY_URL + BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", options).map(res => res.json()));
         return this.http.post(API_PROXY_URL + BASE_API_URL + "/user" + "/matches/" + id + "?locale=en", {matchId: id, message: message, tempMessageId: tempMessageId, userId: userId } ,options).map(res => res.json());
     }
 

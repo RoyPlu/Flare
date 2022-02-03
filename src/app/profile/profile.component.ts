@@ -15,7 +15,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ProfileComponent implements OnInit {
 
   exampleStringArray: string[] = null;
-  profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
+  profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray, null, null, null, null);
 
   id: string;
   s_number: string;
@@ -36,10 +36,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(params) //log the entire params object
-      console.log(params['id']) //log the value of id
-      console.log(params['s_number'])
-
       this.id = params['id'];
       this.s_number = params['s_number'];
     });
@@ -55,9 +51,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile(id: string) {
-    console.log(id);
     this.service.getProfile(id).subscribe(data => {
-      console.log(data.results);
       this.profile = data.results;
 
       this.setTitle(this.profile.name);
@@ -79,7 +73,6 @@ export class ProfileComponent implements OnInit {
 
   likeTinderProfile() {
     this.service.likeProfile(this.id, this.s_number).subscribe(data => {
-      console.log(data.match);
       if (data.match.following == true) {
         this.matchStatus = "Yes!";
         this.playNotification();
@@ -92,7 +85,6 @@ export class ProfileComponent implements OnInit {
 
   passTinderProfile() {
     this.service.passProfile(this.id, this.s_number).subscribe(data => {
-      console.log(data);
       if (data.status == 200) {
         this.matchStatus = "Passed";
       }
@@ -101,7 +93,6 @@ export class ProfileComponent implements OnInit {
 
   superlikeTinderProfile() {
     this.service.superlikeProfile(this.id, this.s_number).subscribe(data => {
-      console.log(data.match);
       if (data.match == true) {
         this.matchStatus = "Yes!";
         this.playNotification();
@@ -114,7 +105,6 @@ export class ProfileComponent implements OnInit {
 
   getSuperlikes() {
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data.data.super_likes);
       this.superlikesCounter = data.data.super_likes.remaining;
     })
   }
@@ -132,10 +122,8 @@ export class ProfileComponent implements OnInit {
 
   imageURLtoFile(imageURL: string) {
     this.service.getImage(imageURL).subscribe(data => {
-      console.log(data);
 
       var file = new File([data], "image");
-      console.log(file);
       this.form.get('imageFile').setValue(file);
     })
 
@@ -159,7 +147,6 @@ export class ProfileComponent implements OnInit {
     // this.http.post('apiUrl', formModel)
 
     this.service.cloudmersiveDetect(formModel).subscribe(data => {
-      console.log(data);
       this.cloudmersiveData = data.BestOutcome.Description;
     })
   }

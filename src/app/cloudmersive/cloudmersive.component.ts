@@ -40,8 +40,6 @@ cloudmersiveData;
       let file = event.target.files[0];
       this.form.get('imageFile').setValue(file);
 
-      console.log(this.form);
-
       const reader = new FileReader();
         reader.onload = e => this.image = reader.result;
 
@@ -63,7 +61,6 @@ cloudmersiveData;
     // this.http.post('apiUrl', formModel)
 
     this.service.cloudmersiveDetect(formModel).subscribe(data => {
-      console.log(data);
       this.cloudmersiveData = data;
     })
   }

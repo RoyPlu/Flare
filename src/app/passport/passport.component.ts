@@ -43,14 +43,12 @@ export class PassportComponent implements OnInit {
 
   getUserTraveling() {
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data);
       this.is_traveling = data.data.travel.is_traveling;
     })
   }
 
   getUserTravelLocation() {
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data);
       this.is_traveling = data.data.travel.is_traveling;
 
       if (this.is_traveling == true) {
@@ -61,10 +59,8 @@ export class PassportComponent implements OnInit {
         this.cityName = data.data.travel.travel_location_info[0].locality.long_name;
         this.countryName = data.data.travel.travel_location_info[0].country.long_name;
         this.distance_filter = (data.data.user.distance_filter * 1000 * 1.609344);
-        console.log(this.countryName);
 
       } else {
-        console.log("Not traveling");
         this.is_traveling = false;
       }
     })
@@ -72,7 +68,6 @@ export class PassportComponent implements OnInit {
 
   getUserLocation() {
     this.service.getUserProfile().subscribe(data => {
-      console.log(data);
       this.lat = data.pos.lat;
       this.lon = data.pos.lon;
       this.countryName = data.pos_info.country.name;
@@ -93,7 +88,6 @@ export class PassportComponent implements OnInit {
 
   resetTinderPassport() {
     this.service.resetPassport().subscribe(data => {
-      console.log(data);
     })
 
     this.is_traveling = false;
@@ -103,7 +97,6 @@ export class PassportComponent implements OnInit {
 
   setUserLocation() {
     this.service.setUserLocation(this.lat, this.lon).subscribe(data => {
-      console.log(data);
     })
 
     setTimeout(() => {
@@ -115,7 +108,6 @@ export class PassportComponent implements OnInit {
 
   changeTinderPassportLocation() {
     this.service.changePassportLocation(this.lat, this.lon).subscribe(data => {
-      console.log(data);
     })
 
 
@@ -130,7 +122,6 @@ export class PassportComponent implements OnInit {
 
   getPopularLocations() {
     this.service.getPopularLocations().subscribe(data => {
-      console.log(data.results);
 
       this.popularLocations = data.results;
 

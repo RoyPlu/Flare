@@ -5,6 +5,10 @@
         <a [routerLink]="['../fastmatches']" style="text-decoration: none; color: #9d9d9d">Fast Matches</a>
         <img style="width: 30px;" src="assets/TinderGold_cropped_transparent.gif" />
     </button>
+    <button class="btn fastMatchesButton">
+        <a style="text-decoration: none; color: #9d9d9d">Last person that liked you</a>
+        <img class="fastMatchPreview" [src]="fastMatchPreview" />
+    </button>
 </h1>
 
 <button class="btn btn-danger loadButton tinderGradient" (click)="getTinderMatches()">Load next page of matches</button>

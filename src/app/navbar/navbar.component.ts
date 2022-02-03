@@ -22,7 +22,6 @@ export class NavbarComponent implements OnInit {
 
   getTinderUserV2(){
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data.data.user);
       this.ProfilePic = data.data.user.photos[0].processedFiles[3].url;
     })
   }

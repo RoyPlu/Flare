@@ -8,6 +8,10 @@
         </a> Resets at: {{ boostReset | date : 'd MMM y, HH:mm:ss' }}</p>
     <p class="superlikesReset">
         <img class="hvr-bob" title="Always 100 for Tinder Plus/Gold members on page refresh" src="assets/tinder_like_icon.png"> Likes left: {{likesLeft}}</p>
+    <button class="btn fastMatchesButton">
+        <a style="text-decoration: none; color: #9d9d9d">Last person that liked you</a>
+        <img class="fastMatchPreview" [src]="fastMatchPreview" />
+    </button>
 </h1>
 <span class="input-group">
     <input class="distanceInput form-control" type="number" [(ngModel)]="distance_filter" value="{{distance_filter}}" min="1"
@@ -49,7 +53,8 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item matchesPic" *ngFor="let photo of profiles[i].user.photos, let j = index; let isFirst = first" [class.active]="isFirst">
-                    <ng-container *ngIf="profiles[i].user.photos[j].processedVideos; then matchVideo; else matchImage">
+                    <div *ngIf="profiles[i].user.recently_active" class="recentlyActive" title="Recently active"></div>
+                    <ng-container *ngIf="profiles[i].user.photos[j].processedVideos.length > 0; then matchVideo; else matchImage">
                     </ng-container>
                     <ng-template #matchVideo>
                         <div>
@@ -61,7 +66,7 @@
                     <ng-template #matchImage>
                         <div *ngIf="profiles[i].user.photos[j].url != 'https://images-ssl.gotinder.com/0001unknown/unknown.jpg';else noPictures">
                             <div>
-                                <img class="matchesPic" (click)="openImage(profiles[i].user.photos[j].url)" [src]="profiles[i].user.photos[j].url">
+                                <img #profileImage class="matchesPic" (click)="openImage(profiles[i].user.photos[j].url)" [src]="profiles[i].user.photos[j].url">
                             </div>
                             <ng-template #noPictures>
                                 <img class="matchesPic" src="assets/profile-placeholder.jpg">

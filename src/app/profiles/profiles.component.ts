@@ -5,6 +5,7 @@ import { Profile } from '../models/profile.model';
 import { Match } from '../models/match.model';
 
 import * as _ from 'lodash';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 // jQuery Sign $
@@ -23,7 +24,7 @@ export class ProfilesComponent implements OnInit {
 
   exampleStringArray: string[] = null;
   profiles: any[];
-  profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray);
+  profile: Profile = new Profile("1", "Name", "Bio", this.exampleStringArray, false, this.exampleStringArray, null, null, null, null);
   matchStatus: string = null;
 
 
@@ -50,9 +51,11 @@ export class ProfilesComponent implements OnInit {
 
   date = new Date();
 
+  fastMatchPreview;
+
   @ViewChild('matchModal') matchModal: ElementRef;
 
-  constructor(private service: TinderService) { }
+  constructor(private service: TinderService, private _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit() {
 
@@ -60,6 +63,7 @@ export class ProfilesComponent implements OnInit {
     this.getAgeFilter();
     this.getDistanceFilter();
     this.getExtraFeatures();
+    this.getFastMatchPreview();
 
     this.match.participants[1] = "123";
 
@@ -70,9 +74,7 @@ export class ProfilesComponent implements OnInit {
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.getProfiles().subscribe(data => {
 
-
       if (this.profiles == null) {
-        console.log(data.data.results);
         this.profiles = data.data.results;
       } else {
 
@@ -82,15 +84,11 @@ export class ProfilesComponent implements OnInit {
         });
       }
 
-      console.log(this.profiles);
-
       this.profiles = this.profiles.filter((thing, index, self) =>
         index === self.findIndex((t) => (
           t.user._id === thing.user._id
         ))
       )
-
-      console.log(this.profiles);
 
     })
 
@@ -106,7 +104,6 @@ export class ProfilesComponent implements OnInit {
   seePossibleMatches(distance: number) {
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setDistanceFilter(distance).subscribe(data => {
-      console.log("Changed distance filter to see possible matches");
       this.distance_filter = distance;
     })
 
@@ -124,9 +121,7 @@ export class ProfilesComponent implements OnInit {
   }
 
   getProfile(id: string) {
-    console.log(id);
     this.service.getProfile(id).subscribe(data => {
-      console.log(data.results);
       this.profile = data.results;
     })
   }
@@ -145,30 +140,31 @@ export class ProfilesComponent implements OnInit {
 
   likeTinderProfile(id: string, s_number: string, photoUrl: string) {
     this.service.likeProfile(id, s_number).subscribe(data => {
-      console.log(data.match);
       this.match = data.match;
       this.currentProfileId = id;
       this.likesLeft -= 1;
 
+      console.log("Liked:" + id);
+
       if (data.match.following == true) {
         this.matchStatus = "Yes!";
-        console.log("Match!")
         this.playNotification();
 
         $(this.matchModal.nativeElement).modal('show');
 
         document.getElementById("modalProfileImage").setAttribute('src', photoUrl);
       } else {
-        console.log("No match")
         this.matchStatus = "No";
       }
-
+      setTimeout(() => {
+        this.getFastMatchPreview();
+      }, 1000);
     })
   }
 
   passTinderProfile(id: string, s_number: string) {
     this.service.passProfile(id, s_number).subscribe(data => {
-      console.log(data);
+      console.log("Passed:" + id);
       if (data.status == 200) {
         this.matchStatus = "Passed";
       }
@@ -177,7 +173,6 @@ export class ProfilesComponent implements OnInit {
 
   superlikeTinderProfile(id: string, s_number: string, photoUrl: string) {
     this.service.superlikeProfile(id, s_number).subscribe(data => {
-      console.log(data.match);
       this.match = data.match;
       this.currentProfileId = id;
       if (data.match == true) {
@@ -193,7 +188,6 @@ export class ProfilesComponent implements OnInit {
   }
 
   removeFromList(profile, status) {
-    console.log(status);
     let index = this.profiles.indexOf(profile);
     this.profiles.splice(index, 1)
   }
@@ -222,7 +216,6 @@ export class ProfilesComponent implements OnInit {
 
   getAgeFilter() {
     this.service.getUserProfileV2().subscribe(data => {
-      console.log("Age min:" + data.data.user.age_filter_min + ", Age max:" + data.data.user.age_filter_max);
       this.age_filter_min = data.data.user.age_filter_min;
       this.age_filter_max = data.data.user.age_filter_max;
     })
@@ -231,7 +224,6 @@ export class ProfilesComponent implements OnInit {
   setAgeFilter() {
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setAgeFilter(this.age_filter_min, this.age_filter_max).subscribe(data => {
-      console.log("Changed age filter");
     })
 
     this.profiles = null;
@@ -256,17 +248,13 @@ export class ProfilesComponent implements OnInit {
 
   getDistanceFilter() {
     this.service.getUserProfileV2().subscribe(data => {
-      console.log("Distance filter (in miles):" + data.data.user.distance_filter);
       this.distance_filter = data.data.user.distance_filter;
-      console.log("Distance filter (in km):" + this.distance_filter * 1.6);
     })
   }
 
   setDistanceFilter() {
     this.loadingIndicator = document.getElementById('loadingIndicator').style.display = "inline-block";
     this.service.setDistanceFilter(this.distance_filter).subscribe(data => {
-      console.log("Changed distance filter (in miles): " + this.distance_filter);
-      console.log("Changed distance filter (in km): " + this.distance_filter * 1.6);
     })
 
     this.profiles = null;
@@ -289,10 +277,6 @@ export class ProfilesComponent implements OnInit {
 
   getExtraFeatures() {
     this.service.getUserProfileV2().subscribe(data => {
-      console.log(data.data.super_likes);
-      console.log(data.data.boost);
-      console.log(data.data.likes);
-
       this.superlikesCounter = data.data.super_likes.remaining;
       this.superlikesReset = data.data.super_likes.resets_at;
 
@@ -302,9 +286,16 @@ export class ProfilesComponent implements OnInit {
     })
   }
 
+  getFastMatchPreview() {
+    this.service.getFastMatchPreview().subscribe(data => {
+      const file = new Blob([data], { type: 'image/jpeg' })
+      const fileUrl = URL.createObjectURL(file);
+      this.fastMatchPreview = this._DomSanitizationService.bypassSecurityTrustUrl(fileUrl);
+    })
+  }
+
   enableBoost() {
     this.service.enableBoost().subscribe(data => {
-      console.log(data);
     })
   }
 
